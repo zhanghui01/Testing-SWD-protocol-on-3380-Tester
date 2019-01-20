@@ -1,0 +1,10 @@
+clk_calc.o: ..\src\common\clk_calc.c
+clk_calc.o: ..\src\common\clk_calc.h
+clk_calc.o: ..\src\rn821x.h
+clk_calc.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+clk_calc.o: E:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+clk_calc.o: E:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+clk_calc.o: E:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+clk_calc.o: ..\src\system_RN821x.h
+clk_calc.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+clk_calc.o: ..\src\common\common.h

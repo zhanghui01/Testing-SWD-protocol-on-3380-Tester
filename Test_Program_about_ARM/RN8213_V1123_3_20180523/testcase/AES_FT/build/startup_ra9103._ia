@@ -1,0 +1,5 @@
+--cpu Cortex-M0 -g --apcs=interwork --pd "__MICROLIB SETA 1" 
+-I E:\Keil\ARM\RV31\INC 
+-I E:\Keil\ARM\CMSIS\Include 
+-I E:\Keil\ARM\Inc\Renergy 
+--list ".\startup_RA9103.lst" --xref -o ".\startup_RA9103.o" --depend ".\startup_RA9103.d" "..\src\startup_RA9103.s"

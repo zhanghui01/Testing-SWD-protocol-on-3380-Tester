@@ -1,0 +1,931 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;/******************************************************
+                       ***********************
+    2 00000000         ; * @file:    startup_RA9103F0.s
+    3 00000000         ; * @purpose: CMSIS Cortex-M0 Core Device Startup File
+    4 00000000         ; *           for RA9103F0
+    5 00000000         ; * @version: V1.00
+    6 00000000         ; * @date:    2017/1/10
+    7 00000000         ; *------- <<< Use Configuration Wizard in Context Menu 
+                       >>> ------------------
+    8 00000000         ; *
+    9 00000000         ; *
+   10 00000000         ; ******************************************************
+                       ***********************/
+   11 00000000         
+   12 00000000         
+   13 00000000         ; <h> Stack Configuration
+   14 00000000         ;   <o> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   15 00000000         ; </h>
+   16 00000000 000001F4 
+                       Stack_Size
+                               EQU              500
+   17 00000000 00000000 
+                       UNUSEDIRQ
+                               EQU              0
+   18 00000000 00000000 
+                       UNUSEDUART
+                               EQU              0
+   19 00000000                 AREA             STACK, NOINIT, READWRITE, ALIGN
+=3
+   20 00000000         Stack_Mem
+                               SPACE            Stack_Size
+   21 000001F4         __initial_sp
+   22 000001F4         
+   23 000001F4         
+   24 000001F4         ; <h> Heap Configuration
+   25 000001F4         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   26 000001F4         ; </h>
+   27 000001F4         
+   28 000001F4 00000000 
+                       Heap_Size
+                               EQU              0x00000000
+   29 000001F4         
+   30 000001F4                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
+3
+   31 00000000         __heap_base
+   32 00000000         Heap_Mem
+                               SPACE            Heap_Size
+   33 00000000         __heap_limit
+   34 00000000         
+   35 00000000         
+   36 00000000                 PRESERVE8
+   37 00000000                 THUMB
+   38 00000000         
+   39 00000000         ; Vector Table Mapped to Address 0 at Reset
+   40 00000000         
+   41 00000000                 AREA             RESET, DATA, READONLY
+   42 00000000                 EXPORT           __Vectors
+   43 00000000                 EXPORT           __Vectors_End
+   44 00000000                 EXPORT           __Vectors_Size
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   45 00000000         
+   46 00000000 00000000 
+                       __Vectors
+                               DCD              __initial_sp ; Top of Stack
+   47 00000004 00000000        DCD              Reset_Handler ; Reset Handler
+   48 00000008 00000000        DCD              NMI_Handler ; NMI Handler
+   49 0000000C 00000000        DCD              HardFault_Handler ; Hard Fault 
+                                                            Handler
+   50 00000010 00000000        DCD              0           ; Reserved
+   51 00000014 00000000        DCD              0           ; Reserved
+   52 00000018 00000000        DCD              0           ; Reserved
+   53 0000001C 00000000        DCD              0           ; Reserved
+   54 00000020 00000000        DCD              0           ; Reserved
+   55 00000024 00000000        DCD              0           ; Reserved
+   56 00000028 00000000        DCD              0           ; Reserved
+   57 0000002C 00000000        DCD              SVC_Handler ; SVCall Handler
+   58 00000030 00000000        DCD              0           ; Reserved
+   59 00000034 00000000        DCD              0           ; Reserved
+   60 00000038 00000000        DCD              PendSV_Handler ; PendSV Handler
+                                                            
+   61 0000003C 00000000        DCD              SysTick_Handler 
+                                                            ; SysTick Handler
+   62 00000040         
+   63 00000040 00000000        DCD              SYSCLKCAL_HANDLER
+   64 00000044 00000000        DCD              LVDCMP_HANDLER
+   65 00000048 00000000        DCD              0
+   66 0000004C 00000000        DCD              RTC_HANDLER
+   67 00000050 00000000        DCD              0
+   68 00000054 00000000        DCD              SARADC_HANDLER
+   69 00000058 00000000        DCD              UART0_HANDLER
+   70 0000005C 00000000        DCD              UART1_HANDLER
+   71 00000060 00000000        DCD              UART2_HANDLER
+   72 00000064 00000000        DCD              UART3_HANDLER
+   73 00000068 00000000        DCD              SPI_HANDLER
+   74 0000006C 00000000        DCD              I2C_HANDLER
+   75 00000070 00000000        DCD              ISO78160_HANDLER
+   76 00000074 00000000        DCD              ISO78161_HANDLER
+   77 00000078 00000000        DCD              TC0_HANDLER
+   78 0000007C 00000000        DCD              TC1_HANDLER
+   79 00000080 00000000        DCD              UART4_HANDLER
+   80 00000084 00000000        DCD              UART5_HANDLER
+   81 00000088 00000000        DCD              WDT_HANDLER
+   82 0000008C 00000000        DCD              KBI_HANDLER
+   83 00000090 00000000        DCD              LCD_HANDLER
+   84 00000094 00000000        DCD              SYS_TC_HANDLER
+   85 00000098 00000000        DCD              0
+   86 0000009C 00000000        DCD              0
+   87 000000A0 00000000        DCD              EXT0_HANDLER
+   88 000000A4 00000000        DCD              EXT1_HANDLER
+   89 000000A8 00000000        DCD              EXT2_HANDLER
+   90 000000AC 00000000        DCD              EXT3_HANDLER
+   91 000000B0 00000000        DCD              EXT4_HANDLER
+   92 000000B4 00000000        DCD              EXT5_HANDLER
+   93 000000B8 00000000        DCD              EXT6_HANDLER
+   94 000000BC 00000000        DCD              EXT7_HANDLER
+   95 000000C0         
+   96 000000C0         __Vectors_End
+   97 000000C0         
+   98 000000C0 000000C0 
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+                       __Vectors_Size
+                               EQU              __Vectors_End - __Vectors
+   99 000000C0         
+  100 000000C0         
+  101 000000C0                 AREA             |.text|, CODE, READONLY
+  102 00000000         
+  103 00000000         
+  104 00000000         ; Reset Handler
+  105 00000000         
+  106 00000000         Reset_Handler
+                               PROC
+  107 00000000                 EXPORT           Reset_Handler             [WEAK
+]
+  108 00000000                 IMPORT           SystemInit
+  109 00000000                 IMPORT           __main
+  110 00000000         
+  111 00000000         ; LDR     R0, =0x50014000
+  112 00000000         ; LDR     R1, =0xfeed0003
+  113 00000000         ; STR     R1, [R0, #0]
+  114 00000000         ; LDR     R1, =0xA549908
+  115 00000000         ; STR     R1, [R0, #0xc]
+  116 00000000         ; LDR     R1, =0xBA110101
+  117 00000000         ; STR     R1, [R0, #0x10]
+  118 00000000         ; LDR     R1, =0xfeed0002
+  119 00000000         ; LDR     R0, =0x50014000
+  120 00000000         ; STR     R1, [R0, #0]
+  121 00000000         
+  122 00000000         
+  123 00000000         
+  124 00000000         
+  125 00000000         ; LDR     R0, =0x50014020
+  126 00000000         ; LDR     R1, =0xfeed0003
+  127 00000000         ; STR     R1, [R0, #0]
+  128 00000000         ; LDR     R1, =0xA549908
+  129 00000000         ; STR     R1, [R0, #0xc]
+  130 00000000         ; LDR     R1, =0xBA110101
+  131 00000000         ; STR     R1, [R0, #0x10]
+  132 00000000         ; LDR     R1, =0xfeed0002
+  133 00000000         ; LDR     R0, =0x50014020
+  134 00000000         ; STR     R1, [R0, #0]
+  135 00000000         
+  136 00000000         
+  137 00000000         ;LDR     R0, =SystemInit
+  138 00000000         ;BLX     R0
+  139 00000000 4811            LDR              R0, =__main
+  140 00000002 4700            BX               R0
+  141 00000004                 ENDP
+  142 00000004         
+  143 00000004         
+  144 00000004         ; Dummy Exception Handlers (infinite loops which can be 
+                       modified)
+  145 00000004         
+  146 00000004         ;                IF UNUSEDIRQ <> 1
+  147 00000004         NMI_Handler
+                               PROC
+  148 00000004                 EXPORT           NMI_Handler               [WEAK
+]
+  149 00000004 E7FE            B                .
+  150 00000006                 ENDP
+
+
+
+ARM Macro Assembler    Page 4 
+
+
+  152 00000006         HardFault_Handler
+                               PROC
+  153 00000006                 EXPORT           HardFault_Handler         [WEAK
+]
+  154 00000006 E7FE            B                .
+  155 00000008                 ENDP
+  156 00000008         SVC_Handler
+                               PROC
+  157 00000008                 EXPORT           SVC_Handler               [WEAK
+]
+  158 00000008 E7FE            B                .
+  159 0000000A                 ENDP
+  160 0000000A         PendSV_Handler
+                               PROC
+  161 0000000A                 EXPORT           PendSV_Handler            [WEAK
+]
+  162 0000000A E7FE            B                .
+  163 0000000C                 ENDP
+  164 0000000C         SysTick_Handler
+                               PROC
+  165 0000000C                 EXPORT           SysTick_Handler           [WEAK
+]
+  166 0000000C E7FE            B                .
+  167 0000000E                 ENDP
+  168 0000000E         EXT0_HANDLER
+                               PROC
+  169 0000000E                 EXPORT           EXT0_HANDLER     [WEAK]
+  170 0000000E E7FE            B                .
+  171 00000010                 ENDP
+  172 00000010         EXT1_HANDLER
+                               PROC
+  173 00000010                 EXPORT           EXT1_HANDLER     [WEAK]
+  174 00000010 E7FE            B                .
+  175 00000012                 ENDP
+  176 00000012         EXT2_HANDLER
+                               PROC
+  177 00000012                 EXPORT           EXT2_HANDLER     [WEAK]
+  178 00000012 E7FE            B                .
+  179 00000014                 ENDP
+  180 00000014         EXT3_HANDLER
+                               PROC
+  181 00000014                 EXPORT           EXT3_HANDLER     [WEAK]
+  182 00000014 E7FE            B                .
+  183 00000016                 ENDP
+  184 00000016         EXT4_HANDLER
+                               PROC
+  185 00000016                 EXPORT           EXT4_HANDLER     [WEAK]
+  186 00000016 E7FE            B                .
+  187 00000018                 ENDP
+  188 00000018         EXT5_HANDLER
+                               PROC
+  189 00000018                 EXPORT           EXT5_HANDLER     [WEAK]
+  190 00000018 E7FE            B                .
+  191 0000001A                 ENDP
+  192 0000001A         EXT6_HANDLER
+                               PROC
+  193 0000001A                 EXPORT           EXT6_HANDLER     [WEAK]
+  194 0000001A E7FE            B                .
+  195 0000001C                 ENDP
+
+
+
+ARM Macro Assembler    Page 5 
+
+
+  196 0000001C         EXT7_HANDLER
+                               PROC
+  197 0000001C                 EXPORT           EXT7_HANDLER     [WEAK]
+  198 0000001C E7FE            B                .
+  199 0000001E                 ENDP
+  200 0000001E         SYS_TC_HANDLER
+                               PROC
+  201 0000001E                 EXPORT           SYS_TC_HANDLER     [WEAK]
+  202 0000001E E7FE            B                .
+  203 00000020                 ENDP
+  204 00000020         LCD_HANDLER
+                               PROC
+  205 00000020                 EXPORT           LCD_HANDLER      [WEAK]
+  206 00000020 E7FE            B                .
+  207 00000022                 ENDP
+  208 00000022         KBI_HANDLER
+                               PROC
+  209 00000022                 EXPORT           KBI_HANDLER      [WEAK]
+  210 00000022 E7FE            B                .
+  211 00000024                 ENDP
+  212 00000024         WDT_HANDLER
+                               PROC
+  213 00000024                 EXPORT           WDT_HANDLER      [WEAK]
+  214 00000024 E7FE            B                .
+  215 00000026                 ENDP
+  216 00000026         UART5_HANDLER
+                               PROC
+  217 00000026                 EXPORT           UART5_HANDLER      [WEAK]
+  218 00000026 E7FE            B                .
+  219 00000028                 ENDP
+  220 00000028         UART4_HANDLER
+                               PROC
+  221 00000028                 EXPORT           UART4_HANDLER      [WEAK]
+  222 00000028 E7FE            B                .
+  223 0000002A                 ENDP
+  224 0000002A         TC1_HANDLER
+                               PROC
+  225 0000002A                 EXPORT           TC1_HANDLER      [WEAK]
+  226 0000002A E7FE            B                .
+  227 0000002C                 ENDP
+  228 0000002C         TC0_HANDLER
+                               PROC
+  229 0000002C                 EXPORT           TC0_HANDLER      [WEAK]
+  230 0000002C E7FE            B                .
+  231 0000002E                 ENDP
+  232 0000002E         ISO78161_HANDLER
+                               PROC
+  233 0000002E                 EXPORT           ISO78161_HANDLER    [WEAK]
+  234 0000002E E7FE            B                .
+  235 00000030                 ENDP
+  236 00000030         ISO78160_HANDLER
+                               PROC
+  237 00000030                 EXPORT           ISO78160_HANDLER    [WEAK]
+  238 00000030 E7FE            B                .
+  239 00000032                 ENDP
+  240 00000032         I2C_HANDLER
+                               PROC
+  241 00000032                 EXPORT           I2C_HANDLER      [WEAK]
+  242 00000032 E7FE            B                .
+
+
+
+ARM Macro Assembler    Page 6 
+
+
+  243 00000034                 ENDP
+  244 00000034         SPI_HANDLER
+                               PROC
+  245 00000034                 EXPORT           SPI_HANDLER      [WEAK]
+  246 00000034 E7FE            B                .
+  247 00000036                 ENDP
+  248 00000036         UART3_HANDLER
+                               PROC
+  249 00000036                 EXPORT           UART3_HANDLER     [WEAK]
+  250 00000036 E7FE            B                .
+  251 00000038                 ENDP
+  252 00000038         UART2_HANDLER
+                               PROC
+  253 00000038                 EXPORT           UART2_HANDLER     [WEAK]
+  254 00000038 E7FE            B                .
+  255 0000003A                 ENDP
+  256 0000003A         UART1_HANDLER
+                               PROC
+  257 0000003A                 EXPORT           UART1_HANDLER     [WEAK]
+  258 0000003A E7FE            B                .
+  259 0000003C                 ENDP
+  260 0000003C         UART0_HANDLER
+                               PROC
+  261 0000003C                 EXPORT           UART0_HANDLER     [WEAK]
+  262 0000003C E7FE            B                .
+  263 0000003E                 ENDP
+  264 0000003E         SARADC_HANDLER
+                               PROC
+  265 0000003E                 EXPORT           SARADC_HANDLER     [WEAK]
+  266 0000003E E7FE            B                .
+  267 00000040                 ENDP
+  268 00000040         RTC_HANDLER
+                               PROC
+  269 00000040                 EXPORT           RTC_HANDLER      [WEAK]
+  270 00000040 E7FE            B                .
+  271 00000042                 ENDP
+  272 00000042         LVDCMP_HANDLER
+                               PROC
+  273 00000042                 EXPORT           LVDCMP_HANDLER       [WEAK]
+  274 00000042 E7FE            B                .
+  275 00000044                 ENDP
+  276 00000044         SYSCLKCAL_HANDLER
+                               PROC
+  277 00000044                 EXPORT           SYSCLKCAL_HANDLER       [WEAK]
+  278 00000044 E7FE            B                .
+  279 00000046                 ENDP
+  280 00000046         
+  281 00000046 00 00           ALIGN
+  282 00000048         
+  283 00000048         
+  284 00000048         ; User Initial Stack & Heap
+  285 00000048         
+  286 00000048                 IF               :DEF:__MICROLIB
+  287 00000048         
+  288 00000048                 EXPORT           __initial_sp
+  289 00000048                 EXPORT           __heap_base
+  290 00000048                 EXPORT           __heap_limit
+  291 00000048         
+  292 00000048                 ELSE
+
+
+
+ARM Macro Assembler    Page 7 
+
+
+  306                          ENDIF
+  307 00000048         
+  308 00000048         
+  309 00000048                 END
+              00000000 
+Command Line: --debug --xref --cpu=Cortex-M0 --apcs=interwork --depend=.\startu
+p_RA9103.d -o.\startup_RA9103.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Incl
+ude -IE:\Keil\ARM\Inc\Renergy --predefine="__MICROLIB SETA 1" --list=.\startup_
+RA9103.lst ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+STACK 00000000
+
+Symbol: STACK
+   Definitions
+      At line 19 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      None
+Comment: STACK unused
+Stack_Mem 00000000
+
+Symbol: Stack_Mem
+   Definitions
+      At line 20 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      None
+Comment: Stack_Mem unused
+__initial_sp 000001F4
+
+Symbol: __initial_sp
+   Definitions
+      At line 21 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 46 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 288 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+HEAP 00000000
+
+Symbol: HEAP
+   Definitions
+      At line 30 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      None
+Comment: HEAP unused
+Heap_Mem 00000000
+
+Symbol: Heap_Mem
+   Definitions
+      At line 32 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      None
+Comment: Heap_Mem unused
+__heap_base 00000000
+
+Symbol: __heap_base
+   Definitions
+      At line 31 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 289 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+Comment: __heap_base used once
+__heap_limit 00000000
+
+Symbol: __heap_limit
+   Definitions
+      At line 33 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 290 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+Comment: __heap_limit used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 41 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 46 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 42 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 98 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+__Vectors_End 000000C0
+
+Symbol: __Vectors_End
+   Definitions
+      At line 96 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 43 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 98 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 101 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      None
+Comment: .text unused
+EXT0_HANDLER 0000000E
+
+Symbol: EXT0_HANDLER
+   Definitions
+      At line 168 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 87 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 169 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+EXT1_HANDLER 00000010
+
+Symbol: EXT1_HANDLER
+   Definitions
+      At line 172 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 88 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 173 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+EXT2_HANDLER 00000012
+
+Symbol: EXT2_HANDLER
+   Definitions
+      At line 176 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 89 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 177 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+EXT3_HANDLER 00000014
+
+Symbol: EXT3_HANDLER
+   Definitions
+      At line 180 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 90 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 181 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+EXT4_HANDLER 00000016
+
+Symbol: EXT4_HANDLER
+   Definitions
+      At line 184 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 91 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 185 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+EXT5_HANDLER 00000018
+
+Symbol: EXT5_HANDLER
+   Definitions
+      At line 188 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+      At line 92 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 189 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+EXT6_HANDLER 0000001A
+
+Symbol: EXT6_HANDLER
+   Definitions
+      At line 192 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 93 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 193 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+EXT7_HANDLER 0000001C
+
+Symbol: EXT7_HANDLER
+   Definitions
+      At line 196 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 94 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 197 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+HardFault_Handler 00000006
+
+Symbol: HardFault_Handler
+   Definitions
+      At line 152 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 49 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 153 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+I2C_HANDLER 00000032
+
+Symbol: I2C_HANDLER
+   Definitions
+      At line 240 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 74 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 241 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+ISO78160_HANDLER 00000030
+
+Symbol: ISO78160_HANDLER
+   Definitions
+      At line 236 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 75 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 237 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+ISO78161_HANDLER 0000002E
+
+Symbol: ISO78161_HANDLER
+   Definitions
+      At line 232 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 76 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 233 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+KBI_HANDLER 00000022
+
+
+
+
+ARM Macro Assembler    Page 3 Alphabetic symbol ordering
+Relocatable symbols
+
+Symbol: KBI_HANDLER
+   Definitions
+      At line 208 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 82 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 209 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+LCD_HANDLER 00000020
+
+Symbol: LCD_HANDLER
+   Definitions
+      At line 204 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 83 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 205 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+LVDCMP_HANDLER 00000042
+
+Symbol: LVDCMP_HANDLER
+   Definitions
+      At line 272 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 64 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 273 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+NMI_Handler 00000004
+
+Symbol: NMI_Handler
+   Definitions
+      At line 147 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 48 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 148 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+PendSV_Handler 0000000A
+
+Symbol: PendSV_Handler
+   Definitions
+      At line 160 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 60 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 161 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+RTC_HANDLER 00000040
+
+Symbol: RTC_HANDLER
+   Definitions
+      At line 268 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 66 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 269 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 106 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 47 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+
+
+ARM Macro Assembler    Page 4 Alphabetic symbol ordering
+Relocatable symbols
+
+      At line 107 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+SARADC_HANDLER 0000003E
+
+Symbol: SARADC_HANDLER
+   Definitions
+      At line 264 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 68 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 265 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+SPI_HANDLER 00000034
+
+Symbol: SPI_HANDLER
+   Definitions
+      At line 244 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 73 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 245 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+SVC_Handler 00000008
+
+Symbol: SVC_Handler
+   Definitions
+      At line 156 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 57 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 157 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+SYSCLKCAL_HANDLER 00000044
+
+Symbol: SYSCLKCAL_HANDLER
+   Definitions
+      At line 276 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 63 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 277 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+SYS_TC_HANDLER 0000001E
+
+Symbol: SYS_TC_HANDLER
+   Definitions
+      At line 200 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 84 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 201 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+SysTick_Handler 0000000C
+
+Symbol: SysTick_Handler
+   Definitions
+      At line 164 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 61 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 165 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+TC0_HANDLER 0000002C
+
+Symbol: TC0_HANDLER
+
+
+
+ARM Macro Assembler    Page 5 Alphabetic symbol ordering
+Relocatable symbols
+
+   Definitions
+      At line 228 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 77 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 229 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+TC1_HANDLER 0000002A
+
+Symbol: TC1_HANDLER
+   Definitions
+      At line 224 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 78 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 225 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+UART0_HANDLER 0000003C
+
+Symbol: UART0_HANDLER
+   Definitions
+      At line 260 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 69 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 261 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+UART1_HANDLER 0000003A
+
+Symbol: UART1_HANDLER
+   Definitions
+      At line 256 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 70 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 257 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+UART2_HANDLER 00000038
+
+Symbol: UART2_HANDLER
+   Definitions
+      At line 252 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 71 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 253 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+UART3_HANDLER 00000036
+
+Symbol: UART3_HANDLER
+   Definitions
+      At line 248 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 72 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 249 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+UART4_HANDLER 00000028
+
+Symbol: UART4_HANDLER
+   Definitions
+      At line 220 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 79 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 221 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+
+
+ARM Macro Assembler    Page 6 Alphabetic symbol ordering
+Relocatable symbols
+
+
+UART5_HANDLER 00000026
+
+Symbol: UART5_HANDLER
+   Definitions
+      At line 216 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 80 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 217 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+WDT_HANDLER 00000024
+
+Symbol: WDT_HANDLER
+   Definitions
+      At line 212 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 81 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+      At line 213 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+
+35 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+Heap_Size 00000000
+
+Symbol: Heap_Size
+   Definitions
+      At line 28 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 32 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+Comment: Heap_Size used once
+Stack_Size 000001F4
+
+Symbol: Stack_Size
+   Definitions
+      At line 16 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 20 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+Comment: Stack_Size used once
+UNUSEDIRQ 00000000
+
+Symbol: UNUSEDIRQ
+   Definitions
+      At line 17 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      None
+Comment: UNUSEDIRQ unused
+UNUSEDUART 00000000
+
+Symbol: UNUSEDUART
+   Definitions
+      At line 18 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      None
+Comment: UNUSEDUART unused
+__Vectors_Size 000000C0
+
+Symbol: __Vectors_Size
+   Definitions
+      At line 98 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 44 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+Comment: __Vectors_Size used once
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+SystemInit 00000000
+
+Symbol: SystemInit
+   Definitions
+      At line 108 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      None
+Comment: SystemInit unused
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 109 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+   Uses
+      At line 139 in file ..\CMSIS\RA9103\startup\arm\startup_RA9103.s
+Comment: __main used once
+2 symbols
+385 symbols in table

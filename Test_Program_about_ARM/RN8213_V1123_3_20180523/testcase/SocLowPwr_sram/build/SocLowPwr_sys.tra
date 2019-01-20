@@ -1,0 +1,28 @@
+*** Creating Trace Output File 'SocLowPwr_sys.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"common.o"'
+### List of Objects: adding '"retarget.o"'
+### List of Objects: adding '"serial.o"'
+### List of Objects: adding '"..\src\common\lib\rn821x_sysctrl.lib"'
+### List of Objects: adding '"soclowpwr_sys.o"'
+### List of Objects: adding '".\startup_ra9103.o"'
+### List of Objects: adding '"system_rn821x.o"'
+### List of Objects: adding '"clk_calc.o"'
+### List of Objects: adding '"socsleep.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M0 "common.o" "retarget.o" "serial.o" E:\2017_FT_prog\V109_20170208\RN8312_V109_2_20160123\testcase\SocLowPwr_sys\src\common\lib\rn821x_sysctrl.lib "soclowpwr_sys.o" ".\startup_ra9103.o" "system_rn821x.o" "clk_calc.o" "socsleep.o" 
+--library_type=microlib --strict --scatter "SocLowPwr_sys.sct" 
+--keep socSleep.o(*text) --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\SocLowPwr_sys.map" -o SocLowPwr_sys.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'SocLowPwr_sys.axf'
+### ADS-LD Command File: 'SocLowPwr_sys.l2p'
+### Checking for dirty Components...
+### Creating CmdFile 'SocLowPwr_sys.l2p', Handle=0x00000A38
+### Writing '.lnp' file
+### ADS-LD Command file 'SocLowPwr_sys.l2p' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

@@ -1,0 +1,38 @@
+SWD协议：共四个接口，Vcc,GND,SWDIO,SWDCLK
+
+备注：SWD其实就2根线的协议，SWDCLK控制时钟,SWDIO控制数据，通过对寄存器的读写来完成于MCU的通信。首先，需要进入SWD模式。
+发至少50个1 和一个0xE79E 强制切换到SWD模式即可。J-link切换时通常还会发一个0x6DB7，据说是兼容老版本ARM的强制切换
+
+
+1.对DUT的SWD进行复位，连接DUT的SWD时需要进行LineReset，测试机需要连续发送50个"1",
+使得DUT进行Line Reset,之后至少插入2个Idle,然后可以读取DUT的DP的ID，判断DUT的类型。
+
+第一步：进行Line_reset，数据口发送50个1后再发送0xE79E，强制进入SWD模式,再至少发送2个Idle，即数据口为0；
+进行Line_reset后第一次必须读取的是DP寄存器的0x00寄存器，即读取DP的ICCODE，数据头为0xA5,判定读取的数据是否为0x0BB11477(数据头设定读DP寄存器，DP寄存器为0x0BB11477);
+
+第二步：Power_up，进行上电操作，写入数据0x50000000(操作指令为（0xA9,0x50000000）);
+
+第三步：选择AP寄存器，操作指令为0xB1,0x00000000
+
+第四步：写指令，使得AP寄存器bank0是32位数据操作，指令为：0xA3,0x80000042
+
+第五步：通过AP寄存器传送地址0x4003402C，操作指令为：0x8B,0x4003402C；
+
+第六步：读DUT的ID，地址为0x4003402C，判断数据是否为对应型号的ID（0x8219），操作指令为0x9F,0x00000000
+
+第七步：再读DUT的ID（需要都两次才有数据出现），判断数据是否为对应型号的ID（0x8219），操作指令为0x9F,0x00008219
+
+第八步：写指令，使得AP寄存器bank0是16位数据操作，指令为：0xA3,0x80000041
+
+第九步：写指令，通过AP寄存器传送地址0x08C0008C，操作指令为：0x8B,0x08C0008C
+
+第十步: 读DUT的CP_RESLUT的结果，地址为0x08C0008C(flash的地址)，判断数据是否为对应型号的CP_RESULT（0x1234），操作指令为0x9F,0x00000000
+
+第十一步：再读DUT的CP_RESLUT的结果，地址为0x08C0008C(flash的地址)，判断数据是否为对应型号的CP_RESULT（0x1234），操作指令为0x9F,0xFFFF1234
+
+网址：https://www.cnblogs.com/shangdawei/p/4757044.html
+
+
+https://github.com/MarkDing/swd_programing_sram
+
+https://blog.csdn.net/chengdong1314/article/details/79875456

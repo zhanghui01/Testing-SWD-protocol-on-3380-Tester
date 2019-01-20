@@ -1,0 +1,37 @@
+#include <iostream>
+#include <uti\cpin.h>
+#include <uti\cpingrp.h>
+#include <uti\ctimemain.h>
+#include <uti\clevel.h>
+#include <uti\clcdlevel.h>
+#include <uti\alpgconst.h>
+#define __CLASS_BODY__
+#include <uti\stntype.h>
+CPIN STNTYPE VCC("VCC");
+CPIN STNTYPE SWDCLK("SWDCLK");
+CPIN STNTYPE SWDIO("SWDIO");
+CPIN STNTYPE AVDD("AVDD");
+CPIN STNTYPE VREF("VREF");
+CPIN STNTYPE VBAT("VBAT");
+CPIN STNTYPE VSWO("VSWO");
+CPIN STNTYPE DVDD("DVDD");
+CPINGRP STNTYPE MLDPS_ALLPINS("MLDPS_ALLPINS");
+CPINGRP STNTYPE IO_ALLPINS("IO_ALLPINS");
+CPINGRP STNTYPE SWD_PINS("SWD_PINS");
+CPINGRP STNTYPE LDO_PINS("LDO_PINS");
+CLEVEL STNTYPE rst_lvl("rst_lvl");
+CLEVEL STNTYPE OS_lvl("OS_lvl");
+CLEVEL STNTYPE UID_lvl("UID_lvl");
+CLEVEL STNTYPE LDO_POR_lvl("LDO_POR_lvl");
+CLEVEL STNTYPE PSW_lvl("PSW_lvl");
+CLEVEL STNTYPE CLK_lvl("CLK_lvl");
+CLEVEL STNTYPE LCD_lvl("LCD_lvl");
+CLEVEL STNTYPE SAR_ADC_lvl("SAR_ADC_lvl");
+CLEVEL STNTYPE COMP_BOR_lvl("COMP_BOR_lvl");
+CLEVEL STNTYPE WNVR_lvl("WNVR_lvl");
+CLEVEL STNTYPE SCAN_lvl("SCAN_lvl");
+CLEVEL STNTYPE SRAM_lvl("SRAM_lvl");
+CLEVEL STNTYPE POWER_lvl("POWER_lvl");
+CLEVEL STNTYPE GPIO_lvl("GPIO_lvl");
+CLEVEL STNTYPE EMU_lvl("EMU_lvl");
+CLEVEL STNTYPE RTC_lvl("RTC_lvl");

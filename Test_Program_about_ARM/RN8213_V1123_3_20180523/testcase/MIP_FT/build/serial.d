@@ -1,0 +1,10 @@
+serial.o: ..\sysfile\serial.c
+serial.o: ..\sysfile\rn821x.h
+serial.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+serial.o: E:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+serial.o: E:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+serial.o: E:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+serial.o: ..\sysfile\system_RN821x.h
+serial.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+serial.o: ..\sysfile\common.h
+serial.o: E:\Keil\ARM\ARMCC\bin\..\include\stdio.h

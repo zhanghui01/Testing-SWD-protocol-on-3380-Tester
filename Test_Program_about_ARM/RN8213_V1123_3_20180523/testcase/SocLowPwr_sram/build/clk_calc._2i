@@ -1,0 +1,5 @@
+--feedback "SocLowPwr_sram.fed" -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\src -I..\src\common -I..\src\common\lib 
+-I E:\Keil\ARM\RV31\INC 
+-I E:\Keil\ARM\CMSIS\Include 
+-I E:\Keil\ARM\Inc\Renergy\RN8215 
+-o "clk_calc.o" --omf_browse "clk_calc.crf" --depend "clk_calc.d" "..\src\common\clk_calc.c"

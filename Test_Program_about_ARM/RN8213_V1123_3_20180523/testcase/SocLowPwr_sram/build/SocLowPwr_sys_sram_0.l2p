@@ -1,0 +1,5 @@
+--cpu Cortex-M0 "common.o" "retarget.o" "serial.o" E:\2017_FT_prog\V109\8213_all_testcase_1_20170111FAIL\testcase\SocLowPwr_sys\src\common\lib\rn821x_sysctrl.lib "soclowpwr_sys.o" ".\startup_ra9103.o" "system_rn821x.o" "clk_calc.o" "socsleep.o" 
+--library_type=microlib --strict --scatter "SocLowPwr_sys_sram_0.sct" 
+--keep socSleep.o(*text) --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\SocLowPwr_sys_sram_0.map" -o SocLowPwr_sys_sram_0.axf

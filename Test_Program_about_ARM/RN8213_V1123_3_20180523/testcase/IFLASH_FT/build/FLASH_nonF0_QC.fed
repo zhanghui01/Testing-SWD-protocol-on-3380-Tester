@@ -1,0 +1,33 @@
+;#<FEEDBACK># ARM Linker, 5.02 [Build 28]: Last Updated: Tue Oct 24 19:52:33 2017
+;VERSION 0.2
+;FILE clk_calc.o
+__asm___10_clk_calc_c_clk_freq____REV16 <= USED 0
+__asm___10_clk_calc_c_clk_freq____REVSH <= USED 0
+clk_freq <= USED 0
+;FILE common.o
+__asm___8_common_c_00ccbcb3____REV16 <= USED 0
+__asm___8_common_c_00ccbcb3____REVSH <= USED 0
+mDelay <= USED 0
+mod_clk <= USED 0
+sysclkLoop <= USED 0
+uDelay <= USED 0
+;FILE flash_driver.o
+__asm___14_flash_driver_c_fl_tus____REV16 <= USED 0
+__asm___14_flash_driver_c_fl_tus____REVSH <= USED 0
+fl_hvpl_clear <= USED 0
+fl_page_erase <= USED 0
+fl_por <= USED 0
+;FILE ra9103a0_flash_qc.o
+__asm___19_ra9103a0_flash_qc_c_main____REV16 <= USED 0
+__asm___19_ra9103a0_flash_qc_c_main____REVSH <= USED 0
+fl_page_check_data <= USED 0
+fl_page_check_empty <= USED 0
+;FILE startup_ra9103.o
+;FILE sysctrl.o
+Remap4Sel <= USED 0
+__asm___9_sysctrl_c_9296431c____REV16 <= USED 0
+__asm___9_sysctrl_c_9296431c____REVSH <= USED 0
+;FILE system_rn821x.o
+SystemCoreClockUpdate <= USED 0
+__asm___15_system_RN821x_c_5d646a67____REV16 <= USED 0
+__asm___15_system_RN821x_c_5d646a67____REVSH <= USED 0

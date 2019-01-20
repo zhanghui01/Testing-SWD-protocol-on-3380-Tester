@@ -1,0 +1,5 @@
+--cpu Cortex-M0 "flash_ft.o" "mip_ft.o" "rom_ft.o" "flash_driver.o" "eeprom_ft.o" "eeprom_driver.o" "common.o" "retarget.o" "serial.o" "system_rn821x.o" ".\startup_rn821x.o" "E:\2017_FT_prog\powerswitch_trimming\RN8215_V111_7_20171015_CPV14V15£¨SRAM1) _MIPchack\testcase\MIP_FT\sysfile\rn821x_nvm.lib" "E:\2017_FT_prog\powerswitch_trimming\RN8215_V111_7_20171015_CPV14V15£¨SRAM1) _MIPchack\testcase\MIP_FT\sysfile\rn821x_sysctrl.lib" 
+--library_type=microlib --strict --scatter "MIP_FT.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\MIP_FT.map" -o MIP_FT.axf

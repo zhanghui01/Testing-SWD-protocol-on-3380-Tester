@@ -1,0 +1,10 @@
+eeprom_driver.o: ..\src\eeprom_driver.c
+eeprom_driver.o: ..\src\rn821x.h
+eeprom_driver.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+eeprom_driver.o: E:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+eeprom_driver.o: E:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+eeprom_driver.o: E:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+eeprom_driver.o: ..\src\system_RN821x.h
+eeprom_driver.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+eeprom_driver.o: ..\src\eeprom_driver.h
+eeprom_driver.o: ..\src\common\common.h

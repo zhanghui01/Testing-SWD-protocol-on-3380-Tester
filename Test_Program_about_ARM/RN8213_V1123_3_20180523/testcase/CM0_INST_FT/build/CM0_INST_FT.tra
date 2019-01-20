@@ -1,0 +1,21 @@
+*** Creating Trace Output File 'CM0_INST_FT.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"system_rn8215.o"'
+### List of Objects: adding '".\startup_rn8215.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M0 "system_rn8215.o" ".\startup_rn8215.o" 
+--library_type=microlib --strict --scatter "CM0_INST_FT.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\CM0_INST_FT.map" -o CM0_INST_FT.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'CM0_INST_FT.axf'
+### ADS-LD Command File: 'CM0_INST_FT.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'CM0_INST_FT.lnp', Handle=0x0000082C
+### Writing '.lnp' file
+### ADS-LD Command file 'CM0_INST_FT.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

@@ -1,0 +1,163 @@
+ARM Linker, 5.02 [Build 28] [MDK-ARM Standard]
+
+==============================================================================
+
+Section Cross References
+
+    system_rn8215.o(.text) refers to system_rn8215.o(i.__ARM_common_switch8) for __ARM_common_switch8
+    system_rn8215.o(.text) refers to system_rn8215.o(.data) for SystemCoreClock
+    startup_rn8215.o(RESET) refers to startup_rn8215.o(STACK) for __initial_sp
+    startup_rn8215.o(RESET) refers to startup_rn8215.o(.text) for Reset_Handler
+
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    RESET                                    0x00000000   Section      192  startup_rn8215.o(RESET)
+    ..\\src\\cmsis\\CM0\\DeviceSupport\\Renergy\\RN8215\\system_RN8215.c 0x00000000   Number         0  system_rn8215.o ABSOLUTE
+    ..\src\cmsis\CM0\DeviceSupport\Renergy\RN8215\startup\arm\startup_RN8215.s 0x00000000   Number         0  startup_rn8215.o ABSOLUTE
+    ..\src\cmsis\CM0\DeviceSupport\Renergy\RN8215\system_RN8215.c 0x00000000   Number         0  system_rn8215.o ABSOLUTE
+    .rev16_text                              0x000000c0   Section        4  system_rn8215.o(.rev16_text)
+    .revsh_text                              0x000000c4   Section        4  system_rn8215.o(.revsh_text)
+    .text                                    0x000000c8   Section        0  system_rn8215.o(.text)
+    .text                                    0x0000013c   Section      852  startup_rn8215.o(.text)
+    MARCHX_M0Proc                            0x0000013d   Thumb Code    12  startup_rn8215.o(.text)
+    MARCHX_M12Proc                           0x00000149   Thumb Code    34  startup_rn8215.o(.text)
+    MARCHX_M3Proc                            0x0000016b   Thumb Code    20  startup_rn8215.o(.text)
+    MARCHX_DELAY                             0x0000017f   Thumb Code    12  startup_rn8215.o(.text)
+    MARCHX_PROC                              0x0000018b   Thumb Code    78  startup_rn8215.o(.text)
+    MARCHC_M0Proc                            0x000001d9   Thumb Code    12  startup_rn8215.o(.text)
+    MARCHC_M12Proc                           0x000001e5   Thumb Code    22  startup_rn8215.o(.text)
+    MARCHC_M34Proc                           0x000001fb   Thumb Code    22  startup_rn8215.o(.text)
+    MARCHC_M5Proc                            0x00000211   Thumb Code    20  startup_rn8215.o(.text)
+    MARCHC_PROC                              0x00000225   Thumb Code   314  startup_rn8215.o(.text)
+    ram_top                                  0x000003b5   Thumb Code     0  startup_rn8215.o(.text)
+    i.__ARM_common_switch8                   0x00000490   Section        0  system_rn8215.o(i.__ARM_common_switch8)
+    .data                                    0x00002000   Section        4  system_rn8215.o(.data)
+    HEAP                                     0x00002008   Section        0  startup_rn8215.o(HEAP)
+    STACK                                    0x00002008   Section      256  startup_rn8215.o(STACK)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv3M$S$PE$A:L22$X:L11$S22$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __Vectors                                0x00000000   Data           4  startup_rn8215.o(RESET)
+    __Vectors_End                            0x000000c0   Data           0  startup_rn8215.o(RESET)
+    __Vectors_Size                           0x000000c0   Number         0  startup_rn8215.o ABSOLUTE
+    __asm___15_system_RN8215_c_5d646a67____REV16 0x000000c1   Thumb Code     4  system_rn8215.o(.rev16_text)
+    __asm___15_system_RN8215_c_5d646a67____REVSH 0x000000c5   Thumb Code     4  system_rn8215.o(.revsh_text)
+    SystemCoreClockUpdate                    0x000000c9   Thumb Code   106  system_rn8215.o(.text)
+    SystemInit                               0x00000133   Thumb Code     2  system_rn8215.o(.text)
+    Reset_Handler                            0x0000035f   Thumb Code   120  startup_rn8215.o(.text)
+    NMI_Handler                              0x000003d7   Thumb Code     2  startup_rn8215.o(.text)
+    HardFault_Handler                        0x000003d9   Thumb Code     2  startup_rn8215.o(.text)
+    SVC_Handler                              0x000003db   Thumb Code     2  startup_rn8215.o(.text)
+    PendSV_Handler                           0x000003dd   Thumb Code     2  startup_rn8215.o(.text)
+    SysTick_Handler                          0x000003df   Thumb Code     2  startup_rn8215.o(.text)
+    EXT0_HANDLER                             0x000003e1   Thumb Code     2  startup_rn8215.o(.text)
+    EXT2_HANDLER                             0x000003e3   Thumb Code     2  startup_rn8215.o(.text)
+    EXT6_HANDLER                             0x000003e5   Thumb Code     2  startup_rn8215.o(.text)
+    EXT7_HANDLER                             0x000003e7   Thumb Code     2  startup_rn8215.o(.text)
+    DMA_HANDLER                              0x000003e9   Thumb Code     2  startup_rn8215.o(.text)
+    CT_HANDLER                               0x000003eb   Thumb Code     2  startup_rn8215.o(.text)
+    RTC_HANDLER                              0x000003ed   Thumb Code     2  startup_rn8215.o(.text)
+    EMU_HANDLER                              0x000003ef   Thumb Code     2  startup_rn8215.o(.text)
+    MADC_HANDLER                             0x000003f1   Thumb Code     2  startup_rn8215.o(.text)
+    UART0_HANDLER                            0x000003f3   Thumb Code     2  startup_rn8215.o(.text)
+    UART1_HANDLER                            0x000003f5   Thumb Code     2  startup_rn8215.o(.text)
+    UART2_HANDLER                            0x000003f7   Thumb Code     2  startup_rn8215.o(.text)
+    UART3_HANDLER                            0x000003f9   Thumb Code     2  startup_rn8215.o(.text)
+    SPI_HANDLER                              0x000003fb   Thumb Code     2  startup_rn8215.o(.text)
+    I2C_HANDLER                              0x000003fd   Thumb Code     2  startup_rn8215.o(.text)
+    ISO78161_HANDLER                         0x000003ff   Thumb Code     2  startup_rn8215.o(.text)
+    ISO78160_HANDLER                         0x00000401   Thumb Code     2  startup_rn8215.o(.text)
+    TC0_HANDLER                              0x00000403   Thumb Code     2  startup_rn8215.o(.text)
+    TC1_HANDLER                              0x00000405   Thumb Code     2  startup_rn8215.o(.text)
+    UART5_HANDLER                            0x00000407   Thumb Code     2  startup_rn8215.o(.text)
+    WDT_HANDLER                              0x00000409   Thumb Code     2  startup_rn8215.o(.text)
+    KBI_HANDLER                              0x0000040b   Thumb Code     2  startup_rn8215.o(.text)
+    LCD_HANDLER                              0x0000040d   Thumb Code     2  startup_rn8215.o(.text)
+    VCH_HANDLER                              0x0000040f   Thumb Code     2  startup_rn8215.o(.text)
+    CMP_HANDLER                              0x00000411   Thumb Code     2  startup_rn8215.o(.text)
+    __ARM_common_switch8                     0x00000491   Thumb Code    28  system_rn8215.o(i.__ARM_common_switch8)
+    SystemCoreClock                          0x00002000   Data           4  system_rn8215.o(.data)
+    __heap_base                              0x00002008   Data           0  startup_rn8215.o(HEAP)
+    __heap_limit                             0x00002008   Data           0  startup_rn8215.o(HEAP)
+    __initial_sp                             0x00002108   Data           0  startup_rn8215.o(STACK)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image entry point : Not specified.
+
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000004b0, Max: 0x00002000, ABSOLUTE)
+
+    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x000004ac, Max: 0x00002000, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000000   0x000000c0   Data   RO           49    RESET               startup_rn8215.o
+    0x000000c0   0x00000004   Code   RO            1    .rev16_text         system_rn8215.o
+    0x000000c4   0x00000004   Code   RO            2    .revsh_text         system_rn8215.o
+    0x000000c8   0x00000074   Code   RO            3    .text               system_rn8215.o
+    0x0000013c   0x00000354   Code   RO           50    .text               startup_rn8215.o
+    0x00000490   0x0000001c   Code   RO           22    i.__ARM_common_switch8  system_rn8215.o
+
+
+    Execution Region RW_IRAM1 (Base: 0x00002000, Size: 0x00000108, Max: 0x000007f0, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00002000   0x00000004   Data   RW            4    .data               system_rn8215.o
+    0x00002004   0x00000004   PAD
+    0x00002008   0x00000000   Zero   RW           48    HEAP                startup_rn8215.o
+    0x00002008   0x00000100   Zero   RW           47    STACK               startup_rn8215.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+       852        126        192          0        256       2252   startup_rn8215.o
+       152         16          0          4          0       6021   system_rn8215.o
+
+    ----------------------------------------------------------------------
+      1004        142        192          4        260       8273   Object Totals
+         0          0          0          0          0          0   (incl. Generated)
+         0          0          0          0          4          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+         0          0          0          0          0          0   Library Totals
+         0          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+      1004        142        192          4        260       8169   Grand Totals
+      1004        142        192          4        260       8169   ELF Image Totals
+      1004        142        192          4          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                 1196 (   1.17kB)
+    Total RW  Size (RW Data + ZI Data)               264 (   0.26kB)
+    Total ROM Size (Code + RO Data + RW Data)       1200 (   1.17kB)
+
+==============================================================================
+

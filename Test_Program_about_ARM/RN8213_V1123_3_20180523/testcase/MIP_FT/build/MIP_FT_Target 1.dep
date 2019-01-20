@@ -1,0 +1,136 @@
+Dependencies for Project 'MIP_FT', Target 'Target 1': (DO NOT MODIFY !)
+F (..\src\FLASH_FT.c)(0x584F68B2)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I..\sysfile -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -o "flash_ft.o" --omf_browse "flash_ft.crf" --depend "flash_ft.d")
+I (..\src\drv.h)(0x58F49B7D)
+I (..\sysfile\RN821x.h)(0x50BD9786)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\sysfile\system_RN821x.h)(0x50BD9786)
+I (..\sysfile\common.h)(0x513995AE)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0D286)
+I (..\sysfile\sysctrl.h)(0x51D6665C)
+I (..\sysfile\nvm.h)(0x5204953E)
+I (..\src\ROM_FT.h)(0x5204A61E)
+I (..\src\flash_driver.h)(0x5204BE8E)
+I (..\src\FLASH_FT.h)(0x5204B64C)
+I (..\src\eeprom_driver.h)(0x5204BFEE)
+I (..\src\EEPROM_FT.h)(0x5204BAB8)
+F (..\src\MIP_FT.c)(0x59EF2A6F)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I..\sysfile -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -o "mip_ft.o" --omf_browse "mip_ft.crf" --depend "mip_ft.d")
+I (..\src\drv.h)(0x58F49B7D)
+I (..\sysfile\RN821x.h)(0x50BD9786)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\sysfile\system_RN821x.h)(0x50BD9786)
+I (..\sysfile\common.h)(0x513995AE)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0D286)
+I (..\sysfile\sysctrl.h)(0x51D6665C)
+I (..\sysfile\nvm.h)(0x5204953E)
+I (..\src\ROM_FT.h)(0x5204A61E)
+I (..\src\flash_driver.h)(0x5204BE8E)
+I (..\src\FLASH_FT.h)(0x5204B64C)
+I (..\src\eeprom_driver.h)(0x5204BFEE)
+I (..\src\EEPROM_FT.h)(0x5204BAB8)
+F (..\src\ROM_FT.c)(0x56CFC33B)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I..\sysfile -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -o "rom_ft.o" --omf_browse "rom_ft.crf" --depend "rom_ft.d")
+I (..\src\drv.h)(0x58F49B7D)
+I (..\sysfile\RN821x.h)(0x50BD9786)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\sysfile\system_RN821x.h)(0x50BD9786)
+I (..\sysfile\common.h)(0x513995AE)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0D286)
+I (..\sysfile\sysctrl.h)(0x51D6665C)
+I (..\sysfile\nvm.h)(0x5204953E)
+I (..\src\ROM_FT.h)(0x5204A61E)
+I (..\src\flash_driver.h)(0x5204BE8E)
+I (..\src\FLASH_FT.h)(0x5204B64C)
+I (..\src\eeprom_driver.h)(0x5204BFEE)
+I (..\src\EEPROM_FT.h)(0x5204BAB8)
+F (..\src\flash_driver.c)(0x522C2D46)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I..\sysfile -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -o "flash_driver.o" --omf_browse "flash_driver.crf" --depend "flash_driver.d")
+I (..\src\drv.h)(0x58F49B7D)
+I (..\sysfile\RN821x.h)(0x50BD9786)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\sysfile\system_RN821x.h)(0x50BD9786)
+I (..\sysfile\common.h)(0x513995AE)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0D286)
+I (..\sysfile\sysctrl.h)(0x51D6665C)
+I (..\sysfile\nvm.h)(0x5204953E)
+I (..\src\ROM_FT.h)(0x5204A61E)
+I (..\src\flash_driver.h)(0x5204BE8E)
+I (..\src\FLASH_FT.h)(0x5204B64C)
+I (..\src\eeprom_driver.h)(0x5204BFEE)
+I (..\src\EEPROM_FT.h)(0x5204BAB8)
+F (..\src\EEPROM_FT.c)(0x5204C38E)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I..\sysfile -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -o "eeprom_ft.o" --omf_browse "eeprom_ft.crf" --depend "eeprom_ft.d")
+I (..\src\drv.h)(0x58F49B7D)
+I (..\sysfile\RN821x.h)(0x50BD9786)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\sysfile\system_RN821x.h)(0x50BD9786)
+I (..\sysfile\common.h)(0x513995AE)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0D286)
+I (..\sysfile\sysctrl.h)(0x51D6665C)
+I (..\sysfile\nvm.h)(0x5204953E)
+I (..\src\ROM_FT.h)(0x5204A61E)
+I (..\src\flash_driver.h)(0x5204BE8E)
+I (..\src\FLASH_FT.h)(0x5204B64C)
+I (..\src\eeprom_driver.h)(0x5204BFEE)
+I (..\src\EEPROM_FT.h)(0x5204BAB8)
+F (..\src\eeprom_driver.c)(0x5204BFEE)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I..\sysfile -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -o "eeprom_driver.o" --omf_browse "eeprom_driver.crf" --depend "eeprom_driver.d")
+I (..\sysfile\rn821x.h)(0x50BD9786)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\sysfile\system_RN821x.h)(0x50BD9786)
+I (..\src\eeprom_driver.h)(0x5204BFEE)
+I (..\src\drv.h)(0x58F49B7D)
+I (..\sysfile\common.h)(0x513995AE)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0D286)
+I (..\sysfile\sysctrl.h)(0x51D6665C)
+I (..\sysfile\nvm.h)(0x5204953E)
+I (..\src\ROM_FT.h)(0x5204A61E)
+I (..\src\flash_driver.h)(0x5204BE8E)
+I (..\src\FLASH_FT.h)(0x5204B64C)
+I (..\src\EEPROM_FT.h)(0x5204BAB8)
+F (..\sysfile\common.c)(0x50FF43CE)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I..\sysfile -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -o "common.o" --omf_browse "common.crf" --depend "common.d")
+I (..\sysfile\common.h)(0x513995AE)
+I (..\sysfile\RN821x.h)(0x50BD9786)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\sysfile\system_RN821x.h)(0x50BD9786)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0D286)
+I (..\sysfile\sysctrl.h)(0x51D6665C)
+F (..\sysfile\Retarget.c)(0x50BD9786)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I..\sysfile -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -o "retarget.o" --omf_browse "retarget.crf" --depend "retarget.d")
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0D286)
+I (E:\Keil\ARM\ARMCC\bin\..\include\time.h)(0x4EB0D282)
+I (E:\Keil\ARM\ARMCC\bin\..\include\rt_misc.h)(0x4EB0D280)
+F (..\sysfile\serial.c)(0x50CBF52C)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I..\sysfile -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -o "serial.o" --omf_browse "serial.crf" --depend "serial.d")
+I (..\sysfile\rn821x.h)(0x50BD9786)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\sysfile\system_RN821x.h)(0x50BD9786)
+I (..\sysfile\common.h)(0x513995AE)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0D286)
+F (..\sysfile\system_RN821x.c)(0x50BD9786)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I..\sysfile -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -o "system_rn821x.o" --omf_browse "system_rn821x.crf" --depend "system_rn821x.d")
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (..\sysfile\RN821x.h)(0x50BD9786)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\sysfile\system_RN821x.h)(0x50BD9786)
+F (..\sysfile\startup_RN821x.s)(0x51E3C81C)(--cpu Cortex-M0 --li -g --apcs=interwork --pd "__MICROLIB SETA 1" -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include --list ".\startup_RN821x.lst" --xref -o ".\startup_RN821x.o" --depend ".\startup_RN821x.d")
+F (..\sysfile\rn821x_nvm.lib)(0x5204953E)()
+F (..\sysfile\rn821x_sysctrl.lib)(0x51D6665C)()

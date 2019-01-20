@@ -1,0 +1,19 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\2017_FT_prog\C3\RN8213_V111_2_20170621_CPV14V15 - final\testcase\SRAM_MARCH\build\SRAM_MARCH.uvproj
+Project File Date:  08/15/2017
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling system_RN8215.c...
+assembling startup_RN8215.s...
+linking...
+SRAM_MARCH.axf: Warning: L6305W: Image does not have an entry point. (Not specified or not set due to multiple choices.)
+SRAM_MARCH.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=1004 RO-data=192 RW-data=4 ZI-data=260  
+FromELF: creating hex file...
+User command #1: fromelf --bin SRAM_MARCH.axf -o ../SRAM_MARCH.bin
+"SRAM_MARCH.axf" - 0 Error(s), 2 Warning(s).

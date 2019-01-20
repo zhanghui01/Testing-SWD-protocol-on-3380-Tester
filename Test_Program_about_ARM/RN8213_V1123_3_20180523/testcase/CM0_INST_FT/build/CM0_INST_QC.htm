@@ -1,0 +1,328 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+<title>Static Call Graph - [E:\2017_FT_prog\V112\V112.2\RN8215_V1122_8_20180118\testcase\CM0_INST_QC\build\CM0_INST_QC.axf]</title></head>
+<body><HR>
+<H1>Static Call Graph for image E:\2017_FT_prog\V112\V112.2\RN8215_V1122_8_20180118\testcase\CM0_INST_QC\build\CM0_INST_QC.axf</H1><HR>
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5.02 [Build 28]: Last Updated: Thu Jan 18 14:18:44 2018
+<BR><P>
+<H3>Maximum Stack Usage =          0 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+Call chain for Maximum Stack Depth:</H3>
+
+<P>
+<H3>
+Mutually Recursive functions
+</H3> <LI><a href="#[1]">NMI_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1]">NMI_Handler</a><BR>
+ <LI><a href="#[2]">HardFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[2]">HardFault_Handler</a><BR>
+ <LI><a href="#[3]">SVC_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[3]">SVC_Handler</a><BR>
+ <LI><a href="#[4]">PendSV_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[4]">PendSV_Handler</a><BR>
+ <LI><a href="#[5]">SysTick_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[5]">SysTick_Handler</a><BR>
+ <LI><a href="#[1b]">EXT0_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1b]">EXT0_HANDLER</a><BR>
+ <LI><a href="#[1c]">EXT2_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1c]">EXT2_HANDLER</a><BR>
+ <LI><a href="#[1d]">EXT6_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1d]">EXT6_HANDLER</a><BR>
+ <LI><a href="#[1e]">EXT7_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1e]">EXT7_HANDLER</a><BR>
+ <LI><a href="#[1a]">DMA_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1a]">DMA_HANDLER</a><BR>
+ <LI><a href="#[19]">CT_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[19]">CT_HANDLER</a><BR>
+ <LI><a href="#[8]">RTC_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[8]">RTC_HANDLER</a><BR>
+ <LI><a href="#[9]">EMU_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[9]">EMU_HANDLER</a><BR>
+ <LI><a href="#[a]">MADC_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[a]">MADC_HANDLER</a><BR>
+ <LI><a href="#[b]">UART0_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[b]">UART0_HANDLER</a><BR>
+ <LI><a href="#[c]">UART1_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[c]">UART1_HANDLER</a><BR>
+ <LI><a href="#[d]">UART2_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[d]">UART2_HANDLER</a><BR>
+ <LI><a href="#[e]">UART3_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[e]">UART3_HANDLER</a><BR>
+ <LI><a href="#[f]">SPI_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[f]">SPI_HANDLER</a><BR>
+ <LI><a href="#[10]">I2C_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[10]">I2C_HANDLER</a><BR>
+ <LI><a href="#[12]">ISO78161_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[12]">ISO78161_HANDLER</a><BR>
+ <LI><a href="#[11]">ISO78160_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[11]">ISO78160_HANDLER</a><BR>
+ <LI><a href="#[13]">TC0_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[13]">TC0_HANDLER</a><BR>
+ <LI><a href="#[14]">TC1_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[14]">TC1_HANDLER</a><BR>
+ <LI><a href="#[15]">UART5_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[15]">UART5_HANDLER</a><BR>
+ <LI><a href="#[16]">WDT_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[16]">WDT_HANDLER</a><BR>
+ <LI><a href="#[17]">KBI_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[17]">KBI_HANDLER</a><BR>
+ <LI><a href="#[18]">LCD_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[18]">LCD_HANDLER</a><BR>
+ <LI><a href="#[7]">VCH_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[7]">VCH_HANDLER</a><BR>
+ <LI><a href="#[6]">CMP_HANDLER</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[6]">CMP_HANDLER</a><BR>
+</UL>
+<P>
+<H3>
+Function Pointers
+</H3><UL>
+ <LI><a href="#[6]">CMP_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[19]">CT_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[1a]">DMA_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[9]">EMU_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[1b]">EXT0_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[1c]">EXT2_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[1d]">EXT6_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[1e]">EXT7_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[2]">HardFault_Handler</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[10]">I2C_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[11]">ISO78160_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[12]">ISO78161_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[17]">KBI_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[18]">LCD_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[a]">MADC_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[1]">NMI_Handler</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[4]">PendSV_Handler</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[8]">RTC_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[0]">Reset_Handler</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[f]">SPI_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[3]">SVC_Handler</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[5]">SysTick_Handler</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[13]">TC0_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[14]">TC1_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[b]">UART0_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[c]">UART1_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[d]">UART2_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[e]">UART3_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[15]">UART5_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[7]">VCH_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+ <LI><a href="#[16]">WDT_HANDLER</a> from startup_rn8215.o(.text) referenced from startup_rn8215.o(RESET)
+</UL>
+<P>
+<H3>
+Global Symbols
+</H3>
+<P><STRONG><a name="[23]"></a>__asm___15_system_RN8215_c_5d646a67____REV16</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, system_rn8215.o(.rev16_text), UNUSED)
+
+<P><STRONG><a name="[24]"></a>__asm___15_system_RN8215_c_5d646a67____REVSH</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, system_rn8215.o(.revsh_text), UNUSED)
+
+<P><STRONG><a name="[1f]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 106 bytes, Stack size 4 bytes, system_rn8215.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[20]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+</UL>
+
+<P><STRONG><a name="[25]"></a>SystemInit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, system_rn8215.o(.text), UNUSED)
+
+<P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 492 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MUL_CARRY
+<LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADD_CARRY
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[1]"></a>NMI_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NMI_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NMI_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[2]"></a>HardFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HardFault_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HardFault_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[3]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SVC_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SVC_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[4]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PendSV_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PendSV_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[5]"></a>SysTick_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[1b]"></a>EXT0_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXT0_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[1b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXT0_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[1c]"></a>EXT2_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXT2_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[1c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXT2_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[1d]"></a>EXT6_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXT6_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[1d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXT6_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[1e]"></a>EXT7_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXT7_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXT7_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[1a]"></a>DMA_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[1a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DMA_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[19]"></a>CT_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CT_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[19]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CT_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[8]"></a>RTC_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[9]"></a>EMU_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EMU_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EMU_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[a]"></a>MADC_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MADC_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MADC_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[b]"></a>UART0_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART0_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[c]"></a>UART1_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[d]"></a>UART2_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART2_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART2_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[e]"></a>UART3_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART3_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART3_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[f]"></a>SPI_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[10]"></a>I2C_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[10]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[10]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[12]"></a>ISO78161_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ISO78161_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ISO78161_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[11]"></a>ISO78160_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[11]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ISO78160_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[11]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ISO78160_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[13]"></a>TC0_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TC0_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TC0_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[14]"></a>TC1_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TC1_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TC1_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[15]"></a>UART5_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART5_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[16]"></a>WDT_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WDT_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[16]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WDT_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[17]"></a>KBI_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KBI_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KBI_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[18]"></a>LCD_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[18]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[7]"></a>VCH_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VCH_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VCH_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[6]"></a>CMP_HANDLER</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMP_HANDLER
+</UL>
+<BR>[Called By]<UL><LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMP_HANDLER
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_rn8215.o(RESET)
+</UL>
+<P><STRONG><a name="[20]"></a>__ARM_common_switch8</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, system_rn8215.o(i.__ARM_common_switch8), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
+</UL>
+<P>
+<H3>
+Local Symbols
+</H3>
+<P><STRONG><a name="[21]"></a>ADD_CARRY</STRONG> (Thumb, 104 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Reset_Handler
+</UL>
+
+<P><STRONG><a name="[22]"></a>MUL_CARRY</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, startup_rn8215.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Reset_Handler
+</UL>
+<P>
+<H3>
+Undefined Global Symbols
+</H3><HR></body></html>

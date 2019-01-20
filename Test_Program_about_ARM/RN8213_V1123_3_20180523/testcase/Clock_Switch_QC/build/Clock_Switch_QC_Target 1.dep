@@ -1,0 +1,37 @@
+Dependencies for Project 'Clock_Switch_QC', Target 'Target 1': (DO NOT MODIFY !)
+F (..\src\common\clk_calc.c)(0x5837A9DF)(--feedback "Clock_Switch_QC.fed" -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\src -I..\src\common -I..\src\common\lib -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy -o "clk_calc.o" --omf_browse "clk_calc.crf" --depend "clk_calc.d")
+I (..\src\common\clk_calc.h)(0x5837A9DF)
+I (..\src\rn821x.h)(0x5837A9DF)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x5AFABDBF)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\src\system_RN821x.h)(0x5837A9DF)
+I (..\src\common\common.h)(0x5837A9DF)
+F (..\src\common\common.c)(0x5837A9DF)(--feedback "Clock_Switch_QC.fed" -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\src -I..\src\common -I..\src\common\lib -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy -o "common.o" --omf_browse "common.crf" --depend "common.d")
+I (..\src\common\common.h)(0x5837A9DF)
+I (..\src\rn821x.h)(0x5837A9DF)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x5AFABDBF)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\src\system_RN821x.h)(0x5837A9DF)
+I (..\src\common\clk_calc.h)(0x5837A9DF)
+F (..\src\common\lib\rn821x_sysctrl.lib)(0x58773B3B)()
+F (..\src\system_RN821x.c)(0x5837A9DF)(--feedback "Clock_Switch_QC.fed" -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\src -I..\src\common -I..\src\common\lib -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy -o "system_rn821x.o" --omf_browse "system_rn821x.crf" --depend "system_rn821x.d")
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (..\src\rn821x.h)(0x5837A9DF)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x5AFABDBF)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\src\system_RN821x.h)(0x5837A9DF)
+F (..\src\startup_RA9103.s)(0x581AF910)(--cpu Cortex-M0 -g --apcs=interwork --pd "__MICROLIB SETA 1" -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy --list ".\startup_RA9103.lst" --xref -o ".\startup_RA9103.o" --depend ".\startup_RA9103.d")
+F (..\src\ra9103a0_clock_switch_qc.c)(0x5B040B56)(--feedback "Clock_Switch_QC.fed" -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\src -I..\src\common -I..\src\common\lib -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy -o "ra9103a0_clock_switch_qc.o" --omf_browse "ra9103a0_clock_switch_qc.crf" --depend "ra9103a0_clock_switch_qc.d")
+I (..\src\rn821x.h)(0x5837A9DF)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x5AFABDBF)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\src\system_RN821x.h)(0x5837A9DF)
+I (..\src\common\common.h)(0x5837A9DF)
+I (..\src\common\lib\sysctrl.h)(0x5837A9DF)

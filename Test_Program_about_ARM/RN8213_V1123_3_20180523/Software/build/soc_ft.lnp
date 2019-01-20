@@ -1,0 +1,27 @@
+--cpu Cortex-M3
+".\ft_main.o"
+".\serial.o"
+".\swd_atf.o"
+".\swd_drv.o"
+".\system_lpc17xx.o"
+".\startup_lpc17xx.o"
+".\board.o"
+".\test_all.o"
+".\voltage.o"
+".\lcd_pump.o"
+".\adc.o"
+".\spi.o"
+".\spline.o"
+".\ra0_routine.o"
+".\timer.o"
+".\ads_acquire.o"
+".\temper_process.o"
+".\emu.o"
+".\ldo18_trim.o"
+".\rcl_trim.o"
+".\sar.o"
+".\retarget.o"
+--library_type=microlib --strict --scatter ".\soc_ft.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\soc_ft.map" -o .\soc_ft.axf

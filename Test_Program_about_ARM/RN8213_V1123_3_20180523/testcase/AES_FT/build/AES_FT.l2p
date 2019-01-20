@@ -1,0 +1,5 @@
+--cpu Cortex-M0 "clk_calc.o" "common.o" E:\2017_FT_prog\V200\F2\debug\AES_QC\src\common\lib\rn821x_sysctrl.lib "system_rn821x.o" ".\startup_ra9103.o" "main.o" 
+--library_type=microlib --strict --scatter "AES_FT.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\AES_FT.map" -o AES_FT.axf

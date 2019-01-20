@@ -1,0 +1,27 @@
+*** Creating Trace Output File 'EMU_QC.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"common.o"'
+### List of Objects: adding '"nvm.o"'
+### List of Objects: adding '"retarget.o"'
+### List of Objects: adding '"serial.o"'
+### List of Objects: adding '".\startup_ra9103.o"'
+### List of Objects: adding '"sysctrl.o"'
+### List of Objects: adding '"system_rn821x.o"'
+### List of Objects: adding '"emu_qc.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M0 "common.o" "nvm.o" "retarget.o" "serial.o" ".\startup_ra9103.o" "sysctrl.o" "system_rn821x.o" "emu_qc.o" 
+--library_type=microlib --strict --scatter "EMU_QC.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\EMU_QC.map" -o EMU_QC.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'EMU_QC.axf'
+### ADS-LD Command File: 'EMU_QC.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'EMU_QC.lnp', Handle=0x00000784
+### Writing '.lnp' file
+### ADS-LD Command file 'EMU_QC.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

@@ -1,0 +1,28 @@
+*** Creating Trace Output File 'Soc_DISLowPwr_sys.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"common.o"'
+### List of Objects: adding '"nvm.o"'
+### List of Objects: adding '"retarget.o"'
+### List of Objects: adding '"serial.o"'
+### List of Objects: adding '"soclowpwr_sys.o"'
+### List of Objects: adding '"sysctrl.o"'
+### List of Objects: adding '"system_rn821x.o"'
+### List of Objects: adding '"sysupdate.o"'
+### List of Objects: adding '".\startup_ra9103.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M0 "common.o" "nvm.o" "retarget.o" "serial.o" "soclowpwr_sys.o" "sysctrl.o" "system_rn821x.o" "sysupdate.o" ".\startup_ra9103.o" 
+--library_type=microlib --strict --scatter "Soc_DISLowPwr_sys.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Soc_DISLowPwr_sys.map" -o Soc_DISLowPwr_sys.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'Soc_DISLowPwr_sys.axf'
+### ADS-LD Command File: 'Soc_DISLowPwr_sys.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'Soc_DISLowPwr_sys.lnp', Handle=0x00000468
+### Writing '.lnp' file
+### ADS-LD Command file 'Soc_DISLowPwr_sys.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

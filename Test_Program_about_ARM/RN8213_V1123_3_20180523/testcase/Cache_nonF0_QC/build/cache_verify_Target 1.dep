@@ -1,0 +1,25 @@
+Dependencies for Project 'cache_verify', Target 'Target 1': (DO NOT MODIFY !)
+F (..\CMSIS\RA9103\system_RA9103.c)(0x58744A4B)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\common_files -I..\CMSIS\RA9103 -I..\common_files\lib -I..\src -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy -DRA9103C -o "system_ra9103.o" --omf_browse "system_ra9103.crf" --depend "system_ra9103.d")
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (..\CMSIS\RA9103\RA9103.h)(0x58749E6D)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\CMSIS\RA9103\system_RA9103.h)(0x58744A60)
+F (..\CMSIS\RA9103\startup\arm\startup_RA9103.s)(0x5A0EA7B6)(--cpu Cortex-M0 -g --apcs=interwork --pd "__MICROLIB SETA 1" -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy --list ".\startup_RA9103.lst" --xref -o ".\startup_RA9103.o" --depend ".\startup_RA9103.d")
+F (..\common_files\flash_driver.c)(0x5A2601A2)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\common_files -I..\CMSIS\RA9103 -I..\common_files\lib -I..\src -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy -DRA9103C -o "flash_driver.o" --omf_browse "flash_driver.crf" --depend "flash_driver.d")
+I (..\CMSIS\RA9103\ra9103.h)(0x58749E6D)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\CMSIS\RA9103\system_RA9103.h)(0x58744A60)
+I (..\common_files\flash_driver.h)(0x5A168887)
+F (..\src\cache_verify.c)(0x5A2600B6)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\common_files -I..\CMSIS\RA9103 -I..\common_files\lib -I..\src -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy -DRA9103C -o "cache_verify.o" --omf_browse "cache_verify.crf" --depend "cache_verify.d")
+I (..\CMSIS\RA9103\ra9103.h)(0x58749E6D)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\CMSIS\RA9103\system_RA9103.h)(0x58744A60)
+I (..\common_files\flash_driver.h)(0x5A168887)

@@ -1,0 +1,5 @@
+--cpu Cortex-M0 "common.o" "retarget.o" "serial.o" F:\LIWB\Õ‚≤‚ ‘£®CP&FT£©\QC_Broad\Testcase\PLL_1Hz_FT\src\common\lib\rn821x_sysctrl.lib "rtc_qc.o" ".\startup_ra9103.o" "system_rn821x.o" "clk_calc.o" --library_type=microlib --feedback "RTC_QC.fed" 
+--strict --scatter "RTC_QC.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\RTC_QC.map" -o "RTC_QC.axf"

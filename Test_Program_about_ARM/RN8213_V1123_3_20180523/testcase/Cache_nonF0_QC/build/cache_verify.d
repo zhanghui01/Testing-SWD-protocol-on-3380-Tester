@@ -1,0 +1,9 @@
+cache_verify.o: ..\src\cache_verify.c
+cache_verify.o: ..\CMSIS\RA9103\ra9103.h
+cache_verify.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+cache_verify.o: E:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+cache_verify.o: E:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+cache_verify.o: E:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+cache_verify.o: ..\CMSIS\RA9103\system_RA9103.h
+cache_verify.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+cache_verify.o: ..\common_files\flash_driver.h

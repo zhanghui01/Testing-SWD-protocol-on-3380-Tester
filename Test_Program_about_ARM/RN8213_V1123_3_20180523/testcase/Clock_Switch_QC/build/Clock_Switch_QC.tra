@@ -1,0 +1,25 @@
+*** Creating Trace Output File 'Clock_Switch_QC.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"clk_calc.o"'
+### List of Objects: adding '"common.o"'
+### List of Objects: adding '"..\src\common\lib\rn821x_sysctrl.lib"'
+### List of Objects: adding '"system_rn821x.o"'
+### List of Objects: adding '".\startup_ra9103.o"'
+### List of Objects: adding '"ra9103a0_clock_switch_qc.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M0 "clk_calc.o" "common.o" E:\2017_FT_prog\V112\V112.3\RN8213_V1123_2_20180523\testcase\Clock_Switch_QC\src\common\lib\rn821x_sysctrl.lib "system_rn821x.o" ".\startup_ra9103.o" "ra9103a0_clock_switch_qc.o" 
+--library_type=microlib --strict --scatter "Clock_Switch_QC.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Clock_Switch_QC.map" -o Clock_Switch_QC.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'Clock_Switch_QC.axf'
+### ADS-LD Command File: 'Clock_Switch_QC.l2p'
+### Checking for dirty Components...
+### Creating CmdFile 'Clock_Switch_QC.l2p', Handle=0x000007C8
+### Writing '.lnp' file
+### ADS-LD Command file 'Clock_Switch_QC.l2p' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

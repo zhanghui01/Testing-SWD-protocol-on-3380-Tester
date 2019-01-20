@@ -1,0 +1,18 @@
+#include <uti/clabel.h>
+#define __CLASS_BODY__
+#include <uti/stntype.h>
+CLABEL STNTYPE GET_CHIP_ID("GET_CHIP_ID");
+CLABEL STNTYPE __GET_CHIP_ID("__GET_CHIP_ID");
+CLABEL STNTYPE Reset_SWD("Reset_SWD");
+CLABEL STNTYPE __Reset_SWD("__Reset_SWD");
+CLABEL STNTYPE wstart_data("wstart_data");
+CLABEL STNTYPE wstart_head("wstart_head");
+CLABEL STNTYPE WIRTE_WORD("WIRTE_WORD");
+CLABEL STNTYPE __WIRTE_WORD("__WIRTE_WORD");
+CLABEL STNTYPE Capture_addr("Capture_addr");
+CLABEL STNTYPE CAPTURE_WORD("CAPTURE_WORD");
+CLABEL STNTYPE __CAPTURE_WORD("__CAPTURE_WORD");
+CLABEL STNTYPE wread_data("wread_data");
+CLABEL STNTYPE wread_addr("wread_addr");
+CLABEL STNTYPE READ_WORD("READ_WORD");
+CLABEL STNTYPE __READ_WORD("__READ_WORD");

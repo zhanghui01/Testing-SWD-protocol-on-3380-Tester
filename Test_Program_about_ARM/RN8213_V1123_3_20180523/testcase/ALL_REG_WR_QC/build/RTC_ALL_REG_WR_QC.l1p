@@ -1,0 +1,7 @@
+--cpu Cortex-M0 "common.o" ".\startup_ra9103.o" "system_rn821x.o" "clk_calc.o" E:\2017_FT_prog\V112\V112.1\RN8312_V1121_3_20171129\testcase\RTC_ALL_REG_WR_QC\src\common\lib\rn821x_sysctrl.lib "all_reg_wr_qc.o" "retarget.o" "serial.o" 
+--library_type=microlib 
+--feedback "RTC_ALL_REG_WR_QC.fed" --feedback_image=none 
+--strict --scatter "RTC_ALL_REG_WR_QC.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\RTC_ALL_REG_WR_QC.map" -o RTC_ALL_REG_WR_QC.axf

@@ -1,0 +1,5 @@
+--cpu Cortex-M0 "clk_calc.o" "common.o" F:\hqnstudy\SVN\QC\QC_SW\Testcase\EEPROM_QC\src\common\lib\rn821x_sysctrl.lib "system_rn821x.o" ".\startup_ra9103.o" "eeprom_driver.o" "ra9103a0_eeprom_qc.o" 
+--library_type=microlib --strict --scatter "EEPROM_QC.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\EEPROM_QC.map" -o EEPROM_QC.axf

@@ -1,0 +1,5 @@
+--feedback "ALL_REG_WR_QC.fed" -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\src -I..\src\common -I..\src\common\lib 
+-I E:\Keil\ARM\RV31\INC 
+-I E:\Keil\ARM\CMSIS\Include 
+-I E:\Keil\ARM\Inc\Renergy\RA9103D0 
+-o "serial.o" --omf_browse "serial.crf" --depend "serial.d" "..\src\common\serial.c"

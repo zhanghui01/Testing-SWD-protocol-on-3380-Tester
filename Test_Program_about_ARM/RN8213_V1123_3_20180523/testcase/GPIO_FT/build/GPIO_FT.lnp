@@ -1,0 +1,5 @@
+--cpu Cortex-M0 "gpio_ft.o" "common.o" "retarget.o" "serial.o" "system_rn821x.o" ".\startup_rn821x.o" E:\2017_FT_prog\V111\RN8213_V111_1_20170417_CPV14V15\testcase\GPIO_FT\sysfile\rn821x_nvm.lib E:\2017_FT_prog\V111\RN8213_V111_1_20170417_CPV14V15\testcase\GPIO_FT\sysfile\rn821x_sysctrl.lib 
+--library_type=microlib --strict --scatter "GPIO_FT.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\GPIO_FT.map" -o GPIO_FT.axf

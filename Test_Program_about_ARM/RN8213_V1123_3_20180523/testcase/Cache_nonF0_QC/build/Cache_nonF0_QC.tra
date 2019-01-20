@@ -1,0 +1,23 @@
+*** Creating Trace Output File 'Cache_nonF0_QC.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"system_ra9103.o"'
+### List of Objects: adding '".\startup_ra9103.o"'
+### List of Objects: adding '"flash_driver.o"'
+### List of Objects: adding '"cache_verify.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M0 "system_ra9103.o" ".\startup_ra9103.o" "flash_driver.o" "cache_verify.o" 
+--library_type=microlib --strict --scatter "Cache_nonF0_QC.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Cache_nonF0_QC.map" -o Cache_nonF0_QC.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'Cache_nonF0_QC.axf'
+### ADS-LD Command File: 'Cache_nonF0_QC.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'Cache_nonF0_QC.lnp', Handle=0x00000728
+### Writing '.lnp' file
+### ADS-LD Command file 'Cache_nonF0_QC.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

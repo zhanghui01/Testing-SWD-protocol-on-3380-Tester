@@ -1,0 +1,13 @@
+gpio_ft.o: ..\src\GPIO_FT.c
+gpio_ft.o: ..\src\drv.h
+gpio_ft.o: ..\sysfile\RN821x.h
+gpio_ft.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+gpio_ft.o: E:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+gpio_ft.o: E:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+gpio_ft.o: E:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+gpio_ft.o: ..\sysfile\system_RN821x.h
+gpio_ft.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+gpio_ft.o: ..\sysfile\common.h
+gpio_ft.o: E:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+gpio_ft.o: ..\sysfile\sysctrl.h
+gpio_ft.o: ..\sysfile\nvm.h

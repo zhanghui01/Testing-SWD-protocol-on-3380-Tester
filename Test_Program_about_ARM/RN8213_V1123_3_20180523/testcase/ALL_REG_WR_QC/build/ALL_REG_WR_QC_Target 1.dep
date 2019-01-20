@@ -1,0 +1,50 @@
+Dependencies for Project 'ALL_REG_WR_QC', Target 'Target 1': (DO NOT MODIFY !)
+F (..\src\common\common.c)(0x5A1E7485)(--feedback "ALL_REG_WR_QC.fed" -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\src -I..\src\common -I..\src\common\lib -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RA9103D0 -o "common.o" --omf_browse "common.crf" --depend "common.d")
+I (..\src\common\common.h)(0x5837A9D4)
+I (..\src\rn821x.h)(0x5A1E2FEB)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\src\system_RN821x.h)(0x5837A9D4)
+I (..\src\common\clk_calc.h)(0x5837A9D4)
+F (..\src\startup_RA9103.s)(0x5A1E742F)(--cpu Cortex-M0 -g --apcs=interwork --pd "__MICROLIB SETA 1" -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RA9103D0 --list ".\startup_RA9103.lst" --xref -o ".\startup_RA9103.o" --depend ".\startup_RA9103.d")
+F (..\src\system_RN821x.c)(0x5837A9D4)(--feedback "ALL_REG_WR_QC.fed" -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\src -I..\src\common -I..\src\common\lib -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RA9103D0 -o "system_rn821x.o" --omf_browse "system_rn821x.crf" --depend "system_rn821x.d")
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (..\src\RN821x.h)(0x5A1E2FEB)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\src\system_RN821x.h)(0x5837A9D4)
+F (..\src\common\clk_calc.c)(0x5837A9D4)(--feedback "ALL_REG_WR_QC.fed" -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\src -I..\src\common -I..\src\common\lib -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RA9103D0 -o "clk_calc.o" --omf_browse "clk_calc.crf" --depend "clk_calc.d")
+I (..\src\common\clk_calc.h)(0x5837A9D4)
+I (..\src\rn821x.h)(0x5A1E2FEB)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\src\system_RN821x.h)(0x5837A9D4)
+I (..\src\common\common.h)(0x5837A9D4)
+F (..\src\common\lib\rn821x_sysctrl.lib)(0x599AA2DA)()
+F (..\src\ALL_REG_WR_QC.c)(0x5A1FB750)(--feedback "ALL_REG_WR_QC.fed" -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\src -I..\src\common -I..\src\common\lib -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RA9103D0 -o "all_reg_wr_qc.o" --omf_browse "all_reg_wr_qc.crf" --depend "all_reg_wr_qc.d")
+I (..\src\rn821x.h)(0x5A1E2FEB)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\src\system_RN821x.h)(0x5837A9D4)
+I (..\src\common\lib\sysctrl.h)(0x593F98AF)
+I (..\src\common\common.h)(0x5837A9D4)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0D286)
+F (..\src\common\Retarget.c)(0x5837A9D4)(--feedback "ALL_REG_WR_QC.fed" -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\src -I..\src\common -I..\src\common\lib -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RA9103D0 -o "retarget.o" --omf_browse "retarget.crf" --depend "retarget.d")
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0D286)
+I (E:\Keil\ARM\ARMCC\bin\..\include\time.h)(0x4EB0D282)
+I (E:\Keil\ARM\ARMCC\bin\..\include\rt_misc.h)(0x4EB0D280)
+F (..\src\common\serial.c)(0x5837A9D4)(--feedback "ALL_REG_WR_QC.fed" -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\src -I..\src\common -I..\src\common\lib -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RA9103D0 -o "serial.o" --omf_browse "serial.crf" --depend "serial.d")
+I (..\src\common\common.h)(0x5837A9D4)
+I (..\src\rn821x.h)(0x5A1E2FEB)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\src\system_RN821x.h)(0x5837A9D4)

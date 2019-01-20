@@ -1,0 +1,9 @@
+flash_driver.o: ..\common_files\flash_driver.c
+flash_driver.o: ..\CMSIS\RA9103\ra9103.h
+flash_driver.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+flash_driver.o: E:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+flash_driver.o: E:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+flash_driver.o: E:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+flash_driver.o: ..\CMSIS\RA9103\system_RA9103.h
+flash_driver.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+flash_driver.o: ..\common_files\flash_driver.h

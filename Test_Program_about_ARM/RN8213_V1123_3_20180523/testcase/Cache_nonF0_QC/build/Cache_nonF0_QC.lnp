@@ -1,0 +1,5 @@
+--cpu Cortex-M0 "system_ra9103.o" ".\startup_ra9103.o" "flash_driver.o" "cache_verify.o" 
+--library_type=microlib --strict --scatter "Cache_nonF0_QC.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Cache_nonF0_QC.map" -o Cache_nonF0_QC.axf

@@ -1,0 +1,382 @@
+/*******************************************************************************************************************************
+*RN8211 swd_reset 0xA9 write 0x50000000,read data is 0xF0000000
+*RN8213 B VERSION swd_reset 0xA9 write 0x50000000,read data is 0xF0000040     //zhanghui 20190118
+*20190119 add LDO18_trim,Max loop 50 times,from spline.pln adpate B Version
+*20190119 add Rcl_trim,Max loop 100 times,from spline.pln adpate B Version
+*--IC_Ctrl.pln include modify pat function,eg:write_word is write command for SWD
+*--read_word is compare pat,inner on the write_word,judge head_data bit2,if bit2
+*is bit 0,mean write,else read;also include other function(POWER_ON(),POWER_OFF()
+*,RESET_SWD(),swd_rate(),capture_word(),Judge_A_Or_D_Version())
+*--spline.pln include trim function,and load message to DUT,include ldo18_trim_write() is swd command
+*LDO18_TRIM() function,rcl_trim() is clock trim,UID_adr_read() is capture CP OR FT result,
+*sp0LinePro() is write message to DUT function
+*******************************************************************************************************************************/
+SET_DEC_FILE".\PAT\RN8213.dec"
+#include <stdlib.h>
+#include <stdio.h> 
+#include "IC_Ctrl.h"
+#include "spline.h"
+ 
+using namespace std;
+
+HW_BIN_DEF 
+{ 
+ All_PASS                         = 1;
+ HW_OS_FAIL                       = !2; 
+ HW_UID_TEST_FAIL                 = !4;
+ HW_ENABLE_Voltage_FAIL           = !5;
+ HW_SWD_RESET_FAIL                = !6;
+ HW_POWER_SWICTH_FAIL             = !7;
+ HW_SPLINE_FAIL                   = !8;
+ HW_Fail_last_item_test           = !255; 
+}
+SW_BIN_DEF
+{ 
+ All_PASS                         = 1;
+ SW_OS_FAIL                       = !2; 
+ SW_RESET_SWD_FAIL                = !3;
+ SW_UID_TEST_FAIL                 = !4;
+ SW_ENABLE_Voltage_FAIL           = !5;
+ SW_SWD_RESET_FAIL                = !6;
+ SW_POWER_SWICTH_FAIL             = !7;
+ SW_SPLINE_FAIL                   = !8;
+ SW_LDO18_TRIM_FAIL               = !9;
+ SW_RCL_TRIM_FAIL                 = !10;
+ SW_VERSION_FAIL                  = !11;
+ SW_Fail_last_item_test           = !255;
+}
+
+ 
+LEVEL_NAME_DEF
+{
+  rst_lvl                      = 1;
+  OS_lvl                       = 2;
+  UID_lvl                      = 3;
+  LDO_POR_lvl                  = 4;
+  PSW_lvl                      = 5;
+  CLK_lvl                      = 6;
+  LCD_lvl                      = 7;
+  SAR_ADC_lvl                  = 8;
+  COMP_BOR_lvl                 = 9;
+  WNVR_lvl                     = 10;
+  SCAN_lvl                     = 11;
+  SRAM_lvl                     = 12;
+  POWER_lvl                    = 13;
+  GPIO_lvl                     = 14;
+  EMU_lvl                      = 15;
+  RTC_lvl                      = 16;    
+}
+START_UP()
+{
+  SET_LEVELN (rst_lvl,IO_ALLPINS,0V,0V,0V,0V,0mA,0mA,0V);
+  SET_LEVELN (UID_lvl, SWD_PINS, 0V, 5V, 4.5V, 4.8V,50uA,,5V);
+  SET_LEVELN (LDO_POR_lvl, DVDD, 0V, 1.8V, 1.7V, 1.75V,  , , , , );//Set DVDD Level
+  SET_LEVELN (PSW_lvl, AVDD, 0V, 3.3V, 3.1V, 3.2V,  , , , , );//Set AVDD Level
+  SET_LEVELN (POWER_lvl, VBAT+VSWO, 0V, 3.6V, 3.1V, 3.5V,  , , , , );//Set VBAT+VSWO Level
+  
+  SET_LEVELN (CLK_lvl, SWD_PINS, 0V, 3.3V, 1.0V, 2.3V,  , , , , );//Set IO Level
+  SET_LEVELN (CLK_lvl, SWD_PINS, 0V, 3.3V, 2.0V, 2.0V,  , , , , );//Set IO Level
+
+  SET_LEVELN (LCD_lvl, SWD_PINS, 0V, 3.3V, 1.0V, 2.3V,  , , , , );//Set IO Level
+
+  SET_LEVELN (SAR_ADC_lvl, SWD_PINS, 0V, 3.3V, 1.0V, 2.3V,  , , , , );//Set IO Level
+  SET_LEVELN (SAR_ADC_lvl, SWD_PINS, 0V, 0.6V, 1.0V, 2.3V,  , , , , );//Set IO Level
+
+  SET_LEVELN (WNVR_lvl, SWD_PINS, 0V, 3.3V, 1.0V, 2.3V,  , , , , );//Set IO Level
+
+  SET_LEVELN (COMP_BOR_lvl, SWD_PINS, 0V, 3.3V, 1.0V, 2.3V,  , , , , );//Set IO Level
+  SET_LEVELN (SCAN_lvl, SWD_PINS, 0V, 3.3V, 0.5V, 2.8V,  , , , , );//Set IO Level
+  SET_LEVELN (SRAM_lvl, SWD_PINS, 0V, 3.3V, 1.0V, 2.3V,  , , , , );//Set IO Level
+
+
+  SET_LEVELN (GPIO_lvl, SWD_PINS, 0V, 3.3V, 1.0V, 2.3V,  , , , , );//Set IO Level
+  LOAD_PAT("./PAT/RN8213.ppo");
+}
+TEST_START()
+{
+  global_var_Reset();
+  trim_ldo18  = 0x10;
+  trim_ANALDO = 0x0;
+  trim_rcl = 0x9;
+  LEVELS(rst_lvl,2mS);
+  RELAY_OFF(IO_ALLPINS, PPMU, 1mS);
+}
+TEST_END() 
+{
+  LEVELS(rst_lvl,2mS);
+  FORCE_V_MLDPS(VCC, 0V, @6V, @500mA, 60mA, NORM,  ON, 3mS);
+  WAIT(5mS);
+  FORCE_V_MLDPS(VCC, 0V, @6V, @500mA, 60mA, NORM, OFF, 2mS);
+  RELAY_OFF(IO_ALLPINS, PDCL, 1mS); 
+
+}
+
+RELEASE()
+{
+  ;
+}
+
+TEST_PRO
+{
+  BEFORE_TEST:TEST_START;
+  OS_TEST                ?                            :#C(HW_OS_FAIL              ,SW_OS_FAIL);
+  Get_Chip_TEST          ? #F (Enable_Voltage)        :#F (Capture_Data);
+  Capture_Data           ?                            :#C(HW_UID_TEST_FAIL        ,SW_UID_TEST_FAIL);
+  Enable_Voltage         ?                            :#C(HW_ENABLE_Voltage_FAIL  ,SW_ENABLE_Voltage_FAIL);
+  POWER_SWICTH           ?                            :#C(HW_POWER_SWICTH_FAIL    ,SW_POWER_SWICTH_FAIL);
+  SPLINE_TEST            ?                            :#C(HW_SPLINE_FAIL          ,SW_SPLINE_FAIL);
+  last_test              ? #C(All_PASS,All_PASS)      :#C(HW_Fail_last_item_test  ,SW_Fail_last_item_test);
+  AFTER_TEST:TEST_END; 
+}
+
+
+
+OS_TEST()
+{
+  DATALOG_MSG="==   OS_TEST  ==";
+
+ // //  SET_CBIT(RL0, OFF ,2mS);
+//  SET_FAIL_BIN (HW_FAIL_OS_OPEN, SW_FAIL_OS_OPEN);
+  FORCE_V_MLDPS(VCC, 0V, @6V, @500mA, 100mA, NORM, ON, 2mS);
+  PIN_MODE(SWD_PINS, NRZ, EDGE, MASK, IO_ON, OFF);
+  RELAY_OFF(SWD_PINS,ALL,2mS);
+
+  LEVELS(rst_lvl,2mS);
+  PARAL_INC(SWD_PINS + AVDD + DVDD)
+  { 
+    RELAY_OFF(PIN_DEFS,PDCL,2mS);
+    RELAY_ON(PIN_DEFS,PMU,2mS);
+    //======================Test continuity pin to gnd==============================
+    FORCE_I_PMU(PMU, -300uA, @1mA, @6V, 2V, ON, 2mS);
+    JUDGE_V_PMU(PMU, IFVM, -0.9V,-0.2 , 2mS, 8, AVE, 50uS, , );
+    FORCE_V_PMU (PMU, 0V, @6V, @1mA, 1mA, ON, 2mS);
+    FORCE_V_PMU (PMU, 0V, @6V, @1mA, 1mA, OFF, 2mS);
+    RELAY_OFF(PIN_DEFS,PMU,2mS);
+    RELAY_ON(PIN_DEFS,PDCL,2mS);
+  }
+  
+  RELAY_OFF(SWD_PINS,ALL,2mS);
+  LEVELS(rst_lvl,2mS);
+}
+ 
+
+ 
+Get_Chip_TEST() 
+{   
+  POWER_ON(POWER_VOL);
+  LEVELS(UID_lvl, 3mS); 
+  swd_rate(1000nS);
+  
+  PIN_MODE(SWDIO, NRZ, EDGE, ENABLE, IO_NRZ, OFF);
+  PIN_MODE(SWDCLK,RZ, EDGE, ENABLE, IO_NRZ, OFF);
+  RELAY_OFF(SWD_PINS,ALL,1mS);
+  RELAY_ON(SWD_PINS,PDCL,2mS);
+  
+  
+  JUDGE_PAT(GET_CHIP_ID,__GET_CHIP_ID);
+  SOCKET_INC
+  {
+    if(PLAN_RESULT_MS[SOCKET] == FAIL )
+    {
+        cout<<"Test Get chip id Error"<<endl;  
+    }
+   
+  }
+  POWER_OFF();
+}
+
+Capture_Data()
+{
+    u32 ID[DUT_COUNT] = {0}; 
+    u32 CP_Value[DUT_COUNT] = {0};
+    POWER_ON(POWER_VOL);
+    LEVELS(UID_lvl, 3mS); 
+    swd_rate(1000nS);
+    PIN_MODE(SWDIO, NRZ, EDGE, ENABLE, IO_NRZ, OFF);
+    PIN_MODE(SWDCLK,RZ, EDGE, ENABLE, IO_NRZ, OFF);
+    RELAY_OFF(SWD_PINS,ALL,1mS);
+    RELAY_ON(SWD_PINS,PDCL,2mS);
+    RESET_SWD();
+    //write_word(0x81,0x0000001E);//write clear abort
+    //write_word(0xA9,0x50000000);//write enable debug
+    //write_word(0x8D,0xF0000000);//read ,ensure enable dubug  
+    write_word(0xB1,0x00000000);//write,select AP bank0            
+    write_word(0x87,0x00000000);//read,check AP CSW
+    write_word(0xBD,0x03000040);//read,read DP 0x0C
+    write_word(0xA3,0x80000042);//write,enable BANK0  32bit data
+    write_word(0x8B,0x4003402C);//write,write CHIP_ID address to ap
+    write_word(0x9F,0x00000000);//read,read AP IDR
+    capture_word(0x9F,ID);//read Again,read AP CHIP_ID = 0x00008219
+    SOCKET_INC
+    {   
+      TDO_PRINTF("CHIP_ID=0x%04X\n",ID[SOCKET]);
+    }
+    write_word(0xB1,0x00000000);//write,select AP bank0
+    write_word(0x87,0x00000000);//read,check AP CSW
+    write_word(0xBD,0x03000042);//read,read DP 0x0C
+    write_word(0xA3,0x80000041);//write,enable BANK0 16bit data
+    write_word(0x8B,0x08C0008C);//write,write EEPROM address 
+    write_word(0x9F,0x00000000);//read,read AP IDR
+    capture_word(0x9F,CP_Value);//Read again,CP  RESLUT
+    SOCKET_INC
+    {   
+      TDO_PRINTF("CP_UID=0x%04X\n",(CP_Value[SOCKET]&0x0000FFFF));
+      if((CP_Value[SOCKET]&0x0000FFFF) != CP_UID)
+      {
+        PLAN_RESULT_MS[SOCKET] =FAIL;
+        TDO_PRINTF("CP_UID=0x%04X,Need UID=0x%04X\n",(CP_Value[SOCKET]&0x0000FFFF),CP_UID);
+      }  
+    }
+    
+    POWER_OFF();
+} 
+
+Enable_Voltage()        //ENABLE VREF,AVDD voltage pin
+{
+    POWER_ON(POWER_VOL);
+    LEVELS(UID_lvl, 3mS);
+    PARAL_INC(LDO_PINS-DVDD)
+    {  
+      RELAY_OFF(PIN_DEFS,PDCL,2mS);
+      RELAY_ON(PIN_DEFS,PMU,2mS);
+      FORCE_I_PMU(PMU, 0uA, @1mA, @6V, 5V, ON, 2mS);
+      JUDGE_V_PMU(PMU, IFVM, ,0.5V , 2mS, 8, AVE, 50uS, , );
+      FORCE_V_PMU (PMU, 0V, @6V, @1mA, 1mA, ON, 2mS);
+      FORCE_V_PMU (PMU, 0V, @6V, @1mA, 1mA, OFF, 2mS);
+      RELAY_OFF(PIN_DEFS,PMU,2mS);
+      RELAY_ON(PIN_DEFS,PDCL,2mS);
+    }
+    swd_rate(1000nS);
+    PIN_MODE(SWDIO, NRZ, EDGE, ENABLE, IO_NRZ, OFF);
+    PIN_MODE(SWDCLK,RZ, EDGE, ENABLE, IO_NRZ, OFF);
+    RELAY_OFF(SWD_PINS,ALL,1mS);
+    RELAY_ON(SWD_PINS,PDCL,2mS);
+    RESET_SWD();
+    write_word(0xB1,0x00000000);//write,select AP bank0
+    write_word(0x87,0x00000000);//read,check AP CSW
+    //write_word(0xBD,0x03000042);//read,read DP 0x0C,RN8213 -> 0x03000042
+    write_word(0xBD,0x03000040); //read,read DP 0x0C,RN8211 -> 0x03000040
+    write_word(0xA3,0x80000042);//write,enable 32bit data
+    write_word(0x8B,0x40034030);//write,write SYS_PS address 0x40034030 
+    write_word(0xBB,0x00000082);//write,write data to ap. password 0x82
+    write_word(0x8B,0x40034008);//write,write SYS_PD address 0x40034008
+    write_word(0xBB,0x0000009E);//write,write data to ap, enanle voltage
+    PIN_INC(AVDD)        //Judge AVDD is on //if AVDD VREF can`t measure value,need wait some time(5mS)
+    {   
+      RELAY_OFF(PIN_DEF, ALL, 2mS);
+      RELAY_ON(PIN_DEF, PMU, 2mS); 
+      FORCE_I_PMU(PMU, 0uA, @1uA, @6V, 5V, ON, 2mS);
+      JUDGE_V_PMU(PMU, IFVM, 3.1V, 3.5V, 2mS, 16, AVE, 50uS, , );
+      FORCE_V_PMU(PMU, 0V, @6V, @1mA, 1mA, ON, 2mS);
+      FORCE_V_PMU(PMU, 0V, @6V, @1mA, 1mA, OFF, 2mS);
+      RELAY_OFF(PIN_DEF, PMU, 2mS);
+    }
+    PIN_INC(VREF) //Judge VREF is on
+    {   
+      RELAY_OFF(PIN_DEF, ALL, 2mS);
+      RELAY_ON(PIN_DEF, PMU, 2mS); 
+      FORCE_I_PMU(PMU, 0uA, @1uA, @6V, 3V, ON, 2mS);
+      JUDGE_V_PMU(PMU, IFVM, 1.22V, 1.29V, 2mS, 16, AVE, 50uS, , );
+      FORCE_V_PMU(PMU, 0V, @6V, @1mA, 1mA, ON, 2mS);
+      FORCE_V_PMU(PMU, 0V, @6V, @1mA, 1mA, OFF, 2mS);
+      RELAY_OFF(PIN_DEF, PMU, 2mS);
+    }
+    /*
+    write_word(0xB1,0x00000000);//write,select AP bank0
+    write_word(0x87,0x00000000);//read,check AP CSW
+    //write_word(0xBD,0x03000042);//read,read DP 0x0C,RN8213 -> 0x03000042
+    write_word(0xBD,0x03000040); //read,read DP 0x0C,RN8211 -> 0x03000040
+    write_word(0xA3,0x80000042);//write,enable 32bit data
+    write_word(0x8B,0x40034030);//write,write SYS_PS address 0x40034030 
+    write_word(0xBB,0x00000082);//write,write data to ap. password 0x82
+    write_word(0x8B,0x40034008);//write,write address to ap
+    write_word(0xBB,0x000000DE);//write,write data to ap, disable VREF
+    write_word(0x8B,0x40034008);//write,write address to ap
+    write_word(0x9F,0x00000000);//write,write address to ap
+    u32 ID[4] ={0};
+    capture_word(0x9F,ID);
+    SOCKET_INC{
+      TDO_PRINTF("Unable_Vref=0x%08X\n",ID[SOCKET]);
+    }
+    PARAL_INC(LDO_PINS-DVDD)
+    {  
+      RELAY_OFF(PIN_DEFS,PDCL,2mS);
+      RELAY_ON(PIN_DEFS,PMU,2mS);
+      FORCE_I_PMU(PMU, 0uA, @1mA, @6V, 5V, ON, 2mS);
+      JUDGE_V_PMU(PMU, IFVM, ,0.5V , 2mS, 8, AVE, 50uS, , );
+      FORCE_V_PMU (PMU, 0V, @6V, @1mA, 1mA, ON, 2mS);
+      FORCE_V_PMU (PMU, 0V, @6V, @1mA, 1mA, OFF, 2mS);
+      RELAY_OFF(PIN_DEFS,PMU,2mS);
+      RELAY_ON(PIN_DEFS,PDCL,2mS);
+    }*/
+    POWER_OFF();
+}
+
+POWER_SWICTH()
+{
+  POWER_ON(POWER_VOL);
+  RELAY_OFF(VBAT,ALL,1mS);
+  RELAY_ON(VBAT,PPMU_PDCL,1mS);
+  FORCE_V_PPMU(VBAT,3.6V, ,@32mA,,2mS); //  Maybe drive is low,should using DPS PIN
+  PIN_INC(VSWO)                         //When VCC > Vih(3.1V),VSWO Should be output VCC voltage
+  {   
+    RELAY_OFF(PIN_DEF, ALL, 2mS);
+    RELAY_ON(PIN_DEF, PMU, 2mS); 
+    FORCE_I_PMU(PMU, 0uA, @1mA, @12V, 6V, ON, 2mS);
+    JUDGE_V_PMU(PMU, IFVM, 4.5V, 5.2V, 2mS, 16, AVE, 50uS, , );
+    FORCE_V_PMU(PMU, 0V, @12V, @1mA, 1mA, ON, 2mS);
+    FORCE_V_PMU(PMU, 0V, @12V, @1mA, 1mA, OFF, 2mS);
+    RELAY_OFF(PIN_DEF, PMU, 2mS);
+  }
+  FORCE_V_MLDPS(VCC,2.3V,@6V,@500mA,200mA,NORM,ON,3mS);   //When VCC < Vil(2.5V),VSWO Should be output VBAT voltage
+  WAIT(5mS);
+  PIN_INC(VSWO)                         //When VCC < VBAT,VSWO Should be output VBAT voltage
+  {   
+    RELAY_OFF(PIN_DEF, ALL, 2mS);
+    RELAY_ON(PIN_DEF, PMU, 2mS); 
+    FORCE_I_PMU(PMU, 0uA, @1mA, @12V, 5V, ON, 2mS);
+    JUDGE_V_PMU(PMU, IFVM, 3.4V, 3.8V, 2mS, 16, AVE, 50uS, , );
+    FORCE_V_PMU(PMU, 0V, @12V, @1mA, 1mA, ON, 2mS);
+    FORCE_V_PMU(PMU, 0V, @12V, @1mA, 1mA, OFF, 2mS);
+    RELAY_OFF(PIN_DEF, PMU, 2mS);
+  }
+  FORCE_V_MLDPS(VCC,3.1V,@6V,@500mA,200mA,NORM,ON,3mS);   //When VCC = vih,VSWO Should be output VCC voltage,else need trim vih
+  WAIT(5mS);
+  PIN_INC(VSWO)                         //When VCC < VBAT,VSWO Should be output VBAT voltage
+  {   
+    RELAY_OFF(PIN_DEF, ALL, 2mS);
+    RELAY_ON(PIN_DEF, PMU, 2mS); 
+    FORCE_I_PMU(PMU, 0uA, @1mA, @12V, 5V, ON, 2mS);
+    JUDGE_V_PMU(PMU, IFVM, 2.9V, , 2mS, 16, AVE, 50uS, , );
+    FORCE_V_PMU(PMU, 0V, @12V, @1mA, 1mA, ON, 2mS);
+    FORCE_V_PMU(PMU, 0V, @12V, @1mA, 1mA, OFF, 2mS);
+    RELAY_OFF(PIN_DEF, PMU, 2mS);
+  }
+  double meas_value[DUT_COUNT]={0};
+  SOCKET_INC
+  {
+     meas_value[SOCKET]= RESULT_PIN(SOCKET, VSWO);
+     JUDGE_VARIABLE (SOCKET, meas_value[SOCKET], 2.9V, 3.1V, "VSWO");
+     if(PLAN_RESULT_MS[SOCKET]==FAIL)
+     {
+        vih_trim_flag[SOCKET] = 1;
+     }
+     TDO_PRINTF("vih_trim_flag[%d]=%d\n",SOCKET,vih_trim_flag[SOCKET]); 
+  }
+  
+  POWER_OFF();
+  FORCE_V_PPMU(VBAT,0V,,@32mA, , 2mS);
+  RELAY_OFF(VBAT,PPMU_PDCL, 1mS);
+}
+
+
+SPLINE_TEST()
+{
+  DATALOG_MSG = "This is spline test\n";
+  sp0LinePro();
+}
+
+last_test()
+{
+  cout<<"Test End"<<endl;
+}                                         

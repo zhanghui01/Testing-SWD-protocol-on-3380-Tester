@@ -1,0 +1,9 @@
+Dependencies for Project 'SRAM_MARCH', Target 'Target 1': (DO NOT MODIFY !)
+F (..\src\cmsis\CM0\DeviceSupport\Renergy\RN8215\system_RN8215.c)(0x582FFABE)(-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\src -I..\src\cmsis\CM0\DeviceSupport\Renergy\RN8215 -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RA9103D0 -o "system_rn8215.o" --omf_browse "system_rn8215.crf" --depend "system_rn8215.d")
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (..\src\cmsis\CM0\DeviceSupport\Renergy\RN8215\RN8215.h)(0x582FFABE)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\src\cmsis\CM0\DeviceSupport\Renergy\RN8215\system_RN8215.h)(0x582FFABE)
+F (..\src\cmsis\CM0\DeviceSupport\Renergy\RN8215\startup\arm\startup_RN8215.s)(0x59940274)(--cpu Cortex-M0 -g --apcs=interwork --pd "__MICROLIB SETA 1" -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RA9103D0 --list ".\startup_RN8215.lst" --xref -o ".\startup_RN8215.o" --depend ".\startup_RN8215.d")

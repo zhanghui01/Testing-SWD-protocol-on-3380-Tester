@@ -1,0 +1,5 @@
+--cpu Cortex-M0 "clk_calc.o" "common.o" E:\2017_FT_prog\V111_UART\backup\FLASH_FT\src\common\lib\rn821x_sysctrl.lib "system_rn821x.o" ".\startup_ra9103.o" "flash_driver.o" "ra9103a0_flash_qc.o" 
+--library_type=microlib --strict --scatter "FLASH_FT.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\FLASH_FT.map" -o FLASH_FT.axf

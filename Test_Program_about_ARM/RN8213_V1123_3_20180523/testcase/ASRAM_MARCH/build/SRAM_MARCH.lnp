@@ -1,0 +1,5 @@
+--cpu Cortex-M0 "system_rn8215.o" ".\startup_rn8215.o" 
+--library_type=microlib --strict --scatter "SRAM_MARCH.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\SRAM_MARCH.map" -o SRAM_MARCH.axf

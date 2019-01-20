@@ -1,0 +1,10 @@
+common.o: ..\src\common\common.c
+common.o: ..\src\common\common.h
+common.o: ..\src\rn821x.h
+common.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+common.o: E:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+common.o: E:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+common.o: E:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+common.o: ..\src\system_RN821x.h
+common.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+common.o: ..\src\common\clk_calc.h

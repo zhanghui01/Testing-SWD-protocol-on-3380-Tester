@@ -1,0 +1,7 @@
+--cpu Cortex-M0 "clk_calc.o" "common.o" E:\2017_FT_prog\V111_UART\backup\EEPROM_QC\src\common\lib\rn821x_sysctrl.lib "system_rn821x.o" ".\startup_ra9103.o" "eeprom_driver.o" "ra9103a0_eeprom_qc.o" 
+--library_type=microlib 
+--feedback "EEPROM_FT.fed" --feedback_image=none 
+--strict --scatter "EEPROM_FT.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\EEPROM_FT.map" -o EEPROM_FT.axf

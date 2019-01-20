@@ -1,0 +1,46 @@
+March C算法实现
+
+1.按word测试
+ 1.1 按地址升序
+  M0(w0)->M1(r0,w1)->M2(r1,w0)
+ 1.2 按地址降序
+  M3(r0,w1)->M4(r1,w0)
+ 1.3 任意地址
+  M5(r0)
+
+2.按bit测试
+ 按bit测试需要写入背景数据DB和DBbar，DBbar指DB按位取反，DB中连续0和连续1的个数从1到W/2（W为字宽）递增，针对32位系统，DB共5中数据，DB1:0x00000000,DB2:0x55555555,DB3:0x33333333,DB4:0x0F0F0F0F,DB5:0x0000FFFF
+ 2.1 按地址升序
+  (wDB1)->(rDB1,wDBbar1)->(rDBbar1,wDB1)
+ 2.2 按地址降序
+  (rDB1,wDBbar1)->(rDBbar1,wDB1)
+ 2.3 任意地址
+  (rDB1,wDB2)
+
+ 2.4 按地址升序
+  (rDB2,wDBbar2)->(rDBbar2,wDB2)
+ 2.5 按地址降序
+  (rDB2,wDBbar2)->(rDBbar2,wDB2)
+ 2.6 任意地址
+  (rDB2,wDB3)
+
+ 2.7 按地址升序
+  (rDB3,wDBbar3)->(rDBbar3,wDB3)
+ 2.8 按地址降序
+  (rDB3,wDBbar3)->(rDBbar3,wDB3)
+ 2.9 任意地址
+  (rDB3,wDB4)
+
+ 2.10 按地址升序
+  (rDB4,wDBbar4)->(rDBbar4,wDB4)
+ 2.11 按地址降序
+  (rDB4,wDBbar4)->(rDBbar4,wDB4)
+ 2.12 任意地址
+  (rDB4,wDB5)
+
+ 2.10 按地址升序
+  (rDB5,wDBbar5)->(rDBbar5,wDB5)
+ 2.11 按地址降序
+  (rDB5,wDBbar5)->(rDBbar5,wDB5)
+ 2.12 任意地址
+  (rDB5)

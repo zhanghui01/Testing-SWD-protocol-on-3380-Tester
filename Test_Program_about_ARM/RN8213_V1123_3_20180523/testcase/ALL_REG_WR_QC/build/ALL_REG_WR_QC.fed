@@ -1,0 +1,33 @@
+;#<FEEDBACK># ARM Linker, 5.02 [Build 28]: Last Updated: Thu Nov 30 15:46:26 2017
+;VERSION 0.2
+;FILE all_reg_wr_qc.o
+__asm___15_ALL_REG_WR_QC_c_i____REV16 <= USED 0
+__asm___15_ALL_REG_WR_QC_c_i____REVSH <= USED 0
+;FILE clk_calc.o
+__asm___10_clk_calc_c_clk_freq____REV16 <= USED 0
+__asm___10_clk_calc_c_clk_freq____REVSH <= USED 0
+clk_freq <= USED 0
+;FILE common.o
+WdtFeed <= USED 0
+__asm___8_common_c_uDelay____REV16 <= USED 0
+__asm___8_common_c_uDelay____REVSH <= USED 0
+;FILE retarget.o
+_sys_exit <= USED 0
+_ttywrch <= USED 0
+ferror <= USED 0
+fgetc <= USED 0
+fputc <= USED 0
+;FILE serial.o
+__asm___8_serial_c_sendchar____REV16 <= USED 0
+__asm___8_serial_c_sendchar____REVSH <= USED 0
+getkey <= USED 0
+sendchar <= USED 0
+;FILE startup_ra9103.o
+;FILE sysctrl.o
+Remap4Sel <= USED 0
+__asm___9_sysctrl_c_9296431c____REV16 <= USED 0
+__asm___9_sysctrl_c_9296431c____REVSH <= USED 0
+;FILE system_rn821x.o
+SystemInit <= USED 0
+__asm___15_system_RN821x_c_5d646a67____REV16 <= USED 0
+__asm___15_system_RN821x_c_5d646a67____REVSH <= USED 0

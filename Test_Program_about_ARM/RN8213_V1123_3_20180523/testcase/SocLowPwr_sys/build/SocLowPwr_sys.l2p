@@ -1,0 +1,5 @@
+--cpu Cortex-M0 "common.o" "retarget.o" "serial.o" E:\RRRRRRRRRRRNcomputerF\Õ‚≤‚ ‘£®CP&FT£©\QC_Broad\QC4-18\Testcase\SocLowPwr_sys\src\common\lib\rn821x_sysctrl.lib "soclowpwr_sys.o" ".\startup_ra9103.o" "system_rn821x.o" "clk_calc.o" 
+--library_type=microlib --strict --scatter "SocLowPwr_sys.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\SocLowPwr_sys.map" -o SocLowPwr_sys.axf

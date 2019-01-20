@@ -1,0 +1,29 @@
+
+T1FA8 000:877 SEGGER J-Link V4.22g Log File (0051ms, 0877ms total)
+T1FA8 000:877 DLL Compiled: Feb  7 2011 16:13:12 (0051ms, 0877ms total)
+T1FA8 000:877 Logging started @ 2017-10-31 17:14 (0051ms, 0877ms total)
+T1FA8 000:928 JLINK_SetWarnOutHandler(...) (0001ms, 0928ms total)
+T1FA8 000:929 JLINK_OpenEx(...)
+Firmware: J-Link ARM V8 compiled Dec  6 2011 18:57:44
+Hardware: V8.00
+S/N: 20100214
+Feature(s): RDI,FlashDL,FlashBP,JFlash,GDBFull  returns O.K. (0497ms, 0929ms total)
+T1FA8 001:426 JLINK_SetErrorOutHandler(...) (0000ms, 1426ms total)
+T1FA8 001:426 JLINK_ExecCommand("ProjectFile = "E:\2017_FT_prog\V111_UART\backup\RN8215_V111_2_20171030__EEFLASH_DISLP\testcase\Soc_DISLowPwr_sys\build\JLinkSettings.ini"", ...)  returns 0x00 (0000ms, 1426ms total)
+T1FA8 001:474 JLINK_ExecCommand("Device = Cortex-M0", ...)  returns 0x00 (0000ms, 1427ms total)
+T1FA8 001:475 JLINK_ExecCommand("DisableConnectionTimeout", ...)  returns 0x00 (0000ms, 1427ms total)
+T1FA8 001:475 JLINK_TIF_Select(JLINKARM_TIF_SWD)  returns 0x00 (0000ms, 1427ms total)
+T1FA8 001:475 JLINK_Close() (0063ms, 1427ms total)
+
+  ***** API Error: API JLINK_GetId function called before JLINKARM_Open()
+T1FA8 001:538 
+Firmware: J-Link ARM V8 compiled Dec  6 2011 18:57:44
+Hardware: V8.00
+S/N: 20100214
+Feature(s): RDI,FlashDL,FlashBP,JFlash,GDBFullJLINK_GetId()RESET (pin 15) high, but should be low. Please check target hardware.
+  ***** Error: Supply voltage too low (1 Volt is required, Measured: 0.0 Volt).
+Please check target power.CPU core not found.  returns 0x00000000 (0697ms, 1490ms total)
+T1FA8 004:264 JLINK_Close() (0067ms, 2187ms total)
+T1FA8 004:331 JLINK_Close() (0000ms, 2254ms total)
+T1FA8 004:331 JLINK_Close() (0000ms, 2254ms total)
+T1FA8 004:331 JLINK_Close() (0000ms, 2254ms total)

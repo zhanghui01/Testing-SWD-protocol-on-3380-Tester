@@ -1,0 +1,68 @@
+Dependencies for Project 'SocLowPwr_sys', Target 'Target 1': (DO NOT MODIFY !)
+F (..\src\common.c)(0x5A164D02)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RN8215 -o "common.o" --omf_browse "common.crf" --depend "common.d")
+I (..\src\common.h)(0x55C17203)
+I (..\src\RN821x.h)(0x57A95316)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\src\system_RN821x.h)(0x55C17203)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0D286)
+I (..\src\sysctrl.h)(0x55C17203)
+F (..\src\nvm.c)(0x55C17203)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RN8215 -o "nvm.o" --omf_browse "nvm.crf" --depend "nvm.d")
+I (..\src\RN821x.h)(0x57A95316)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\src\system_RN821x.h)(0x55C17203)
+I (..\src\nvm.h)(0x55C17203)
+F (..\src\Retarget.c)(0x55C17203)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RN8215 -o "retarget.o" --omf_browse "retarget.crf" --depend "retarget.d")
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0D286)
+I (E:\Keil\ARM\ARMCC\bin\..\include\time.h)(0x4EB0D282)
+I (E:\Keil\ARM\ARMCC\bin\..\include\rt_misc.h)(0x4EB0D280)
+F (..\src\serial.c)(0x55C17203)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RN8215 -o "serial.o" --omf_browse "serial.crf" --depend "serial.d")
+I (..\src\rn821x.h)(0x57A95316)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\src\system_RN821x.h)(0x55C17203)
+I (..\src\common.h)(0x55C17203)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0D286)
+F (..\src\SocLowPwr_sys.c)(0x5A1FA7EC)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RN8215 -o "soclowpwr_sys.o" --omf_browse "soclowpwr_sys.crf" --depend "soclowpwr_sys.d")
+I (..\src\rn821x.h)(0x57A95316)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\src\system_RN821x.h)(0x55C17203)
+I (..\src\common.h)(0x55C17203)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0D286)
+I (..\src\sysctrl.h)(0x55C17203)
+F (..\src\sysctrl.c)(0x55C17203)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RN8215 -o "sysctrl.o" --omf_browse "sysctrl.crf" --depend "sysctrl.d")
+I (..\src\RN821x.h)(0x57A95316)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\src\system_RN821x.h)(0x55C17203)
+I (..\src\sysctrl.h)(0x55C17203)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0D286)
+F (..\src\system_RN821x.c)(0x55C17203)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RN8215 -o "system_rn821x.o" --omf_browse "system_rn821x.crf" --depend "system_rn821x.d")
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (..\src\RN821x.h)(0x57A95316)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\src\system_RN821x.h)(0x55C17203)
+F (..\src\sysupdate.c)(0x55C17203)(-c --cpu Cortex-M0 -D__MICROLIB --li -g -O0 --apcs=interwork -I..\src -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RN8215 -o "sysupdate.o" --omf_browse "sysupdate.crf" --depend "sysupdate.d")
+I (..\src\RN821x.h)(0x57A95316)
+I (E:\Keil\ARM\CMSIS\Include\core_cm0.h)(0x50062982)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x593920E9)
+I (E:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50595C8C)
+I (E:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDA945C)
+I (..\src\system_RN821x.h)(0x55C17203)
+I (..\src\sysctrl.h)(0x55C17203)
+I (E:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB0D286)
+F (..\src\startup_RA9103.s)(0x577F6721)(--cpu Cortex-M0 --li -g --apcs=interwork --pd "__MICROLIB SETA 1" -I E:\Keil\ARM\RV31\INC -I E:\Keil\ARM\CMSIS\Include -I E:\Keil\ARM\Inc\Renergy\RN8215 --list ".\startup_RA9103.lst" --xref -o ".\startup_RA9103.o" --depend ".\startup_RA9103.d")

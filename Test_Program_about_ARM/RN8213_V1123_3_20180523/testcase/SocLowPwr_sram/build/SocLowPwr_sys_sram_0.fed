@@ -1,0 +1,68 @@
+;#<FEEDBACK># ARM Linker, 5.02 [Build 28]: Last Updated: Tue Jan 17 18:11:34 2017
+;VERSION 0.2
+;FILE clk_calc.o
+__asm___10_clk_calc_c_clk_freq____REV16 <= USED 0
+__asm___10_clk_calc_c_clk_freq____REVSH <= USED 0
+clk_freq <= USED 0
+;FILE common.o
+WdtFeed <= USED 0
+__ARM_common_switch8 <= USED 0
+__asm___8_common_c_00ccbcb3____REV16 <= USED 0
+__asm___8_common_c_00ccbcb3____REVSH <= USED 0
+exitFail <= USED 0
+exitPass <= USED 0
+getSysclk <= USED 0
+mod_clk <= USED 0
+sendChar <= USED 0
+sendStr <= USED 0
+setBaud <= USED 0
+sysclkLoop <= USED 0
+uartInit <= USED 0
+;FILE retarget.o
+_sys_exit <= USED 0
+_ttywrch <= USED 0
+ferror <= USED 0
+fgetc <= USED 0
+fputc <= USED 0
+;FILE serial.o
+__asm___8_serial_c_sendchar____REV16 <= USED 0
+__asm___8_serial_c_sendchar____REVSH <= USED 0
+getkey <= USED 0
+sendchar <= USED 0
+;FILE soclowpwr_sys.o
+BGRDisable <= USED 0
+BGREnable <= USED 0
+CMP1Enable <= USED 0
+CMP2Enable <= USED 0
+HOSCEnable <= USED 0
+LBGREnable <= USED 0
+LVDEnable <= USED 0
+PLLEnable <= USED 0
+RCEnable <= USED 0
+__asm___15_SocLowPwr_sys_c_main____REV16 <= USED 0
+__asm___15_SocLowPwr_sys_c_main____REVSH <= USED 0
+apbClk0En <= USED 0
+apbClk1En <= USED 0
+eeChipErase <= USED 0
+eeWakeup <= USED 0
+emuEnable <= USED 0
+flPageErase <= USED 0
+lcdEnable <= USED 0
+loscBiasmax <= USED 0
+loscBiasmin <= USED 0
+loscPwrDown <= USED 0
+rtcOut <= USED 0
+singleMeter <= USED 0
+socIdle <= USED 0
+;FILE socsleep.o
+__asm___10_socSleep_c_socSleep____REV16 <= USED 0
+__asm___10_socSleep_c_socSleep____REVSH <= USED 0
+;FILE startup_ra9103.o
+;FILE sysctrl.o
+Remap4Sel <= USED 0
+__asm___9_sysctrl_c_us_freq____REV16 <= USED 0
+__asm___9_sysctrl_c_us_freq____REVSH <= USED 0
+;FILE system_rn821x.o
+SystemInit <= USED 0
+__asm___15_system_RN821x_c_5d646a67____REV16 <= USED 0
+__asm___15_system_RN821x_c_5d646a67____REVSH <= USED 0

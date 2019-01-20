@@ -1,0 +1,1456 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;/******************************************************
+                       ***********************
+    2 00000000         ; * @file:    startup_RN8215.s
+    3 00000000         ; * @purpose: CMSIS Cortex-M0 Core Device Startup File
+    4 00000000         ; *           for RN8215
+    5 00000000         ; * @version: V1.00
+    6 00000000         ; * @date:    2012/12/3
+    7 00000000         ; *------- <<< Use Configuration Wizard in Context Menu 
+                       >>> ------------------
+    8 00000000         ; *
+    9 00000000         ; *
+   10 00000000         ; ******************************************************
+                       ***********************/
+   11 00000000         
+   12 00000000 00000000 
+                       SRAM_BASE_ADDR
+                               EQU              0x00000000
+   13 00000000 000037F8 
+                       SRAM_RESULT_ADDR
+                               EQU              (SRAM_BASE_ADDR + 0x37f8)
+   14 00000000 000037F0 
+                       SRAM_CHIPID_ADDR
+                               EQU              (SRAM_BASE_ADDR + 0x37f0)
+   15 00000000         
+   16 00000000 12345670 
+                       TEST_FAIL
+                               EQU              0x12345670
+   17 00000000 98765432 
+                       TEST_PASS
+                               EQU              0x98765432
+   18 00000000         ; <h> Stack Configuration
+   19 00000000         ;   <o> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   20 00000000         ; </h>
+   21 00000000 00000100 
+                       Stack_Size
+                               EQU              0x00000100
+   22 00000000 00000000 
+                       UNUSEDIRQ
+                               EQU              0
+   23 00000000 00000000 
+                       UNUSEDUART
+                               EQU              0
+   24 00000000                 AREA             STACK, NOINIT, READWRITE, ALIGN
+=3
+   25 00000000         Stack_Mem
+                               SPACE            Stack_Size
+   26 00000100         __initial_sp
+   27 00000100         
+   28 00000100         
+   29 00000100         ; <h> Heap Configuration
+   30 00000100         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   31 00000100         ; </h>
+   32 00000100         
+   33 00000100 00000000 
+                       Heap_Size
+                               EQU              0x00000000
+   34 00000100         
+   35 00000100                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
+3
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   36 00000000         __heap_base
+   37 00000000         Heap_Mem
+                               SPACE            Heap_Size
+   38 00000000         __heap_limit
+   39 00000000         
+   40 00000000         
+   41 00000000                 PRESERVE8
+   42 00000000                 THUMB
+   43 00000000         
+   44 00000000         ; Vector Table Mapped to Address 0 at Reset
+   45 00000000         
+   46 00000000                 AREA             RESET, DATA, READONLY
+   47 00000000                 EXPORT           __Vectors
+   48 00000000                 EXPORT           __Vectors_End
+   49 00000000                 EXPORT           __Vectors_Size
+   50 00000000         
+   51 00000000 00000000 
+                       __Vectors
+                               DCD              __initial_sp ; Top of Stack
+   52 00000004 00000000        DCD              Reset_Handler ; Reset Handler
+   53 00000008 00000000        DCD              NMI_Handler ; NMI Handler
+   54 0000000C 00000000        DCD              HardFault_Handler ; Hard Fault 
+                                                            Handler
+   55 00000010 00000000        DCD              0           ; Reserved
+   56 00000014 00000000        DCD              0           ; Reserved
+   57 00000018 00000000        DCD              0           ; Reserved
+   58 0000001C 00000000        DCD              0           ; Reserved
+   59 00000020 00000000        DCD              0           ; Reserved
+   60 00000024 00000000        DCD              0           ; Reserved
+   61 00000028 00000000        DCD              0           ; Reserved
+   62 0000002C 00000000        DCD              SVC_Handler ; SVCall Handler
+   63 00000030 00000000        DCD              0           ; Reserved
+   64 00000034 00000000        DCD              0           ; Reserved
+   65 00000038 00000000        DCD              PendSV_Handler ; PendSV Handler
+                                                            
+   66 0000003C 00000000        DCD              SysTick_Handler 
+                                                            ; SysTick Handler
+   67 00000040         
+   68 00000040 00000000        DCD              0
+   69 00000044 00000000        DCD              CMP_HANDLER
+   70 00000048 00000000        DCD              VCH_HANDLER
+   71 0000004C 00000000        DCD              RTC_HANDLER
+   72 00000050 00000000        DCD              EMU_HANDLER
+   73 00000054 00000000        DCD              MADC_HANDLER
+   74 00000058 00000000        DCD              UART0_HANDLER
+   75 0000005C 00000000        DCD              UART1_HANDLER
+   76 00000060 00000000        DCD              UART2_HANDLER
+   77 00000064 00000000        DCD              UART3_HANDLER
+   78 00000068 00000000        DCD              SPI_HANDLER
+   79 0000006C 00000000        DCD              I2C_HANDLER
+   80 00000070 00000000        DCD              ISO78160_HANDLER
+   81 00000074 00000000        DCD              ISO78161_HANDLER
+   82 00000078 00000000        DCD              TC0_HANDLER
+   83 0000007C 00000000        DCD              TC1_HANDLER
+   84 00000080 00000000        DCD              0
+   85 00000084 00000000        DCD              UART5_HANDLER
+   86 00000088 00000000        DCD              WDT_HANDLER
+   87 0000008C 00000000        DCD              KBI_HANDLER
+   88 00000090 00000000        DCD              LCD_HANDLER
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+   89 00000094 00000000        DCD              CT_HANDLER
+   90 00000098 00000000        DCD              DMA_HANDLER
+   91 0000009C 00000000        DCD              0
+   92 000000A0 00000000        DCD              EXT0_HANDLER
+   93 000000A4 00000000        DCD              0
+   94 000000A8 00000000        DCD              EXT2_HANDLER
+   95 000000AC 00000000        DCD              0
+   96 000000B0 00000000        DCD              0
+   97 000000B4 00000000        DCD              0
+   98 000000B8 00000000        DCD              EXT6_HANDLER
+   99 000000BC 00000000        DCD              EXT7_HANDLER
+  100 000000C0         
+  101 000000C0         __Vectors_End
+  102 000000C0         
+  103 000000C0 000000C0 
+                       __Vectors_Size
+                               EQU              __Vectors_End - __Vectors
+  104 000000C0                 AREA             |.text|, CODE, READONLY
+  105 00000000         
+  106 00000000         
+  107 00000000         ADD_CARRY
+                               PROC
+  108 00000000 4601            MOV              R1 , R0
+  109 00000002 4602            MOV              R2 , R0
+  110 00000004 4603            MOV              R3 , R0
+  111 00000006 4604            MOV              R4 , R0
+  112 00000008 4605            MOV              R5 , R0
+  113 0000000A 4606            MOV              R6 , R0
+  114 0000000C 4607            MOV              R7 , R0
+  115 0000000E 4680            MOV              R8 , R0
+  116 00000010 4681            MOV              R9 , R0
+  117 00000012 4682            MOV              R10, R0
+  118 00000014 4683            MOV              R11, R0
+  119 00000016 4684            MOV              R12, R0
+  120 00000018         
+  121 00000018 4400            ADD              R0 , R0 , R0
+  122 0000001A 4409            ADD              R1 , R1 , R1
+  123 0000001C 4412            ADD              R2 , R2 , R2
+  124 0000001E 441B            ADD              R3 , R3 , R3
+  125 00000020 4424            ADD              R4 , R4 , R4
+  126 00000022 442D            ADD              R5 , R5 , R5
+  127 00000024 4436            ADD              R6 , R6 , R6
+  128 00000026 443F            ADD              R7 , R7 , R7
+  129 00000028 44C0            ADD              R8 , R8 , R8
+  130 0000002A 44C9            ADD              R9 , R9 , R9
+  131 0000002C 44D2            ADD              R10, R10, R10
+  132 0000002E 44DB            ADD              R11, R11, R11
+  133 00000030 44E4            ADD              R12, R12, R12
+  134 00000032         
+  135 00000032 4281            CMP              R1, R0
+  136 00000034 D116            BNE              add_carry_fail
+  137 00000036 4282            CMP              R2, R0
+  138 00000038 D114            BNE              add_carry_fail
+  139 0000003A 4283            CMP              R3, R0
+  140 0000003C D112            BNE              add_carry_fail
+  141 0000003E 4284            CMP              R4, R0
+  142 00000040 D110            BNE              add_carry_fail
+  143 00000042 4285            CMP              R5, R0
+  144 00000044 D10E            BNE              add_carry_fail
+
+
+
+ARM Macro Assembler    Page 4 
+
+
+  145 00000046 4286            CMP              R6, R0
+  146 00000048 D10C            BNE              add_carry_fail
+  147 0000004A 4287            CMP              R7, R0
+  148 0000004C D10A            BNE              add_carry_fail
+  149 0000004E 4580            CMP              R8, R0
+  150 00000050 D108            BNE              add_carry_fail
+  151 00000052 4581            CMP              R9, R0
+  152 00000054 D106            BNE              add_carry_fail
+  153 00000056 4582            CMP              R10, R0
+  154 00000058 D104            BNE              add_carry_fail
+  155 0000005A 4583            CMP              R11, R0
+  156 0000005C D102            BNE              add_carry_fail
+  157 0000005E 4584            CMP              R12, R0
+  158 00000060 D100            BNE              add_carry_fail
+  159 00000062 4770            BX               LR
+  160 00000064         add_carry_fail
+  161 00000064 F000 F911       BL               exit_err
+  162 00000068                 ENDP
+  163 00000068         
+  164 00000068         MUL_CARRY
+                               PROC
+  165 00000068 4601            MOV              R1 , R0
+  166 0000006A 4602            MOV              R2 , R0
+  167 0000006C 4603            MOV              R3 , R0
+  168 0000006E 4604            MOV              R4 , R0
+  169 00000070 4605            MOV              R5 , R0
+  170 00000072 4606            MOV              R6 , R0
+  171 00000074 4607            MOV              R7 , R0
+  172 00000076 2002            MOVS             R0 , #0x2
+  173 00000078 4688            MOV              R8 , R1
+  174 0000007A         
+  175 0000007A 4341            MULS             R1 , R0 , R1
+  176 0000007C 4342            MULS             R2 , R0 , R2
+  177 0000007E 4343            MULS             R3 , R0 , R3
+  178 00000080 4344            MULS             R4 , R0 , R4
+  179 00000082 4345            MULS             R5 , R0 , R5
+  180 00000084 4346            MULS             R6 , R0 , R6
+  181 00000086 4347            MULS             R7 , R0 , R7
+  182 00000088         
+  183 00000088 44C0            ADD              R8, R8, R8
+  184 0000008A 4541            CMP              R1, R8
+  185 0000008C D10C            BNE              mul_carry_fail
+  186 0000008E 4542            CMP              R2, R8
+  187 00000090 D10A            BNE              mul_carry_fail
+  188 00000092 4543            CMP              R3, R8
+  189 00000094 D108            BNE              mul_carry_fail
+  190 00000096 4544            CMP              R4, R8
+  191 00000098 D106            BNE              mul_carry_fail
+  192 0000009A 4545            CMP              R5, R8
+  193 0000009C D104            BNE              mul_carry_fail
+  194 0000009E 4546            CMP              R6, R8
+  195 000000A0 D102            BNE              mul_carry_fail
+  196 000000A2 4547            CMP              R7, R8
+  197 000000A4 D100            BNE              mul_carry_fail
+  198 000000A6         
+  199 000000A6 4770            BX               LR
+  200 000000A8         mul_carry_fail
+  201 000000A8 F000 F8EF       BL               exit_err
+  202 000000AC                 ENDP
+
+
+
+ARM Macro Assembler    Page 5 
+
+
+  203 000000AC         
+  204 000000AC         Reset_Handler
+                               PROC
+  205 000000AC                 EXPORT           Reset_Handler             [WEAK
+]
+  206 000000AC                 IMPORT           SystemInit
+  207 000000AC         
+  208 000000AC         ;{P12,P11,P10}=000
+  209 000000AC         ; SYSCTL->SYS_PS = 0x82
+  210 000000AC         ; SYSCTL->OSC_CTRL2 = 0x13
+  211 000000AC         ; SYSCTL->MOD1_EN = 0x220
+  212 000000AC         ; GPIO->PMA = 0xfffff8ff  ;P10,11,12
+  213 000000AC         ; GPIO->PA = 0x0;
+  214 000000AC         ; GPIO->PCA1 = 0xf000;
+  215 000000AC         
+  216 000000AC 4889            LDR              R0, =0x40034000
+  217 000000AE 498A            LDR              R1, =0x82
+  218 000000B0 6301            STR              R1, [R0, #0x30]
+  219 000000B2 498A            LDR              R1, =0x13
+  220 000000B4 6101            STR              R1, [R0, #0x10]
+  221 000000B6 498A            LDR              R1, =0x220
+  222 000000B8 6201            STR              R1, [R0, #0x20]
+  223 000000BA         
+  224 000000BA 488A            LDR              R0, =0x50000000
+  225 000000BC 498A            LDR              R1, =0xfffff8ff
+  226 000000BE 6001            STR              R1, [R0, #0x00]
+  227 000000C0 498A            LDR              R1, =0x0
+  228 000000C2 6041            STR              R1, [R0, #0x04]
+  229 000000C4 498A            LDR              R1, =0xf000
+  230 000000C6 60C1            STR              R1, [R0, #0x0c]
+  231 000000C8         
+  232 000000C8         ; SYSCTL->OSC_CTRL1 = 0x0
+  233 000000C8         ; SYSCTL->SYS_MODE = 0xD
+  234 000000C8 4882            LDR              R0, =0x40034000
+  235 000000CA         
+  236 000000CA         ;wait hosc flag
+  237 000000CA 4A8A            LDR              R2, =0x8000
+  238 000000CC         wait_hosc
+  239 000000CC 6801            LDR              R1, [R0, #0]
+  240 000000CE 4011            ANDS             R1, R1, R2
+  241 000000D0 4291            CMP              R1, R2
+  242 000000D2 D1FB            BNE              wait_hosc
+  243 000000D4         
+  244 000000D4 4985            LDR              R1, =0x0
+  245 000000D6 6001            STR              R1, [R0, #0x0]
+  246 000000D8 4987            LDR              R1, =0xD
+  247 000000DA 6041            STR              R1, [R0, #0x4]
+  248 000000DC         
+  249 000000DC         
+  250 000000DC         ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                       ;;;;;;;;
+  251 000000DC         ; INST test
+  252 000000DC         ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                       ;;;;;;;;
+  253 000000DC         ; 1. Addition
+  254 000000DC 4883            LDR              R0, =0x0
+  255 000000DE F7FF FFFE       BL               ADD_CARRY
+  256 000000E2 4886            LDR              R0, =0x1
+  257 000000E4 F7FF FFFE       BL               ADD_CARRY
+
+
+
+ARM Macro Assembler    Page 6 
+
+
+  258 000000E8 4885            LDR              R0, =0x2
+  259 000000EA F7FF FFFE       BL               ADD_CARRY
+  260 000000EE 4885            LDR              R0, =0x4
+  261 000000F0 F7FF FFFE       BL               ADD_CARRY
+  262 000000F4 4884            LDR              R0, =0x6
+  263 000000F6 F7FF FFFE       BL               ADD_CARRY
+  264 000000FA 4884            LDR              R0, =0x8
+  265 000000FC F7FF FFFE       BL               ADD_CARRY
+  266 00000100 4883            LDR              R0, =0x10
+  267 00000102 F7FF FFFE       BL               ADD_CARRY
+  268 00000106 4883            LDR              R0, =0x20
+  269 00000108 F7FF FFFE       BL               ADD_CARRY
+  270 0000010C 4882            LDR              R0, =0x40
+  271 0000010E F7FF FFFE       BL               ADD_CARRY
+  272 00000112 4882            LDR              R0, =0x80
+  273 00000114 F7FF FFFE       BL               ADD_CARRY
+  274 00000118 4881            LDR              R0, =0x100
+  275 0000011A F7FF FFFE       BL               ADD_CARRY
+  276 0000011E 4881            LDR              R0, =0x200
+  277 00000120 F7FF FFFE       BL               ADD_CARRY
+  278 00000124 4880            LDR              R0, =0x400
+  279 00000126 F7FF FFFE       BL               ADD_CARRY
+  280 0000012A 4880            LDR              R0, =0x800
+  281 0000012C F7FF FFFE       BL               ADD_CARRY
+  282 00000130 487F            LDR              R0, =0x1000
+  283 00000132 F7FF FFFE       BL               ADD_CARRY
+  284 00000136 487F            LDR              R0, =0x2000
+  285 00000138 F7FF FFFE       BL               ADD_CARRY
+  286 0000013C 487E            LDR              R0, =0x4000
+  287 0000013E F7FF FFFE       BL               ADD_CARRY
+  288 00000142 486C            LDR              R0, =0x8000
+  289 00000144 F7FF FFFE       BL               ADD_CARRY
+  290 00000148 487C            LDR              R0, =0x10000
+  291 0000014A F7FF FFFE       BL               ADD_CARRY
+  292 0000014E 487C            LDR              R0, =0x20000
+  293 00000150 F7FF FFFE       BL               ADD_CARRY
+  294 00000154 487B            LDR              R0, =0x40000
+  295 00000156 F7FF FFFE       BL               ADD_CARRY
+  296 0000015A 487B            LDR              R0, =0x80000
+  297 0000015C F7FF FFFE       BL               ADD_CARRY
+  298 00000160 487A            LDR              R0, =0x100000
+  299 00000162 F7FF FFFE       BL               ADD_CARRY
+  300 00000166 487A            LDR              R0, =0x200000
+  301 00000168 F7FF FFFE       BL               ADD_CARRY
+  302 0000016C 4879            LDR              R0, =0x400000
+  303 0000016E F7FF FFFE       BL               ADD_CARRY
+  304 00000172 4879            LDR              R0, =0x800000
+  305 00000174 F7FF FFFE       BL               ADD_CARRY
+  306 00000178 4878            LDR              R0, =0x1000000
+  307 0000017A F7FF FFFE       BL               ADD_CARRY
+  308 0000017E 4878            LDR              R0, =0x2000000
+  309 00000180 F7FF FFFE       BL               ADD_CARRY
+  310 00000184 4877            LDR              R0, =0x4000000
+  311 00000186 F7FF FFFE       BL               ADD_CARRY
+  312 0000018A 4877            LDR              R0, =0x8000000
+  313 0000018C F7FF FFFE       BL               ADD_CARRY
+  314 00000190 4876            LDR              R0, =0x10000000
+  315 00000192 F7FF FFFE       BL               ADD_CARRY
+  316 00000196 4876            LDR              R0, =0x20000000
+
+
+
+ARM Macro Assembler    Page 7 
+
+
+  317 00000198 F7FF FFFE       BL               ADD_CARRY
+  318 0000019C 4875            LDR              R0, =0x40000000
+  319 0000019E F7FF FFFE       BL               ADD_CARRY
+  320 000001A2 4875            LDR              R0, =0x80000000
+  321 000001A4 F7FF FFFE       BL               ADD_CARRY
+  322 000001A8         
+  323 000001A8         ; 2. Multiply
+  324 000001A8 4854            LDR              R0, =0x1
+  325 000001AA F7FF FFFE       BL               MUL_CARRY
+  326 000001AE 4854            LDR              R0, =0x2
+  327 000001B0 F7FF FFFE       BL               MUL_CARRY
+  328 000001B4 4853            LDR              R0, =0x4
+  329 000001B6 F7FF FFFE       BL               MUL_CARRY
+  330 000001BA 4853            LDR              R0, =0x6
+  331 000001BC F7FF FFFE       BL               MUL_CARRY
+  332 000001C0 4852            LDR              R0, =0x8
+  333 000001C2 F7FF FFFE       BL               MUL_CARRY
+  334 000001C6 4852            LDR              R0, =0x10
+  335 000001C8 F7FF FFFE       BL               MUL_CARRY
+  336 000001CC 4851            LDR              R0, =0x20
+  337 000001CE F7FF FFFE       BL               MUL_CARRY
+  338 000001D2 4851            LDR              R0, =0x40
+  339 000001D4 F7FF FFFE       BL               MUL_CARRY
+  340 000001D8 4850            LDR              R0, =0x80
+  341 000001DA F7FF FFFE       BL               MUL_CARRY
+  342 000001DE 4850            LDR              R0, =0x100
+  343 000001E0 F7FF FFFE       BL               MUL_CARRY
+  344 000001E4 484F            LDR              R0, =0x200
+  345 000001E6 F7FF FFFE       BL               MUL_CARRY
+  346 000001EA 484F            LDR              R0, =0x400
+  347 000001EC F7FF FFFE       BL               MUL_CARRY
+  348 000001F0 484E            LDR              R0, =0x800
+  349 000001F2 F7FF FFFE       BL               MUL_CARRY
+  350 000001F6 484E            LDR              R0, =0x1000
+  351 000001F8 F7FF FFFE       BL               MUL_CARRY
+  352 000001FC 484D            LDR              R0, =0x2000
+  353 000001FE F7FF FFFE       BL               MUL_CARRY
+  354 00000202 484D            LDR              R0, =0x4000
+  355 00000204 F7FF FFFE       BL               MUL_CARRY
+  356 00000208 483A            LDR              R0, =0x8000
+  357 0000020A F7FF FFFE       BL               MUL_CARRY
+  358 0000020E 484B            LDR              R0, =0x10000
+  359 00000210 F7FF FFFE       BL               MUL_CARRY
+  360 00000214 484A            LDR              R0, =0x20000
+  361 00000216 F7FF FFFE       BL               MUL_CARRY
+  362 0000021A 484A            LDR              R0, =0x40000
+  363 0000021C F7FF FFFE       BL               MUL_CARRY
+  364 00000220 4849            LDR              R0, =0x80000
+  365 00000222 F7FF FFFE       BL               MUL_CARRY
+  366 00000226 4849            LDR              R0, =0x100000
+  367 00000228 F7FF FFFE       BL               MUL_CARRY
+  368 0000022C 4848            LDR              R0, =0x200000
+  369 0000022E F7FF FFFE       BL               MUL_CARRY
+  370 00000232 4848            LDR              R0, =0x400000
+  371 00000234 F7FF FFFE       BL               MUL_CARRY
+  372 00000238 4847            LDR              R0, =0x800000
+  373 0000023A F7FF FFFE       BL               MUL_CARRY
+  374 0000023E 4847            LDR              R0, =0x1000000
+  375 00000240 F7FF FFFE       BL               MUL_CARRY
+
+
+
+ARM Macro Assembler    Page 8 
+
+
+  376 00000244 4846            LDR              R0, =0x2000000
+  377 00000246 F7FF FFFE       BL               MUL_CARRY
+  378 0000024A 4846            LDR              R0, =0x4000000
+  379 0000024C F7FF FFFE       BL               MUL_CARRY
+  380 00000250 4845            LDR              R0, =0x8000000
+  381 00000252 F7FF FFFE       BL               MUL_CARRY
+  382 00000256 4845            LDR              R0, =0x10000000
+  383 00000258 F7FF FFFE       BL               MUL_CARRY
+  384 0000025C 4844            LDR              R0, =0x20000000
+  385 0000025E F7FF FFFE       BL               MUL_CARRY
+  386 00000262 4844            LDR              R0, =0x40000000
+  387 00000264 F7FF FFFE       BL               MUL_CARRY
+  388 00000268 4843            LDR              R0, =0x80000000
+  389 0000026A F7FF FFFE       BL               MUL_CARRY
+  390 0000026E         
+  391 0000026E         ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                       ;;;;;;;;
+  392 0000026E         ;3. SHIFT inst.
+  393 0000026E 4843            LDR              R0, =0xffffffff
+  394 00000270 4943            LDR              R1, =0x7fffffff
+  395 00000272 0842            LSRS             R2, R0, #1
+  396 00000274 4291            CMP              R1, R2
+  397 00000276 D108            BNE              exit_err
+  398 00000278         
+  399 00000278 4841            LDR              R0, =0x7fffffff
+  400 0000027A 4942            LDR              R1, =0xfffffffe
+  401 0000027C 0042            LSLS             R2, R0, #1
+  402 0000027E 4291            CMP              R1, R2
+  403 00000280 D103            BNE              exit_err
+  404 00000282         
+  405 00000282         ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                       ;;;;;;;;
+  406 00000282 4841            LDR              R0, =SRAM_RESULT_ADDR
+  407 00000284 4941            LDR              R1, =TEST_PASS
+  408 00000286 6001            STR              R1, [R0, #0x00]
+  409 00000288 E002            B                exit_pass
+  410 0000028A         exit_err
+  411 0000028A 483F            LDR              R0, =SRAM_RESULT_ADDR
+  412 0000028C 4940            LDR              R1, =TEST_FAIL
+  413 0000028E 6001            STR              R1, [R0, #0x00]
+  414 00000290         exit_pass
+  415 00000290 4840            LDR              R0, =0x40030000
+  416 00000292 4941            LDR              R1, =0xbb
+  417 00000294 6001            STR              R1, [R0, #0x0]
+  418 00000296 E7FB            B                exit_pass
+  419 00000298                 ENDP
+  420 00000298         
+  421 00000298         
+  422 00000298         ; Dummy Exception Handlers (infinite loops which can be 
+                       modified)
+  423 00000298         
+  424 00000298         ;                IF UNUSEDIRQ <> 1
+  425 00000298         NMI_Handler
+                               PROC
+  426 00000298                 EXPORT           NMI_Handler               [WEAK
+]
+  427 00000298 E7FE            B                .
+  428 0000029A                 ENDP
+  430 0000029A         HardFault_Handler
+
+
+
+ARM Macro Assembler    Page 9 
+
+
+                               PROC
+  431 0000029A                 EXPORT           HardFault_Handler         [WEAK
+]
+  432 0000029A E7FE            B                .
+  433 0000029C                 ENDP
+  434 0000029C         SVC_Handler
+                               PROC
+  435 0000029C                 EXPORT           SVC_Handler               [WEAK
+]
+  436 0000029C E7FE            B                .
+  437 0000029E                 ENDP
+  438 0000029E         PendSV_Handler
+                               PROC
+  439 0000029E                 EXPORT           PendSV_Handler            [WEAK
+]
+  440 0000029E E7FE            B                .
+  441 000002A0                 ENDP
+  442 000002A0         SysTick_Handler
+                               PROC
+  443 000002A0                 EXPORT           SysTick_Handler           [WEAK
+]
+  444 000002A0 E7FE            B                .
+  445 000002A2                 ENDP
+  446 000002A2         EXT0_HANDLER
+                               PROC
+  447 000002A2                 EXPORT           EXT0_HANDLER     [WEAK]
+  448 000002A2 E7FE            B                .
+  449 000002A4                 ENDP
+  450 000002A4         EXT2_HANDLER
+                               PROC
+  451 000002A4                 EXPORT           EXT2_HANDLER     [WEAK]
+  452 000002A4 E7FE            B                .
+  453 000002A6                 ENDP
+  454 000002A6         EXT6_HANDLER
+                               PROC
+  455 000002A6                 EXPORT           EXT6_HANDLER     [WEAK]
+  456 000002A6 E7FE            B                .
+  457 000002A8                 ENDP
+  458 000002A8         EXT7_HANDLER
+                               PROC
+  459 000002A8                 EXPORT           EXT7_HANDLER     [WEAK]
+  460 000002A8 E7FE            B                .
+  461 000002AA                 ENDP
+  462 000002AA         DMA_HANDLER
+                               PROC
+  463 000002AA                 EXPORT           DMA_HANDLER      [WEAK]
+  464 000002AA E7FE            B                .
+  465 000002AC                 ENDP
+  466 000002AC         CT_HANDLER
+                               PROC
+  467 000002AC                 EXPORT           CT_HANDLER      [WEAK]
+  468 000002AC E7FE            B                .
+  469 000002AE                 ENDP
+  470 000002AE         RTC_HANDLER
+                               PROC
+  471 000002AE                 EXPORT           RTC_HANDLER      [WEAK]
+  472 000002AE E7FE            B                .
+  473 000002B0                 ENDP
+  474 000002B0         EMU_HANDLER
+
+
+
+ARM Macro Assembler    Page 10 
+
+
+                               PROC
+  475 000002B0                 EXPORT           EMU_HANDLER      [WEAK]
+  476 000002B0 E7FE            B                .
+  477 000002B2                 ENDP
+  478 000002B2         MADC_HANDLER
+                               PROC
+  479 000002B2                 EXPORT           MADC_HANDLER     [WEAK]
+  480 000002B2 E7FE            B                .
+  481 000002B4                 ENDP
+  482 000002B4         UART0_HANDLER
+                               PROC
+  483 000002B4                 EXPORT           UART0_HANDLER     [WEAK]
+  484 000002B4 E7FE            B                .
+  485 000002B6                 ENDP
+  486 000002B6         UART1_HANDLER
+                               PROC
+  487 000002B6                 EXPORT           UART1_HANDLER     [WEAK]
+  488 000002B6 E7FE            B                .
+  489 000002B8                 ENDP
+  490 000002B8         UART2_HANDLER
+                               PROC
+  491 000002B8                 EXPORT           UART2_HANDLER     [WEAK]
+  492 000002B8 E7FE            B                .
+  493 000002BA                 ENDP
+  494 000002BA         UART3_HANDLER
+                               PROC
+  495 000002BA                 EXPORT           UART3_HANDLER     [WEAK]
+  496 000002BA E7FE            B                .
+  497 000002BC                 ENDP
+  498 000002BC         SPI_HANDLER
+                               PROC
+  499 000002BC                 EXPORT           SPI_HANDLER      [WEAK]
+  500 000002BC E7FE            B                .
+  501 000002BE                 ENDP
+  502 000002BE         I2C_HANDLER
+                               PROC
+  503 000002BE                 EXPORT           I2C_HANDLER      [WEAK]
+  504 000002BE E7FE            B                .
+  505 000002C0                 ENDP
+  506 000002C0         ISO78161_HANDLER
+                               PROC
+  507 000002C0                 EXPORT           ISO78161_HANDLER    [WEAK]
+  508 000002C0 E7FE            B                .
+  509 000002C2                 ENDP
+  510 000002C2         ISO78160_HANDLER
+                               PROC
+  511 000002C2                 EXPORT           ISO78160_HANDLER    [WEAK]
+  512 000002C2 E7FE            B                .
+  513 000002C4                 ENDP
+  514 000002C4         TC0_HANDLER
+                               PROC
+  515 000002C4                 EXPORT           TC0_HANDLER      [WEAK]
+  516 000002C4 E7FE            B                .
+  517 000002C6                 ENDP
+  518 000002C6         TC1_HANDLER
+                               PROC
+  519 000002C6                 EXPORT           TC1_HANDLER      [WEAK]
+  520 000002C6 E7FE            B                .
+  521 000002C8                 ENDP
+
+
+
+ARM Macro Assembler    Page 11 
+
+
+  522 000002C8         UART5_HANDLER
+                               PROC
+  523 000002C8                 EXPORT           UART5_HANDLER      [WEAK]
+  524 000002C8 E7FE            B                .
+  525 000002CA                 ENDP
+  526 000002CA         WDT_HANDLER
+                               PROC
+  527 000002CA                 EXPORT           WDT_HANDLER      [WEAK]
+  528 000002CA E7FE            B                .
+  529 000002CC                 ENDP
+  530 000002CC         KBI_HANDLER
+                               PROC
+  531 000002CC                 EXPORT           KBI_HANDLER      [WEAK]
+  532 000002CC E7FE            B                .
+  533 000002CE                 ENDP
+  534 000002CE         LCD_HANDLER
+                               PROC
+  535 000002CE                 EXPORT           LCD_HANDLER      [WEAK]
+  536 000002CE E7FE            B                .
+  537 000002D0                 ENDP
+  538 000002D0         VCH_HANDLER
+                               PROC
+  539 000002D0                 EXPORT           VCH_HANDLER      [WEAK]
+  540 000002D0 E7FE            B                .
+  541 000002D2                 ENDP
+  542 000002D2         CMP_HANDLER
+                               PROC
+  543 000002D2                 EXPORT           CMP_HANDLER       [WEAK]
+  544 000002D2 E7FE            B                .
+  545 000002D4                 ENDP
+  546 000002D4         
+  547 000002D4                 ALIGN
+  548 000002D4         
+  549 000002D4         
+  550 000002D4         ; User Initial Stack & Heap
+  551 000002D4         
+  552 000002D4                 IF               :DEF:__MICROLIB
+  553 000002D4         
+  554 000002D4                 EXPORT           __initial_sp
+  555 000002D4                 EXPORT           __heap_base
+  556 000002D4                 EXPORT           __heap_limit
+  557 000002D4         
+  558 000002D4                 ELSE
+  572                          ENDIF
+  573 000002D4         
+  574 000002D4         
+  575 000002D4                 END
+              40034000 
+              00000082 
+              00000013 
+              00000220 
+              50000000 
+              FFFFF8FF 
+              00000000 
+              0000F000 
+              00008000 
+              0000000D 
+              00000001 
+              00000002 
+
+
+
+ARM Macro Assembler    Page 12 
+
+
+              00000004 
+              00000006 
+              00000008 
+              00000010 
+              00000020 
+              00000040 
+              00000080 
+              00000100 
+              00000200 
+              00000400 
+              00000800 
+              00001000 
+              00002000 
+              00004000 
+              00010000 
+              00020000 
+              00040000 
+              00080000 
+              00100000 
+              00200000 
+              00400000 
+              00800000 
+              01000000 
+              02000000 
+              04000000 
+              08000000 
+              10000000 
+              20000000 
+              40000000 
+              80000000 
+              FFFFFFFF 
+              7FFFFFFF 
+              FFFFFFFE 
+              000037F8 
+              98765432 
+              12345670 
+              40030000 
+              000000BB 
+Command Line: --debug --xref --cpu=Cortex-M0 --apcs=interwork --depend=.\startu
+p_RN8215.d -o.\startup_RN8215.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Incl
+ude -IE:\Keil\ARM\Inc\Renergy\RA9103D0 --predefine="__MICROLIB SETA 1" --list=.
+\startup_RN8215.lst ..\src\startup_RN8215.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+STACK 00000000
+
+Symbol: STACK
+   Definitions
+      At line 24 in file ..\src\startup_RN8215.s
+   Uses
+      None
+Comment: STACK unused
+Stack_Mem 00000000
+
+Symbol: Stack_Mem
+   Definitions
+      At line 25 in file ..\src\startup_RN8215.s
+   Uses
+      None
+Comment: Stack_Mem unused
+__initial_sp 00000100
+
+Symbol: __initial_sp
+   Definitions
+      At line 26 in file ..\src\startup_RN8215.s
+   Uses
+      At line 51 in file ..\src\startup_RN8215.s
+      At line 554 in file ..\src\startup_RN8215.s
+
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+HEAP 00000000
+
+Symbol: HEAP
+   Definitions
+      At line 35 in file ..\src\startup_RN8215.s
+   Uses
+      None
+Comment: HEAP unused
+Heap_Mem 00000000
+
+Symbol: Heap_Mem
+   Definitions
+      At line 37 in file ..\src\startup_RN8215.s
+   Uses
+      None
+Comment: Heap_Mem unused
+__heap_base 00000000
+
+Symbol: __heap_base
+   Definitions
+      At line 36 in file ..\src\startup_RN8215.s
+   Uses
+      At line 555 in file ..\src\startup_RN8215.s
+Comment: __heap_base used once
+__heap_limit 00000000
+
+Symbol: __heap_limit
+   Definitions
+      At line 38 in file ..\src\startup_RN8215.s
+   Uses
+      At line 556 in file ..\src\startup_RN8215.s
+Comment: __heap_limit used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 46 in file ..\src\startup_RN8215.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 51 in file ..\src\startup_RN8215.s
+   Uses
+      At line 47 in file ..\src\startup_RN8215.s
+      At line 103 in file ..\src\startup_RN8215.s
+
+__Vectors_End 000000C0
+
+Symbol: __Vectors_End
+   Definitions
+      At line 101 in file ..\src\startup_RN8215.s
+   Uses
+      At line 48 in file ..\src\startup_RN8215.s
+      At line 103 in file ..\src\startup_RN8215.s
+
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 104 in file ..\src\startup_RN8215.s
+   Uses
+      None
+Comment: .text unused
+ADD_CARRY 00000000
+
+Symbol: ADD_CARRY
+   Definitions
+      At line 107 in file ..\src\startup_RN8215.s
+   Uses
+      At line 255 in file ..\src\startup_RN8215.s
+      At line 257 in file ..\src\startup_RN8215.s
+      At line 259 in file ..\src\startup_RN8215.s
+      At line 261 in file ..\src\startup_RN8215.s
+      At line 263 in file ..\src\startup_RN8215.s
+      At line 265 in file ..\src\startup_RN8215.s
+      At line 267 in file ..\src\startup_RN8215.s
+      At line 269 in file ..\src\startup_RN8215.s
+      At line 271 in file ..\src\startup_RN8215.s
+      At line 273 in file ..\src\startup_RN8215.s
+      At line 275 in file ..\src\startup_RN8215.s
+      At line 277 in file ..\src\startup_RN8215.s
+      At line 279 in file ..\src\startup_RN8215.s
+      At line 281 in file ..\src\startup_RN8215.s
+      At line 283 in file ..\src\startup_RN8215.s
+      At line 285 in file ..\src\startup_RN8215.s
+      At line 287 in file ..\src\startup_RN8215.s
+      At line 289 in file ..\src\startup_RN8215.s
+      At line 291 in file ..\src\startup_RN8215.s
+      At line 293 in file ..\src\startup_RN8215.s
+      At line 295 in file ..\src\startup_RN8215.s
+      At line 297 in file ..\src\startup_RN8215.s
+      At line 299 in file ..\src\startup_RN8215.s
+      At line 301 in file ..\src\startup_RN8215.s
+      At line 303 in file ..\src\startup_RN8215.s
+      At line 305 in file ..\src\startup_RN8215.s
+      At line 307 in file ..\src\startup_RN8215.s
+      At line 309 in file ..\src\startup_RN8215.s
+      At line 311 in file ..\src\startup_RN8215.s
+      At line 313 in file ..\src\startup_RN8215.s
+      At line 315 in file ..\src\startup_RN8215.s
+      At line 317 in file ..\src\startup_RN8215.s
+      At line 319 in file ..\src\startup_RN8215.s
+      At line 321 in file ..\src\startup_RN8215.s
+
+CMP_HANDLER 000002D2
+
+Symbol: CMP_HANDLER
+   Definitions
+      At line 542 in file ..\src\startup_RN8215.s
+   Uses
+      At line 69 in file ..\src\startup_RN8215.s
+      At line 543 in file ..\src\startup_RN8215.s
+
+CT_HANDLER 000002AC
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+
+Symbol: CT_HANDLER
+   Definitions
+      At line 466 in file ..\src\startup_RN8215.s
+   Uses
+      At line 89 in file ..\src\startup_RN8215.s
+      At line 467 in file ..\src\startup_RN8215.s
+
+DMA_HANDLER 000002AA
+
+Symbol: DMA_HANDLER
+   Definitions
+      At line 462 in file ..\src\startup_RN8215.s
+   Uses
+      At line 90 in file ..\src\startup_RN8215.s
+      At line 463 in file ..\src\startup_RN8215.s
+
+EMU_HANDLER 000002B0
+
+Symbol: EMU_HANDLER
+   Definitions
+      At line 474 in file ..\src\startup_RN8215.s
+   Uses
+      At line 72 in file ..\src\startup_RN8215.s
+      At line 475 in file ..\src\startup_RN8215.s
+
+EXT0_HANDLER 000002A2
+
+Symbol: EXT0_HANDLER
+   Definitions
+      At line 446 in file ..\src\startup_RN8215.s
+   Uses
+      At line 92 in file ..\src\startup_RN8215.s
+      At line 447 in file ..\src\startup_RN8215.s
+
+EXT2_HANDLER 000002A4
+
+Symbol: EXT2_HANDLER
+   Definitions
+      At line 450 in file ..\src\startup_RN8215.s
+   Uses
+      At line 94 in file ..\src\startup_RN8215.s
+      At line 451 in file ..\src\startup_RN8215.s
+
+EXT6_HANDLER 000002A6
+
+Symbol: EXT6_HANDLER
+   Definitions
+      At line 454 in file ..\src\startup_RN8215.s
+   Uses
+      At line 98 in file ..\src\startup_RN8215.s
+      At line 455 in file ..\src\startup_RN8215.s
+
+EXT7_HANDLER 000002A8
+
+Symbol: EXT7_HANDLER
+   Definitions
+      At line 458 in file ..\src\startup_RN8215.s
+   Uses
+
+
+
+ARM Macro Assembler    Page 3 Alphabetic symbol ordering
+Relocatable symbols
+
+      At line 99 in file ..\src\startup_RN8215.s
+      At line 459 in file ..\src\startup_RN8215.s
+
+HardFault_Handler 0000029A
+
+Symbol: HardFault_Handler
+   Definitions
+      At line 430 in file ..\src\startup_RN8215.s
+   Uses
+      At line 54 in file ..\src\startup_RN8215.s
+      At line 431 in file ..\src\startup_RN8215.s
+
+I2C_HANDLER 000002BE
+
+Symbol: I2C_HANDLER
+   Definitions
+      At line 502 in file ..\src\startup_RN8215.s
+   Uses
+      At line 79 in file ..\src\startup_RN8215.s
+      At line 503 in file ..\src\startup_RN8215.s
+
+ISO78160_HANDLER 000002C2
+
+Symbol: ISO78160_HANDLER
+   Definitions
+      At line 510 in file ..\src\startup_RN8215.s
+   Uses
+      At line 80 in file ..\src\startup_RN8215.s
+      At line 511 in file ..\src\startup_RN8215.s
+
+ISO78161_HANDLER 000002C0
+
+Symbol: ISO78161_HANDLER
+   Definitions
+      At line 506 in file ..\src\startup_RN8215.s
+   Uses
+      At line 81 in file ..\src\startup_RN8215.s
+      At line 507 in file ..\src\startup_RN8215.s
+
+KBI_HANDLER 000002CC
+
+Symbol: KBI_HANDLER
+   Definitions
+      At line 530 in file ..\src\startup_RN8215.s
+   Uses
+      At line 87 in file ..\src\startup_RN8215.s
+      At line 531 in file ..\src\startup_RN8215.s
+
+LCD_HANDLER 000002CE
+
+Symbol: LCD_HANDLER
+   Definitions
+      At line 534 in file ..\src\startup_RN8215.s
+   Uses
+      At line 88 in file ..\src\startup_RN8215.s
+      At line 535 in file ..\src\startup_RN8215.s
+
+MADC_HANDLER 000002B2
+
+
+
+
+ARM Macro Assembler    Page 4 Alphabetic symbol ordering
+Relocatable symbols
+
+Symbol: MADC_HANDLER
+   Definitions
+      At line 478 in file ..\src\startup_RN8215.s
+   Uses
+      At line 73 in file ..\src\startup_RN8215.s
+      At line 479 in file ..\src\startup_RN8215.s
+
+MUL_CARRY 00000068
+
+Symbol: MUL_CARRY
+   Definitions
+      At line 164 in file ..\src\startup_RN8215.s
+   Uses
+      At line 325 in file ..\src\startup_RN8215.s
+      At line 327 in file ..\src\startup_RN8215.s
+      At line 329 in file ..\src\startup_RN8215.s
+      At line 331 in file ..\src\startup_RN8215.s
+      At line 333 in file ..\src\startup_RN8215.s
+      At line 335 in file ..\src\startup_RN8215.s
+      At line 337 in file ..\src\startup_RN8215.s
+      At line 339 in file ..\src\startup_RN8215.s
+      At line 341 in file ..\src\startup_RN8215.s
+      At line 343 in file ..\src\startup_RN8215.s
+      At line 345 in file ..\src\startup_RN8215.s
+      At line 347 in file ..\src\startup_RN8215.s
+      At line 349 in file ..\src\startup_RN8215.s
+      At line 351 in file ..\src\startup_RN8215.s
+      At line 353 in file ..\src\startup_RN8215.s
+      At line 355 in file ..\src\startup_RN8215.s
+      At line 357 in file ..\src\startup_RN8215.s
+      At line 359 in file ..\src\startup_RN8215.s
+      At line 361 in file ..\src\startup_RN8215.s
+      At line 363 in file ..\src\startup_RN8215.s
+      At line 365 in file ..\src\startup_RN8215.s
+      At line 367 in file ..\src\startup_RN8215.s
+      At line 369 in file ..\src\startup_RN8215.s
+      At line 371 in file ..\src\startup_RN8215.s
+      At line 373 in file ..\src\startup_RN8215.s
+      At line 375 in file ..\src\startup_RN8215.s
+      At line 377 in file ..\src\startup_RN8215.s
+      At line 379 in file ..\src\startup_RN8215.s
+      At line 381 in file ..\src\startup_RN8215.s
+      At line 383 in file ..\src\startup_RN8215.s
+      At line 385 in file ..\src\startup_RN8215.s
+      At line 387 in file ..\src\startup_RN8215.s
+      At line 389 in file ..\src\startup_RN8215.s
+
+NMI_Handler 00000298
+
+Symbol: NMI_Handler
+   Definitions
+      At line 425 in file ..\src\startup_RN8215.s
+   Uses
+      At line 53 in file ..\src\startup_RN8215.s
+      At line 426 in file ..\src\startup_RN8215.s
+
+PendSV_Handler 0000029E
+
+Symbol: PendSV_Handler
+
+
+
+ARM Macro Assembler    Page 5 Alphabetic symbol ordering
+Relocatable symbols
+
+   Definitions
+      At line 438 in file ..\src\startup_RN8215.s
+   Uses
+      At line 65 in file ..\src\startup_RN8215.s
+      At line 439 in file ..\src\startup_RN8215.s
+
+RTC_HANDLER 000002AE
+
+Symbol: RTC_HANDLER
+   Definitions
+      At line 470 in file ..\src\startup_RN8215.s
+   Uses
+      At line 71 in file ..\src\startup_RN8215.s
+      At line 471 in file ..\src\startup_RN8215.s
+
+Reset_Handler 000000AC
+
+Symbol: Reset_Handler
+   Definitions
+      At line 204 in file ..\src\startup_RN8215.s
+   Uses
+      At line 52 in file ..\src\startup_RN8215.s
+      At line 205 in file ..\src\startup_RN8215.s
+
+SPI_HANDLER 000002BC
+
+Symbol: SPI_HANDLER
+   Definitions
+      At line 498 in file ..\src\startup_RN8215.s
+   Uses
+      At line 78 in file ..\src\startup_RN8215.s
+      At line 499 in file ..\src\startup_RN8215.s
+
+SVC_Handler 0000029C
+
+Symbol: SVC_Handler
+   Definitions
+      At line 434 in file ..\src\startup_RN8215.s
+   Uses
+      At line 62 in file ..\src\startup_RN8215.s
+      At line 435 in file ..\src\startup_RN8215.s
+
+SysTick_Handler 000002A0
+
+Symbol: SysTick_Handler
+   Definitions
+      At line 442 in file ..\src\startup_RN8215.s
+   Uses
+      At line 66 in file ..\src\startup_RN8215.s
+      At line 443 in file ..\src\startup_RN8215.s
+
+TC0_HANDLER 000002C4
+
+Symbol: TC0_HANDLER
+   Definitions
+      At line 514 in file ..\src\startup_RN8215.s
+   Uses
+      At line 82 in file ..\src\startup_RN8215.s
+      At line 515 in file ..\src\startup_RN8215.s
+
+
+
+ARM Macro Assembler    Page 6 Alphabetic symbol ordering
+Relocatable symbols
+
+
+TC1_HANDLER 000002C6
+
+Symbol: TC1_HANDLER
+   Definitions
+      At line 518 in file ..\src\startup_RN8215.s
+   Uses
+      At line 83 in file ..\src\startup_RN8215.s
+      At line 519 in file ..\src\startup_RN8215.s
+
+UART0_HANDLER 000002B4
+
+Symbol: UART0_HANDLER
+   Definitions
+      At line 482 in file ..\src\startup_RN8215.s
+   Uses
+      At line 74 in file ..\src\startup_RN8215.s
+      At line 483 in file ..\src\startup_RN8215.s
+
+UART1_HANDLER 000002B6
+
+Symbol: UART1_HANDLER
+   Definitions
+      At line 486 in file ..\src\startup_RN8215.s
+   Uses
+      At line 75 in file ..\src\startup_RN8215.s
+      At line 487 in file ..\src\startup_RN8215.s
+
+UART2_HANDLER 000002B8
+
+Symbol: UART2_HANDLER
+   Definitions
+      At line 490 in file ..\src\startup_RN8215.s
+   Uses
+      At line 76 in file ..\src\startup_RN8215.s
+      At line 491 in file ..\src\startup_RN8215.s
+
+UART3_HANDLER 000002BA
+
+Symbol: UART3_HANDLER
+   Definitions
+      At line 494 in file ..\src\startup_RN8215.s
+   Uses
+      At line 77 in file ..\src\startup_RN8215.s
+      At line 495 in file ..\src\startup_RN8215.s
+
+UART5_HANDLER 000002C8
+
+Symbol: UART5_HANDLER
+   Definitions
+      At line 522 in file ..\src\startup_RN8215.s
+   Uses
+      At line 85 in file ..\src\startup_RN8215.s
+      At line 523 in file ..\src\startup_RN8215.s
+
+VCH_HANDLER 000002D0
+
+Symbol: VCH_HANDLER
+   Definitions
+
+
+
+ARM Macro Assembler    Page 7 Alphabetic symbol ordering
+Relocatable symbols
+
+      At line 538 in file ..\src\startup_RN8215.s
+   Uses
+      At line 70 in file ..\src\startup_RN8215.s
+      At line 539 in file ..\src\startup_RN8215.s
+
+WDT_HANDLER 000002CA
+
+Symbol: WDT_HANDLER
+   Definitions
+      At line 526 in file ..\src\startup_RN8215.s
+   Uses
+      At line 86 in file ..\src\startup_RN8215.s
+      At line 527 in file ..\src\startup_RN8215.s
+
+add_carry_fail 00000064
+
+Symbol: add_carry_fail
+   Definitions
+      At line 160 in file ..\src\startup_RN8215.s
+   Uses
+      At line 136 in file ..\src\startup_RN8215.s
+      At line 138 in file ..\src\startup_RN8215.s
+      At line 140 in file ..\src\startup_RN8215.s
+      At line 142 in file ..\src\startup_RN8215.s
+      At line 144 in file ..\src\startup_RN8215.s
+      At line 146 in file ..\src\startup_RN8215.s
+      At line 148 in file ..\src\startup_RN8215.s
+      At line 150 in file ..\src\startup_RN8215.s
+      At line 152 in file ..\src\startup_RN8215.s
+      At line 154 in file ..\src\startup_RN8215.s
+      At line 156 in file ..\src\startup_RN8215.s
+      At line 158 in file ..\src\startup_RN8215.s
+
+exit_err 0000028A
+
+Symbol: exit_err
+   Definitions
+      At line 410 in file ..\src\startup_RN8215.s
+   Uses
+      At line 161 in file ..\src\startup_RN8215.s
+      At line 201 in file ..\src\startup_RN8215.s
+      At line 397 in file ..\src\startup_RN8215.s
+      At line 403 in file ..\src\startup_RN8215.s
+
+exit_pass 00000290
+
+Symbol: exit_pass
+   Definitions
+      At line 414 in file ..\src\startup_RN8215.s
+   Uses
+      At line 409 in file ..\src\startup_RN8215.s
+      At line 418 in file ..\src\startup_RN8215.s
+
+mul_carry_fail 000000A8
+
+Symbol: mul_carry_fail
+   Definitions
+      At line 200 in file ..\src\startup_RN8215.s
+   Uses
+
+
+
+ARM Macro Assembler    Page 8 Alphabetic symbol ordering
+Relocatable symbols
+
+      At line 185 in file ..\src\startup_RN8215.s
+      At line 187 in file ..\src\startup_RN8215.s
+      At line 189 in file ..\src\startup_RN8215.s
+      At line 191 in file ..\src\startup_RN8215.s
+      At line 193 in file ..\src\startup_RN8215.s
+      At line 195 in file ..\src\startup_RN8215.s
+      At line 197 in file ..\src\startup_RN8215.s
+
+wait_hosc 000000CC
+
+Symbol: wait_hosc
+   Definitions
+      At line 238 in file ..\src\startup_RN8215.s
+   Uses
+      At line 242 in file ..\src\startup_RN8215.s
+Comment: wait_hosc used once
+39 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+Heap_Size 00000000
+
+Symbol: Heap_Size
+   Definitions
+      At line 33 in file ..\src\startup_RN8215.s
+   Uses
+      At line 37 in file ..\src\startup_RN8215.s
+Comment: Heap_Size used once
+SRAM_BASE_ADDR 00000000
+
+Symbol: SRAM_BASE_ADDR
+   Definitions
+      At line 12 in file ..\src\startup_RN8215.s
+   Uses
+      At line 13 in file ..\src\startup_RN8215.s
+      At line 14 in file ..\src\startup_RN8215.s
+
+SRAM_CHIPID_ADDR 000037F0
+
+Symbol: SRAM_CHIPID_ADDR
+   Definitions
+      At line 14 in file ..\src\startup_RN8215.s
+   Uses
+      None
+Comment: SRAM_CHIPID_ADDR unused
+SRAM_RESULT_ADDR 000037F8
+
+Symbol: SRAM_RESULT_ADDR
+   Definitions
+      At line 13 in file ..\src\startup_RN8215.s
+   Uses
+      At line 406 in file ..\src\startup_RN8215.s
+      At line 411 in file ..\src\startup_RN8215.s
+
+Stack_Size 00000100
+
+Symbol: Stack_Size
+   Definitions
+      At line 21 in file ..\src\startup_RN8215.s
+   Uses
+      At line 25 in file ..\src\startup_RN8215.s
+Comment: Stack_Size used once
+TEST_FAIL 12345670
+
+Symbol: TEST_FAIL
+   Definitions
+      At line 16 in file ..\src\startup_RN8215.s
+   Uses
+      At line 412 in file ..\src\startup_RN8215.s
+Comment: TEST_FAIL used once
+TEST_PASS 98765432
+
+Symbol: TEST_PASS
+   Definitions
+      At line 17 in file ..\src\startup_RN8215.s
+   Uses
+      At line 407 in file ..\src\startup_RN8215.s
+Comment: TEST_PASS used once
+UNUSEDIRQ 00000000
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Absolute symbols
+
+
+Symbol: UNUSEDIRQ
+   Definitions
+      At line 22 in file ..\src\startup_RN8215.s
+   Uses
+      None
+Comment: UNUSEDIRQ unused
+UNUSEDUART 00000000
+
+Symbol: UNUSEDUART
+   Definitions
+      At line 23 in file ..\src\startup_RN8215.s
+   Uses
+      None
+Comment: UNUSEDUART unused
+__Vectors_Size 000000C0
+
+Symbol: __Vectors_Size
+   Definitions
+      At line 103 in file ..\src\startup_RN8215.s
+   Uses
+      At line 49 in file ..\src\startup_RN8215.s
+Comment: __Vectors_Size used once
+10 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+SystemInit 00000000
+
+Symbol: SystemInit
+   Definitions
+      At line 206 in file ..\src\startup_RN8215.s
+   Uses
+      None
+Comment: SystemInit unused
+1 symbol
+393 symbols in table

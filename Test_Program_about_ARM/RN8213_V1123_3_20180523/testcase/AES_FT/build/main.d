@@ -1,0 +1,11 @@
+main.o: ..\src\main.c
+main.o: ..\src\rn821x.h
+main.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+main.o: E:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+main.o: E:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+main.o: E:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+main.o: ..\src\system_RN821x.h
+main.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+main.o: ..\src\common\common.h
+main.o: E:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+main.o: ..\src\common\lib\sysctrl.h

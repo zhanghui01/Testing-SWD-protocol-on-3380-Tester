@@ -1,0 +1,16 @@
+.\ads_acquire.o: ..\driver\ads_acquire.c
+.\ads_acquire.o: ..\driver\ads_acquire.h
+.\ads_acquire.o: D:\soft\keil_MDK\ARM\Inc\NXP\LPC17xx\lpc17xx.h
+.\ads_acquire.o: D:\soft\keil_MDK\ARM\CMSIS\Include\core_cm3.h
+.\ads_acquire.o: D:\soft\keil_MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\ads_acquire.o: D:\soft\keil_MDK\ARM\CMSIS\Include\core_cmInstr.h
+.\ads_acquire.o: D:\soft\keil_MDK\ARM\CMSIS\Include\core_cmFunc.h
+.\ads_acquire.o: D:\soft\keil_MDK\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\ads_acquire.o: D:\soft\keil_MDK\ARM\ARMCC\Bin\..\include\stdio.h
+.\ads_acquire.o: ..\driver\spi.h
+.\ads_acquire.o: ..\driver\ra0_routine.h
+.\ads_acquire.o: ..\driver\swd_drv.h
+.\ads_acquire.o: ..\driver\ra9103_reg.h
+.\ads_acquire.o: ..\driver\ads_acquire.h
+.\ads_acquire.o: ..\driver\eeprom.h
+.\ads_acquire.o: ..\driver\timer.h

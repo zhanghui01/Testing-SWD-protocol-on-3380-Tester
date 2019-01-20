@@ -1,0 +1,73 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\2017_FT_prog\V112\V112.1\RN8312_V1121_3_20171129\testcase\ALL_REG_WR_QC\build\ALL_REG_WR_QC.uvproj
+Project File Date:  11/30/2017
+
+<h2>Output:</h2>
+ 
+*** Rebuild Pass #1 with Cross-Module Feedback - 'Clean' invoked.
+Clean started: Project: 'ALL_REG_WR_QC'
+   deleting intermediate output files for target 'Target 1'
+Rebuild target 'Target 1'
+compiling common.c...
+assembling startup_RA9103.s...
+compiling system_RN821x.c...
+compiling clk_calc.c...
+compiling ALL_REG_WR_QC.c...
+compiling Retarget.c...
+compiling serial.c...
+linking...
+Program Size: Code=7148 RO-data=360 RW-data=784 ZI-data=696  
+"ALL_REG_WR_QC.axf" - 0 Error(s), 0 Warning(s).
+ 
+*** Rebuild Pass #2 with Cross-Module Feedback invoked.
+Rebuild target 'Target 1'
+compiling common.c...
+assembling startup_RA9103.s...
+compiling system_RN821x.c...
+compiling clk_calc.c...
+compiling ALL_REG_WR_QC.c...
+compiling Retarget.c...
+compiling serial.c...
+linking...
+Program Size: Code=7140 RO-data=360 RW-data=784 ZI-data=696  
+User command #1: fromelf --bin ALL_REG_WR_QC.axf -o ../ALL_REG_WR_QC.bin
+"ALL_REG_WR_QC.axf" - 0 Error(s), 0 Warning(s).
+Load "E:\\2017_FT_prog\\V112\\V112.1\\RN8312_V1121_3_20171129\\testcase\\ALL_REG_WR_QC\\build\\ALL_REG_WR_QC.AXF" 
+Set JLink Project File to "E:\2017_FT_prog\V112\V112.1\RN8312_V1121_3_20171129\testcase\ALL_REG_WR_QC\build\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.22g, compiled Feb  7 2011 16:13:12
+Firmware: J-Link ARM V8 compiled Dec  6 2011 18:57:44
+Hardware: V8.00
+S/N : 20121126 
+Feature(s) : RDI,FlashDL,FlashBP,JFlash 
+ 
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x2BA01477
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info:   FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+ 
+Target info:
+------------
+Device: RA9103D0
+VTarget = 3.274V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 2048
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Full Chip Erase Failed!

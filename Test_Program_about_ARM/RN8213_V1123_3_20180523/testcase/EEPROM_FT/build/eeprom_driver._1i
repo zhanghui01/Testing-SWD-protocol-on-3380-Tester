@@ -1,0 +1,5 @@
+-c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\src -I..\src\common -I..\src\common\lib 
+-I E:\Keil\ARM\RV31\INC 
+-I E:\Keil\ARM\CMSIS\Include 
+-I E:\Keil\ARM\Inc\Renergy\RN8215 
+-o "eeprom_driver.o" --omf_browse "eeprom_driver.crf" --depend "eeprom_driver.d" "..\src\eeprom_driver.c"

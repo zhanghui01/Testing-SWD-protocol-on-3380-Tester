@@ -1,0 +1,5 @@
+--feedback "Clock_Switch_QC.fed" -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I..\src -I..\src\common -I..\src\common\lib 
+-I E:\Keil\ARM\RV31\INC 
+-I E:\Keil\ARM\CMSIS\Include 
+-I E:\Keil\ARM\Inc\Renergy 
+-o "system_rn821x.o" --omf_browse "system_rn821x.crf" --depend "system_rn821x.d" "..\src\system_RN821x.c"

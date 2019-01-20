@@ -1,0 +1,58 @@
+Time Set Name
+  0. TS0 = 0
+  1. TS1 = 1
+  2. TS2 = 2
+  3. TS3 = 3
+  4. TS4 = 4
+  5. TS5 = 5
+  6. TS6 = 6
+  7. TS7 = 7
+  8. TS8 = 8
+  9. TS9 = 9
+ 10. TS10 = 10
+ 11. TS11 = 11
+ 12. TS12 = 12
+ 13. TS13 = 13
+ 14. TS14 = 14
+ 15. TS15 = 15
+Time Set no.= 16
+
+Used Time Set
+TS1
+
+Header no. : 10
+Pin no.    : 10
+
+Module Name :CAPTURE_WORD   Type :SPM  Address :0       vector no. :48      
+Module Name :GET_CHIP_ID    Type :SPM  Address :48      vector no. :950     
+Module Name :READ_WORD      Type :SPM  Address :998     vector no. :48      
+Module Name :Reset_SWD      Type :SPM  Address :1046    vector no. :207     
+Module Name :WIRTE_WORD     Type :SPM  Address :1253    vector no. :49      
+Module no.= 5
+
+Label Name :CAPTURE_WORD   Module Name : CAPTURE_WORD   Offset : 0       
+Label Name :Capture_addr   Module Name : CAPTURE_WORD   Offset : 1       
+Label Name :Capture_data   Module Name : CAPTURE_WORD   Offset : 13      
+Label Name :__CAPTURE_WORD Module Name : CAPTURE_WORD   Offset : 47      
+Label Name :GET_CHIP_ID    Module Name : GET_CHIP_ID    Offset : 0       
+Label Name :__GET_CHIP_ID  Module Name : GET_CHIP_ID    Offset : 949     
+Label Name :READ_WORD      Module Name : READ_WORD      Offset : 0       
+Label Name :wread_addr     Module Name : READ_WORD      Offset : 1       
+Label Name :wread_data     Module Name : READ_WORD      Offset : 13      
+Label Name :__READ_WORD    Module Name : READ_WORD      Offset : 47      
+Label Name :Reset_SWD      Module Name : Reset_SWD      Offset : 0       
+Label Name :__Reset_SWD    Module Name : Reset_SWD      Offset : 206     
+Label Name :WIRTE_WORD     Module Name : WIRTE_WORD     Offset : 0       
+Label Name :wstart_head    Module Name : WIRTE_WORD     Offset : 1       
+Label Name :wstart_data    Module Name : WIRTE_WORD     Offset : 14      
+Label Name :__WIRTE_WORD   Module Name : WIRTE_WORD     Offset : 48      
+Label no.= 16
+
+File : Capture_WORD.pat  SPM :(0)-(47)  FPM :(0)-(-1)
+File : GET_CHIP_ID.PAT  SPM :(48)-(997)  FPM :(0)-(-1)
+File :   READ_WORD.pat  SPM :(998)-(1045)  FPM :(0)-(-1)
+File :   reset_swd.PAT  SPM :(1046)-(1252)  FPM :(0)-(-1)
+File :  WIRTE_WORD.pat  SPM :(1253)-(1301)  FPM :(0)-(-1)
+SPM memory size = 1302
+FPM memory size = 0
+

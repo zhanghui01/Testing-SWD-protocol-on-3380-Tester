@@ -1,0 +1,5 @@
+--cpu Cortex-M0 "common.o" "nvm.o" "retarget.o" "serial.o" "soclowpwr_sys.o" "sysctrl.o" "system_rn821x.o" "sysupdate.o" ".\startup_ra9103.o" 
+--library_type=microlib --strict --scatter "SocLowPwr_sys.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\SocLowPwr_sys.map" -o SocLowPwr_sys.axf

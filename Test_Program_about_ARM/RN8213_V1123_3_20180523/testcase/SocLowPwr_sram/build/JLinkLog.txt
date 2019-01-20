@@ -1,0 +1,29 @@
+
+T19B4 000:541 SEGGER J-Link V4.22g Log File (0009ms, 0540ms total)
+T19B4 000:541 DLL Compiled: Feb  7 2011 16:13:12 (0009ms, 0540ms total)
+T19B4 000:541 Logging started @ 2017-11-30 15:21 (0009ms, 0540ms total)
+T19B4 000:550 JLINK_SetWarnOutHandler(...) (0000ms, 0549ms total)
+T19B4 000:550 JLINK_OpenEx(...)
+Firmware: J-Link ARM V8 compiled Dec  6 2011 18:57:44
+Hardware: V8.00
+S/N: 20121126
+Feature(s): RDI,FlashDL,FlashBP,JFlash  returns O.K. (0318ms, 0549ms total)
+T19B4 000:868 JLINK_SetErrorOutHandler(...) (0000ms, 0867ms total)
+T19B4 000:868 JLINK_ExecCommand("ProjectFile = "E:\2017_FT_prog\V112\V112.1\RN8312_V1121_3_20171129\testcase\SocLowPwr_sram\build\JLinkSettings.ini"", ...)  returns 0x00 (0001ms, 0867ms total)
+T19B4 000:882 JLINK_ExecCommand("Device = RN8215", ...)  returns 0x00 (0000ms, 0868ms total)
+T19B4 000:882 JLINK_ExecCommand("DisableConnectionTimeout", ...)  returns 0x00 (0000ms, 0868ms total)
+T19B4 000:882 JLINK_TIF_Select(JLINKARM_TIF_SWD)  returns 0x00 (0000ms, 0868ms total)
+T19B4 000:882 JLINK_SetSpeed(2000) (0000ms, 0868ms total)
+T19B4 000:882 JLINK_GetHardwareVersion()  returns 0x13880 (0000ms, 0868ms total)
+T19B4 000:882 JLINK_GetDLLVersion()  returns 42207 (0000ms, 0868ms total)
+T19B4 000:882 JLINK_GetFirmwareString(...) (0000ms, 0868ms total)
+T19B4 000:900 JLINK_GetDLLVersion()  returns 42207 (0000ms, 0868ms total)
+T19B4 000:900 JLINK_GetCompileDateTime() (0001ms, 0868ms total)
+T19B4 000:905 JLINK_GetFirmwareString(...) (0000ms, 0869ms total)
+T19B4 000:908 JLINK_GetHardwareVersion()  returns 0x13880 (0000ms, 0869ms total)
+T19B4 000:918 JLINK_GetId()RESET (pin 15) high, but should be low. Please check target hardware.
+  ***** Error: Supply voltage too low (1 Volt is required, Measured: 0.0 Volt).
+Please check target power.CPU core not found.  returns 0x00000000 (0206ms, 0869ms total)
+T19B4 002:694 JLINK_Close() (0033ms, 1075ms total)
+T19B4 002:727 JLINK_Close() (0000ms, 1108ms total)
+T19B4 002:727 JLINK_Close() (0000ms, 1108ms total)

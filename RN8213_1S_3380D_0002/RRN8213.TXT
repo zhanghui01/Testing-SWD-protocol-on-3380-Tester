@@ -1,0 +1,240 @@
+Waiting for Tserver's event...
+CRAFT WARNING: Relay hot switch check has been turned on and it will cause the longer test time in Engineer Mode.
+CRAFT WARNING: user can turn off the check by programming CHECK_PE_RELAY_HOT_SWITCHING= FALSE;
+BEFORE-TEST FUNCTION : TEST_START
+<<<<===== TEST FUNCTION : Get_Chip_TEST                   =====>>>>
+JUDGE_PAT: (Log Site Fail)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   1314        33000002      1    FUNC(GET_CHIP_ID.PAT)          0                     N/A  RN8211B_V20C_38D.PLN\154\--NULL--
+
+<<<<===== TEST FUNCTION : Enable_Voltage                  =====>>>>
+JUDGE_V_PMU:
+P/F     Test       Judge  Test  Socket Pin_name       Force                 Low               AVE            Clamp       High             Min Low           Min              Max High         Max              File\Line\Message
+        No.        No.    Type  No.                                         Limit             Measure        Flag        Limit            Limit             Measure          Limit            Measure
+PASS    33000003   1      PMU2  0      AVDD(2)        -13.933 nA       IFVM                   +780.086 uV    0           +500.000 mV                        +345.242 uV                       +1.041 mV        RN8211B_V20C_38D.PLN\219\<<--NULL-->>
+PASS    33000003   1      PMU3  0      VREF(3)        -21.490 nA       IFVM                   -264.904 uV    0           +500.000 mV                        -703.016 uV                       +231.623 uV      RN8211B_V20C_38D.PLN\219\<<--NULL-->>
+JUDGE_PAT: (Log Fail Only)(Capture Memory Mode)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   539         33000011      1    FUNC(reset_swd.PAT)            0                     N/A  IC_Ctrl.pln\28\--NULL--
+
+
+The IDCODE=0x0BB11477
+Parity bit=0
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+Parity bit=L
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   66          33000014      1    FUNC(READ_WORD.pat)            0                     N/A  IC_Ctrl.pln\249\--NULL--
+
+Parity bit=H
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   66          33000014      1    FUNC(READ_WORD.pat)            0                     N/A  IC_Ctrl.pln\249\--NULL--
+
+Parity bit=1
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+Parity bit=0
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+Parity bit=0
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+Parity bit=1
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+Parity bit=1
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+JUDGE_V_PMU:
+P/F     Test       Judge  Test  Socket Pin_name       Force                 Low               AVE            Clamp       High             Min Low           Min              Max High         Max              File\Line\Message
+        No.        No.    Type  No.                                         Limit             Measure        Flag        Limit            Limit             Measure          Limit            Measure
+PASS    33000004   1      PMU2  0      AVDD(2)        -33.034 pA       IFVM +3.100  V         +3.285  V      0           +3.500  V                          +3.284  V                         +3.285  V        RN8211B_V20C_38D.PLN\245\<<--NULL-->>
+JUDGE_V_PMU:
+P/F     Test       Judge  Test  Socket Pin_name       Force                 Low               AVE            Clamp       High             Min Low           Min              Max High         Max              File\Line\Message
+        No.        No.    Type  No.                                         Limit             Measure        Flag        Limit            Limit             Measure          Limit            Measure
+PASS    33000005   1      PMU3  0      VREF(3)        -34.671 pA       IFVM +1.220  V         +1.258  V      0           +1.290  V                          +1.258  V                         +1.259  V        RN8211B_V20C_38D.PLN\255\<<--NULL-->>
+JUDGE_V_PMU:
+P/F     Test       Judge  Test  Socket Pin_name       Force                 Low               AVE            Clamp       High             Min Low           Min              Max High         Max              File\Line\Message
+        No.        No.    Type  No.                                         Limit             Measure        Flag        Limit            Limit             Measure          Limit            Measure
+PASS    33000006   1      PMU6  0      DVDD(6)        -18.668 pA       IFVM +1.650  V         +1.776  V      0           +1.980  V                          +1.776  V                         +1.778  V        RN8211B_V20C_38D.PLN\265\<<--NULL-->>
+Parity bit=H
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+FAIL   29          33000014      1    FUNC(READ_WORD.pat)            0    SPM 1299(READ_WORD+19)  IC_Ctrl.pln\249\--NULL--
+                     SS
+                     WW
+                     DD
+                     CI
+                     LO
+         PMA(offset) K  Test_Count
+                     ee
+SPM         1299(19) 1/ 29
+SPM         1317(37) 1/ 47
+SPM         1318(38) 1/ 48
+SPM         1325(45) 1/ 55
+
+Parity bit=1
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+Parity bit=0
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+Parity bit=0
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+Parity bit=1
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+Parity bit=1
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+JUDGE_V_PMU:
+P/F     Test       Judge  Test  Socket Pin_name       Force                 Low               AVE            Clamp       High             Min Low           Min              Max High         Max              File\Line\Message
+        No.        No.    Type  No.                                         Limit             Measure        Flag        Limit            Limit             Measure          Limit            Measure
+FAIL    33000007   1      PMU2  0      AVDD(2)        -13.933 nA       IFVM                   +3.221  V      0           +500.000 mV                        +3.220  V                         +3.222  V        RN8211B_V20C_38D.PLN\281\<<--NULL-->>
+FAIL    33000007   1      PMU3  0      VREF(3)        -21.490 nA       IFVM                   +1.198  V      0           +500.000 mV                        +1.198  V                         +1.199  V        RN8211B_V20C_38D.PLN\281\<<--NULL-->>
+JUDGE_PAT: (Log Fail Only)(Capture Memory Mode)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   539         33000011      1    FUNC(reset_swd.PAT)            0                     N/A  IC_Ctrl.pln\28\--NULL--
+
+
+The IDCODE=0x0BB11477
+Parity bit=0
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+Parity bit=L
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   66          33000014      1    FUNC(READ_WORD.pat)            0                     N/A  IC_Ctrl.pln\249\--NULL--
+
+Parity bit=H
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   66          33000014      1    FUNC(READ_WORD.pat)            0                     N/A  IC_Ctrl.pln\249\--NULL--
+
+Parity bit=1
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+Parity bit=0
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+Parity bit=0
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+Parity bit=1
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+Parity bit=0
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+Parity bit=1
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   67          33000012      1    FUNC(WIRTE_WORD.pat)           0                     N/A  IC_Ctrl.pln\133\--NULL--
+
+Parity bit=L
+JUDGE_PAT: (Log Fail Only)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   66          33000014      1    FUNC(READ_WORD.pat)            0                     N/A  IC_Ctrl.pln\249\--NULL--
+
+JUDGE_PAT: (Log Fail Only)(Capture Memory Mode)
+P/F    Test        Test       Judge   Test                        Socket    Fail                File\Line\Message
+       Count        No.        No.    Type                         No.      Address
+PASS   66          33000013      1    FUNC(Capture_WORD.pat)         0                     N/A  IC_Ctrl.pln\165\--NULL--
+
+Chip Version is 0x00000000!!!
+Chip Version is unNormal,Please Check it!!!
+<<<<===== TEST FUNCTION : POWER_SWICTH                    =====>>>>
+JUDGE_V_PMU:
+P/F     Test       Judge  Test  Socket Pin_name       Force                 Low               AVE            Clamp       High             Min Low           Min              Max High         Max              File\Line\Message
+        No.        No.    Type  No.                                         Limit             Measure        Flag        Limit            Limit             Measure          Limit            Measure
+PASS    33000008   1      PMU5  0      VSWO(5)        -236.785 pA      IFVM +4.500  V         +4.990  V      0           +5.200  V                          +4.989  V                         +4.990  V        RN8211B_V20C_38D.PLN\320\<<--NULL-->>
+JUDGE_V_PMU:
+P/F     Test       Judge  Test  Socket Pin_name       Force                 Low               AVE            Clamp       High             Min Low           Min              Max High         Max              File\Line\Message
+        No.        No.    Type  No.                                         Limit             Measure        Flag        Limit            Limit             Measure          Limit            Measure
+PASS    33000009   1      PMU5  0      VSWO(5)        -236.785 pA      IFVM +3.400  V         +3.586  V      0           +3.800  V                          +3.585  V                         +3.587  V        RN8211B_V20C_38D.PLN\332\<<--NULL-->>
+JUDGE_V_PMU:
+P/F     Test       Judge  Test  Socket Pin_name       Force                 Low               AVE            Clamp       High             Min Low           Min              Max High         Max              File\Line\Message
+        No.        No.    Type  No.                                         Limit             Measure        Flag        Limit            Limit             Measure          Limit            Measure
+FAIL    33000010   1      PMU5  0      VSWO(5)        -236.785 pA      IFVM +3.400  V         +3.089  V      0           +3.800  V                          +3.088  V                         +3.090  V        RN8211B_V20C_38D.PLN\344\<<--NULL-->>
+CRAFT WARNING !!! : Statement SET_LEVELN Warning: ATE Channel 4, When PPMU Relay ON then use SET_LEVELN() statement will clear PPMU force value!
+AFTER-TEST FUNCTION : TEST_END
+
+
+
+########################################### END OF TEST #############################################
+#File : D:\FT\HX\RN8213_1S_3380D_0002\RN8211B_V20C_38D.PLN                                          #
+#ATE ID : 000236                          (CRAFT_3380_2.40                              )           #
+#LoadBoard Name: RN8213_1S                         ID : 3382-3MXXX-CM-010B-C00158                   #
+#Condition : No Condition                          Spec. : No Spec Def.                             #
+#LotID :                                           WaferID :                                        #
+#DATE : 2019/01/17 16:25:35                        SERIAL NUMBER : 0                                #
+#===================================================================================================#
+#        | P/F |                        HW Category            |              SW Category           #
+#--------+-----+-----------------------------------------------+------------------------------------#
+# Site  0| F   |! 7 (Override) HW_POWER_SWICTH_FAIL            |! 7 SW_POWER_SWICTH_FAIL           #
+#####################################################################################################
+Waiting for Tserver's event...

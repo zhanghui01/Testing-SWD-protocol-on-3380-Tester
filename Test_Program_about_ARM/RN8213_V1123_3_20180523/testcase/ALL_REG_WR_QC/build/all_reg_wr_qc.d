@@ -1,0 +1,11 @@
+all_reg_wr_qc.o: ..\src\ALL_REG_WR_QC.c
+all_reg_wr_qc.o: ..\src\rn821x.h
+all_reg_wr_qc.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+all_reg_wr_qc.o: E:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+all_reg_wr_qc.o: E:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+all_reg_wr_qc.o: E:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+all_reg_wr_qc.o: ..\src\system_RN821x.h
+all_reg_wr_qc.o: E:\Keil\ARM\CMSIS\Include\core_cm0.h
+all_reg_wr_qc.o: ..\src\common\lib\sysctrl.h
+all_reg_wr_qc.o: ..\src\common\common.h
+all_reg_wr_qc.o: E:\Keil\ARM\ARMCC\bin\..\include\stdio.h

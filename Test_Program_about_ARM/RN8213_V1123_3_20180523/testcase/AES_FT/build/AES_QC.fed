@@ -1,0 +1,41 @@
+;#<FEEDBACK># ARM Linker, 5.02 [Build 28]: Last Updated: Fri Sep 22 20:14:26 2017
+;VERSION 0.2
+;FILE clk_calc.o
+__asm___10_clk_calc_c_clk_freq____REV16 <= USED 0
+__asm___10_clk_calc_c_clk_freq____REVSH <= USED 0
+clk_freq <= USED 0
+;FILE common.o
+WdtFeed <= USED 0
+WdtInit <= USED 0
+__ARM_common_switch8 <= USED 0
+__asm___8_common_c_00ccbcb3____REV16 <= USED 0
+__asm___8_common_c_00ccbcb3____REVSH <= USED 0
+exitFail <= USED 0
+exitPass <= USED 0
+getSysclk <= USED 0
+mDelay <= USED 0
+mod_clk <= USED 0
+sendChar <= USED 0
+sendStr <= USED 0
+setBaud <= USED 0
+sysclkLoop <= USED 0
+uDelay <= USED 0
+uartInit <= USED 0
+;FILE main.o
+__asm___6_main_c_4f1fd015____REV16 <= USED 0
+__asm___6_main_c_4f1fd015____REVSH <= USED 0
+enc_set_iv <= USED 0
+enc_set_pt <= USED 0
+ghash_set_at <= USED 0
+ghash_set_ct <= USED 0
+ghash_verify <= USED 0
+;FILE startup_ra9103.o
+;FILE sysctrl.o
+Remap4Sel <= USED 0
+__asm___9_sysctrl_c_9296431c____REV16 <= USED 0
+__asm___9_sysctrl_c_9296431c____REVSH <= USED 0
+;FILE system_rn821x.o
+SystemCoreClockUpdate <= USED 0
+SystemInit <= USED 0
+__asm___15_system_RN821x_c_5d646a67____REV16 <= USED 0
+__asm___15_system_RN821x_c_5d646a67____REVSH <= USED 0

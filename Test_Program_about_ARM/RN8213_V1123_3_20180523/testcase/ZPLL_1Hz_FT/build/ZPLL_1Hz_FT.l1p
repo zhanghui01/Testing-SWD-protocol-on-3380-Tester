@@ -1,0 +1,7 @@
+--cpu Cortex-M0 "common.o" "retarget.o" "serial.o" E:\2017_FT_prog\V111\RN8312_V111_1_20160424_CPV14V15\testcase\ZPLL_1Hz_FT\src\common\lib\rn821x_sysctrl.lib "rtc_qc.o" ".\startup_ra9103.o" "system_rn821x.o" "clk_calc.o" 
+--library_type=microlib 
+--feedback "ZPLL_1Hz_FT.fed" --feedback_image=none 
+--strict --scatter "ZPLL_1Hz_FT.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\ZPLL_1Hz_FT.map" -o ZPLL_1Hz_FT.axf

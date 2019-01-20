@@ -1,0 +1,17 @@
+PIN_LIST(RN8213_1S)
+{
+    VCC     =     256 =   18 = MLDPS;
+    SWDCLK  =     0   =   1  = IO;
+    SWDIO   =     1   =   2  = IO;
+    AVDD    =     2   =   3  = IO;
+    VREF    =     3   =   4  = IO;
+    VBAT    =     4   =   5  = IO;
+    VSWO    =     5   =   6  = IO;
+    DVDD    =     6   =   7  = IO;
+
+}  
+PIN_GROUP
+{
+    SWD_PINS = SWDIO + SWDCLK;
+    LDO_PINS = AVDD + VREF + DVDD;
+}

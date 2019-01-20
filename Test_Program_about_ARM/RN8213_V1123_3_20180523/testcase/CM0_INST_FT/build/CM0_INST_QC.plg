@@ -1,0 +1,39 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\2017_FT_prog\V112\V112.2\RN8215_V1122_8_20180118\testcase\CM0_INST_QC\build\CM0_INST_QC.uvproj
+Project File Date:  09/13/2017
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+compiling system_RN8215.c...
+assembling startup_RN8215.s...
+linking...
+CM0_INST_QC.axf: Warning: L6305W: Image does not have an entry point. (Not specified or not set due to multiple choices.)
+CM0_INST_QC.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=1076 RO-data=192 RW-data=4 ZI-data=260  
+FromELF: creating hex file...
+User command #1: fromelf -o ../CM0_INST_QC.bin  --bin CM0_INST_QC.axf
+"CM0_INST_QC.axf" - 0 Error(s), 2 Warning(s).
+Rebuild target 'Target 1'
+compiling system_RN8215.c...
+assembling startup_RN8215.s...
+linking...
+CM0_INST_QC.axf: Warning: L6305W: Image does not have an entry point. (Not specified or not set due to multiple choices.)
+CM0_INST_QC.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=1076 RO-data=192 RW-data=4 ZI-data=260  
+FromELF: creating hex file...
+User command #1: fromelf -o ../CM0_INST_QC.bin  --bin CM0_INST_QC.axf
+"CM0_INST_QC.axf" - 0 Error(s), 2 Warning(s).
+Rebuild target 'Target 1'
+compiling system_RN8215.c...
+assembling startup_RN8215.s...
+linking...
+CM0_INST_FT.axf: Warning: L6305W: Image does not have an entry point. (Not specified or not set due to multiple choices.)
+CM0_INST_FT.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=1076 RO-data=192 RW-data=4 ZI-data=260  
+FromELF: creating hex file...
+User command #1: fromelf -o ../CM0_INST_FT.bin  --bin CM0_INST_FT.axf
+"CM0_INST_FT.axf" - 0 Error(s), 2 Warning(s).

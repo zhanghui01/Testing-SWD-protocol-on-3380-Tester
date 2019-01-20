@@ -1,0 +1,284 @@
+#include "IC_Ctrl.h"
+
+long int   Active_Site = 0x0;
+
+void global_var_Reset()
+{
+  int i;
+  for(i = 0;i < DUT_COUNT;i++)
+  {
+    LDO18_trim_flag[i] = 0;
+    vih_trim_flag[i]   = 0;
+  }
+}
+
+void POWER_ON(VOLTAGE volt)
+{
+  FORCE_V_MLDPS(VCC, 0V, @6V, @500mA, 300mA, NORM, ON, 2mS);
+  WAIT(5mS);
+  FORCE_V_MLDPS(VCC, volt, @6V, @500mA, 300mA, NORM, ON, 2mS);
+  WAIT(5mS);
+}
+
+void POWER_OFF()
+{
+  FORCE_V_MLDPS(VCC,0V,@6V,@500mA,300mA,NORM,ON,3mS);
+  WAIT(2mS);
+  FORCE_V_MLDPS(VCC,0V,@6V,@500mA,300mA,NORM,OFF,3mS);
+  LEVELS(rst_lvl,2mS); 
+  RELAY_OFF(IO_ALLPINS,ALL,2mS);
+}
+
+void RESET_SWD()
+{
+  int Data[37] = {0};
+  int result[5] = {0};
+  u32 IDCODE = 0;
+  SET_CAPTURE_MEM_MODE(SWDIO,PEL_K,ON,64K,1024,LOG_FAIL_ONLY,ON); 
+  JUDGE_PAT(Reset_SWD, __Reset_SWD); 
+  SOCKET_INC
+  {
+    for(int j = 0;j < 16;j++)
+    {
+      if(j<4) 
+        result[j] = 0;
+      Data[j]=0;
+    }
+    IDCODE = 0;
+
+    READ_CAPTURE_MEM_BLOCK(SOCKET,SWDIO,0,36,Data);
+    int index = 0; 
+    for(int i=0; i < 33; i++)
+    {       
+        if(i%8==0)
+        { 
+            index++; 
+        }            
+        result[index-1] += Data[i] << (i - (index*8 -8));          //Calc 4 byte data ,LSB->MSB          
+    } 
+    for(int i=3;i>=0;i--)
+    { 
+        IDCODE += result[i] << 8*i;
+    }
+   // SET_FAIL_BIN(HW_SWD_RESET_FAIL,SW_SWD_RESET_FAIL);
+    if(IDCODE != DP_IDCODE)
+    {
+      TDO_PRINTF("\nThe Parity is bit %d\n",result[4]);
+      TDO_PRINTF("The Capture IDCODE=0x%08X,Need DP_IDCODE=0x%08X\n",IDCODE,DP_IDCODE);
+      PLAN_RESULT_MS[SOCKET] = FAIL;
+      TDO_PRINTF("SWD_RESET_FAIL,Please Check it\n");
+    }
+
+  }
+  SET_CAPTURE_MEM_MODE(SWDIO,PEL_K,OFF,64K,1024,LOG_FAIL_ONLY,ON);
+  //POWER_OFF();
+}
+
+void swd_rate(TIME rate)
+{
+  //rate=1000nS;
+   RATEN(TS1,rate);  
+   MARKERN(TS1,SWDIO, rate*0.5, rate*0.6,-1 ,0nS ,-1 ,rate*0.5 ,-1 );
+   MARKERN(TS1,SWDCLK, rate*0.25 , rate*0.75,-1 ,0nS ,-1 ,rate*0.5 ,-1 );
+
+
+}
+
+u32 write_word(u8 Head_data,u32 reg_data)
+{
+  char temp_head[8],temp_data[33];
+  int Parity = 0;
+  if(!((Head_data >> 2) & 0x01))//judge isn`t write or read,bit2
+  {
+    for(int i=0;i<8;i++)
+    {     
+      if((Head_data >> i) & 0x01)
+      {
+        temp_head[i] = '1';
+      }
+      else
+      {
+        temp_head[i] = '0';          
+      }       
+    }
+    for(int i=0;i<32;i++)
+    {     
+      if((reg_data >> i) & 0x01)
+      {
+        temp_data[i] = '1';
+        Parity += 1;
+      }
+      else
+      {
+        temp_data[i] = '0';          
+      }        
+    }
+    if(Parity%2)
+    {
+      temp_data[32] = '1';
+      
+    }
+    else
+    {
+      temp_data[32] = '0';
+      
+    }
+    TDO_PRINTF("Parity bit=%c\n",temp_data[32]);  
+    SOCKET_INC(FRZ_ON)
+    {
+      for(int i=0;i<33;i++)
+      {
+        
+        WRITE_PAT_MEM(SOCKET,SWDIO,wstart_data+i,NORM_PAT,temp_data+i);
+        if(i<8)
+        {
+          WRITE_PAT_MEM(SOCKET,SWDIO,wstart_head+i,NORM_PAT,temp_head+i);
+        }
+      }
+    }
+    JUDGE_PAT(WIRTE_WORD,__WIRTE_WORD);
+    return 0;
+  }
+  else
+  {
+      //TDO_PRINTF("This is NO write command(0x%02X)\n",Head_data);
+      Compare_word(Head_data,reg_data);
+      return 0;
+  
+  }
+}
+
+void capture_word(u8 Head_data,u32* get_data)
+{
+  char temp_head[8];
+  int Data[37] = {0};
+  int result[DUT_COUNT][5] = {{0}};
+  //u32 Capture_data[DUT_COUNT] = {0};     //muiltsite need to modify
+  if(!((Head_data >> 2) & 0x01))//judge isn`t write or read,bit2
+     return ;
+  for(int i=0;i<8;i++)
+  {
+    temp_head[i]= ((Head_data>>i) & 0x01) ? '1':'0';
+  }
+  SOCKET_INC(FRZ_ON){
+    for(int i=0;i<8;i++){
+      WRITE_PAT_MEM(SOCKET,SWDIO,Capture_addr+i,NORM_PAT,temp_head+i);
+    }
+  }
+
+  SET_CAPTURE_MEM_MODE(SWDIO,PEL_K,ON,64K,1024,LOG_FAIL_ONLY,ON);
+
+  JUDGE_PAT(CAPTURE_WORD,__CAPTURE_WORD);
+  
+  SOCKET_INC
+  {  
+    for(int j = 0;j < 33;j++)
+    {
+      if(j<5) 
+        result[SOCKET][j] = 0;
+      Data[j]=0;
+    }
+    READ_CAPTURE_MEM_BLOCK(SOCKET,SWDIO,0,36,Data);
+    int index = 0; 
+    get_data[SOCKET] = 0;
+    for(int i=0; i < 33; i++)
+    {       
+        if(i%8==0)
+        { 
+            index++; 
+        }            
+        result[SOCKET][index-1] += Data[i] << (i - (index*8 -8));          //Calc 4 byte data ,LSB->MSB          
+    } 
+    for(int i=3;i>=0;i--)
+    {
+       get_data[SOCKET] += result[SOCKET][i] << 8*i;
+    }
+  } 
+  SET_CAPTURE_MEM_MODE(SWDIO,PEL_K,OFF,64K,1024,LOG_FAIL_ONLY,OFF);
+}
+
+
+void Compare_word(u8 Head_data,u32 reg_data)
+{
+  char temp_head[8],temp_data[33];
+  int Parity = 0;
+  if((Head_data >> 2) & 0x01)//judge isn`t write or read,bit2
+  {
+    for(int i=0;i<8;i++)
+    {     
+      if((Head_data >> i) & 0x01)
+      {
+        temp_head[i] = '1';
+      }
+      else
+      {
+        temp_head[i] = '0';          
+      }       
+    }
+    for(int i=0;i<32;i++)
+    {     
+      if((reg_data >> i) & 0x01)
+      {
+        temp_data[i] = 'H';
+        Parity += 1;
+      }
+      else
+      {
+        temp_data[i] = 'L';          
+      }        
+    }
+    if(Parity%2)
+    {
+      temp_data[32] = 'H';
+      
+    }
+    else
+    {
+      temp_data[32] = 'L';
+      
+    }
+    TDO_PRINTF("Parity bit=%c\n",temp_data[32]);  
+    SOCKET_INC(FRZ_ON)
+    {
+      for(int i=0;i<33;i++)
+      {
+        
+        WRITE_PAT_MEM(SOCKET,SWDIO,wread_data+i,NORM_PAT,temp_data+i);
+        if(i<8)
+        {
+          WRITE_PAT_MEM(SOCKET,SWDIO,wread_addr+i,NORM_PAT,temp_head+i);
+        }
+      }
+    }
+    JUDGE_PAT(READ_WORD,__READ_WORD);
+  }
+  else
+  {
+      TDO_PRINTF("This is NO Read command(0x%02X)\n",Head_data);     
+  }
+}
+
+void Judge_A_Or_D_Version(u32* data)
+{
+  POWER_ON(POWER_VOL);
+  LEVELS(UID_lvl, 3mS);
+  swd_rate(1000nS);
+  PIN_MODE(SWDIO, NRZ, EDGE, ENABLE, IO_NRZ, OFF);
+  PIN_MODE(SWDCLK,RZ, EDGE, ENABLE, IO_NRZ, OFF);
+  RELAY_OFF(SWD_PINS,ALL,1mS);
+  RELAY_ON(SWD_PINS,PDCL,2mS);
+  RESET_SWD();
+  write_word(0xB1,0x00000000);
+  write_word(0x87,0x00000000);
+  write_word(0xBD,0x03000040);      //maybe is 0x03000042
+  write_word(0xA3,0x80000042);
+  write_word(0x8B,0x40034030);      //write address 0x40034030
+  write_word(0xBB,0x00000082);      //to psw 0x82 write address 0x40034030
+  write_word(0x8B,0x4003401C);
+  write_word(0xBB,0x00002004);
+  write_word(0x8B,0x40038004);
+  write_word(0x9F,0x00000000);
+  capture_word(0x9F,data);          //A is 0x0020EA00, D is 0x0200EA00
+  POWER_OFF();
+  return ;
+}
